@@ -1,0 +1,4 @@
+# AccessControl IP/HOST
+order deny,allow
+deny from all
+allow from 150.93.0.0/16
