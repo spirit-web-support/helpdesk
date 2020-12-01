@@ -8,8 +8,8 @@
 }
 
 h1 {
-    font-family: Georgia,serif;
-    font-size: 2.2em;
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
 }
 
 h2,
@@ -17,51 +17,44 @@ h3,
 h4,
 h5,
 h6 {
-    margin-top: 1.2em;
-    margin-bottom: 0.2em;
-    font-family: Georgia,serif;
-    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 2rem;
 }
 
 h2 {
-    font-size: 1.6em;
+    font-size: 2.4rem;
+    border-bottom: 2px solid #e5e5e5;
+    padding: 0 0 0.5rem;
 }
 
 h3 {
-    font-size: 1.4em;
+    font-size: 2rem;
     font-weight: bold;
 }
 
 h4 {
-    font-size: 1.3em;
+    font-size: 1.8rem;
 }
 
 h5 {
-    font-size: 1em;
+    font-size: 1.6rem;
     font-weight: bold;
 }
 
 h6 {
-    font-size: 1em;
-    font-style: italic;
+    font-size: 1.6rem;
 }
 
 p {
     margin-top: 1em;
     margin-bottom: 1em;
-    line-height: 1.5em;
+    line-height: 1.5;
 }
 
 
 /* links */
-a:focus,
-a:active,
-a:hover {
-    outline: none;
-}
-
 a {
-    color: #2487D7;
+    color: #637f97;
 }
 
 a:link {
@@ -69,7 +62,7 @@ a:link {
 }
 
 a:visited {
-    color: #135995;
+    color: #637f97;
 }
 
 

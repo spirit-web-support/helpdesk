@@ -1,8 +1,8 @@
 <?php
-	echo '<form role="search" method="get" class="search-form" action="'.home_url( '/' ).'">',
+	echo '<form role="search" method="get" class="search-form" action="'.home_url( '/' ).'" autocomplete="off">',
 		 '<label>',
 
 		 '<input type="search" class="search-field" placeholder="'.__( 'Search', 'wikiwp' ).'" value="'.get_search_query().'" name="s" title="'.__( 'Search', 'wikiwp' ).'" />',
+		 '<input type="submit" class="search-submit" value="" />',
 		 '</label>',
-		 '<input type="submit" class="search-submit" value="'.__( 'Search', 'wikiwp' ).'" />',
 		 '</form>';
