@@ -503,57 +503,79 @@
                 </div>
             </div>
         </article>
+    <?php
+}
 
-        <?php
+// 2019/08/08 added  
+function disable_author_archive() {
+    if( $_GET['author'] || preg_match('#/author/.+#', $_SERVER['REQUEST_URI']) ){
+        wp_redirect( home_url('/404.php') );
+        exit;
     }
+    }
+    add_action('init', 'disable_author_archive');
 
-    // 2019/08/08 added  
-    function disable_author_archive() {
-        if( $_GET['author'] || preg_match('#/author/.+#', $_SERVER['REQUEST_URI']) ){
-          wp_redirect( home_url('/404.php') );
-          exit;
-        }
-      }
-      add_action('init', 'disable_author_archive');
+    function disable_users_query() {
+    if( preg_match('/wp\/v2\/users/i', $_SERVER['REQUEST_URI'])  || preg_match('/wp\/v2\/users/i', $_SERVER['QUERY_STRING']) ){
+        wp_redirect( home_url() );
+        exit;
+    }
+    }
+    add_action('init', 'disable_users_query');;
 
-      function disable_users_query() {
-        if( preg_match('/wp\/v2\/users/i', $_SERVER['REQUEST_URI'])  || preg_match('/wp\/v2\/users/i', $_SERVER['QUERY_STRING']) ){
-          wp_redirect( home_url() );
-          exit;
-        }
-      }
-      add_action('init', 'disable_users_query');;
+    
+    function disable_posts_query() {
+    if( preg_match('/wp\/v2\/posts/i', $_SERVER['REQUEST_URI'])  || preg_match('/wp\/v2\/posts/i', $_SERVER['QUERY_STRING']) ){
+        wp_redirect( home_url() );
+        exit;
+    }
+    }
+    add_action('init', 'disable_posts_query');;
 
-      
-      function disable_posts_query() {
-        if( preg_match('/wp\/v2\/posts/i', $_SERVER['REQUEST_URI'])  || preg_match('/wp\/v2\/posts/i', $_SERVER['QUERY_STRING']) ){
-          wp_redirect( home_url() );
-          exit;
-        }
-      }
-      add_action('init', 'disable_posts_query');;
+    function my_tiny_mce_before_init( $init_array ) {
+    $init_array['valid_elements']          = '*[*]';
+    $init_array['extended_valid_elements'] = '*[*]';
+    return $init_array;
+    }
+    add_filter( 'tiny_mce_before_init' , 'my_tiny_mce_before_init' );
 
-        function my_tiny_mce_before_init( $init_array ) {
-        $init_array['valid_elements']          = '*[*]';
-        $init_array['extended_valid_elements'] = '*[*]';
-        return $init_array;
-        }
-        add_filter( 'tiny_mce_before_init' , 'my_tiny_mce_before_init' );
+// オートフォーマット関連の無効化
+add_action('init', function() {
+remove_filter('the_title', 'wptexturize');
+remove_filter('the_content', 'wptexturize');
+remove_filter('the_excerpt', 'wptexturize');
+remove_filter('the_title', 'wpautop');
+remove_filter('the_content', 'wpautop');
+remove_filter('the_excerpt', 'wpautop');
+remove_filter('the_editor_content', 'wp_richedit_pre');
+});
 
-        // オートフォーマット関連の無効化
-        add_action('init', function() {
-        remove_filter('the_title', 'wptexturize');
-        remove_filter('the_content', 'wptexturize');
-        remove_filter('the_excerpt', 'wptexturize');
-        remove_filter('the_title', 'wpautop');
-        remove_filter('the_content', 'wpautop');
-        remove_filter('the_excerpt', 'wpautop');
-        remove_filter('the_editor_content', 'wp_richedit_pre');
-        });
+// オートフォーマット関連の無効化 TinyMCE
+add_filter('tiny_mce_before_init', function($init) {
+$init['wpautop'] = false;
+$init['apply_source_formatting'] = ture;
+return $init;
+});
 
-        // オートフォーマット関連の無効化 TinyMCE
-        add_filter('tiny_mce_before_init', function($init) {
-        $init['wpautop'] = false;
-        $init['apply_source_formatting'] = ture;
-        return $init;
-        });
+/* 
+
+// テーマカスタマイザー
+function my_theme_customize_register( $wp_customize ) {
+    $wp_customize->add_setting( 'bloginfo_sub', array(
+        'default'   => '',
+        'type'      => 'option',
+        'transport' => 'postMessage',
+    ));
+    $wp_customize->add_control( 'bloginfo_sub_origin_text', array(
+        'settings'  => 'bloginfo_sub', // settingのキー
+        'label'     => 'サブタイトル', // ラベル名
+        'section'   => 'title_tagline', // sectionを指定
+        'type'      => 'text', // フォームの種類を指定
+    ));
+
+}
+add_action( 'customize_register', 'my_theme_customize_register' );
+
+add_theme_support( 'title-tag' );
+
+*/
