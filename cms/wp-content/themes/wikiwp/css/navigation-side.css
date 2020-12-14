@@ -69,11 +69,10 @@
     position: absolute;
     width: 0.8rem;
     height: 0.8rem;
-    top: 50%;
+    top: 1.5rem;
     left: 1rem;
     border-bottom: solid 2px #4d4d4d;
     border-left: solid 2px #4d4d4d;
-    transform: translateY(-50%);
 }
 
 .primary-menu .nav-container .menu-item.menu-item-has-children.is-open a:not([href])::before,
@@ -85,19 +84,23 @@
     background-color:#4d4d4d;
     right: 1rem;
     top: 50%;
-    transform : translateY(-50%);
+    -webkit-transform : translateY(-50%);
+        -ms-transform : translateY(-50%);
+            transform : translateY(-50%);
     border: none;
 }
 
 .primary-menu .nav-container .menu-item.menu-item-has-children.is-open a:not([href])::after{
-    position: absolute;
+   position: absolute;
     content:"";
     width: 1.2rem;
     height: 2px;
     background-color:#4d4d4d;
     right: 1rem;
     top: 50%;
-    transform : translateY(-50%)rotate(90deg);
+    -webkit-transform : translateY(-50%)rotate(90deg);
+        -ms-transform : translateY(-50%)rotate(90deg);
+            transform : translateY(-50%)rotate(90deg);
 }
 
 .primary-menu .nav-container .main-menu .menu-item.menu-item-has-children:not(.is-open) > a:not([href]){
@@ -122,7 +125,7 @@
 }
 
 .primary-menu .nav-container .menu-item .sub-menu.active {
-    line-height: 1.6;
+    line-height: 1.75;
     opacity: 1;
     visibility: visible;
     height: 100%;
@@ -239,12 +242,17 @@
         transition: all 0.5s;
     }
 
+
     .navMenu label[for="checkMenuButton"] span::before {
-        transform: translateY(-250%);
+        -webkit-transform: translateY(-250%);
+            -ms-transform: translateY(-250%);
+                transform: translateY(-250%);
     }
 
     .navMenu label[for="checkMenuButton"] span::after {
-        transform: translateY(250%);
+        -webkit-transform: translateY(250%);
+            -ms-transform: translateY(250%);
+                transform: translateY(250%);
     }
 
     .navMenu #checkMenuButton:checked ~ label[for="checkMenuButton"] span{
@@ -252,11 +260,15 @@
     }
 
     .navMenu #checkMenuButton:checked ~ label[for="checkMenuButton"] span::before {
-        transform: translateY(0) rotate(45deg);
+        -webkit-transform: translateY(0) rotate(45deg);
+            -ms-transform: translateY(0) rotate(45deg);
+                transform: translateY(0) rotate(45deg);
     }
 
     .navMenu #checkMenuButton:checked ~ label[for="checkMenuButton"] span::after {
-        transform: translateY(0) rotate(-45deg);
+        -webkit-transform: translateY(0) rotate(-45deg);
+            -ms-transform: translateY(0) rotate(-45deg);
+                transform: translateY(0) rotate(-45deg);
     }
 }
 
@@ -275,7 +287,7 @@
     }
 
     .navMenu #checkMenuButton:checked ~ .primary-menu-side {
-        line-height: 1.6;
+        line-height: 1.75;
         opacity: 1;
         -webkit-transition: all .3s;
         -o-transition: all .3s;

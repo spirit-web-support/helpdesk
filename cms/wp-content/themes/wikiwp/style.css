@@ -856,7 +856,7 @@ aside {
 }
 
 .widget {
-    padding: 5px 0;
+    padding: 0.5rem 0;
 }
 
 .widget:first-child {
@@ -867,39 +867,6 @@ aside {
     border: none;
     padding-bottom: 0;
 }
-
-.widget ul,
-.widget ul li {
-    margin: 0;
-    padding-right: 0;
-    padding-left: 0;
-    list-style: none;
-}
-
-.widget input {
-    border-right: none;
-    background: white;
-}
-
-.widget img {
-    margin-top: 0;
-    margin-bottom: 0px;
-}
-
-.widget .search-form label {
-    width: 70%;
-}
-
-.widget .search-form input.search-field { width: 100%; }
-
-.widget .search-form .search-submit {
-    float: right;
-    margin-top: 0;
-    padding-right: 0;
-    padding-left: 0;
-    width: 30%;
-}
-
 
 /* IF ADMIN BAR IS SHOWN */
 .admin-bar aside {
@@ -1013,28 +980,11 @@ aside {
 /* sidebar content */
 .dynamic-sidebar-container { padding: 30px 0; }
 
-.primary-menu-side .widget,
-aside .widget {
-    color: #AAAAAA;
-}
-
-@media only screen and (max-width:767px) {
-    .primary-menu-side .widget,
-    aside .widget {
-        color: inherit;
-    }
-}
-
 @media only screen and (max-width:767px) {
     /* Sidebar */
     aside {
         color: #4D4D4D;
         background: transparent;
-    }
-
-    /* dynamic sidebar */
-    .widget {
-        color: #4D4D4D;
     }
 }
 
