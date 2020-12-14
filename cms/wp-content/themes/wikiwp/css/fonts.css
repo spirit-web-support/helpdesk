@@ -46,11 +46,9 @@ h6 {
 }
 
 p {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    line-height: 1.5;
+    margin: 0 0 2rem;
+    line-height: 1.75;
 }
-
 
 /* links */
 a {
@@ -67,15 +65,20 @@ a:visited {
 
 
 /* lists */
-ul, ol, dl {
-    padding-left: 15px;
+ul, ol{
+    padding-left: 1.5rem;
+}
+
+ul {
+    list-style-type:none;
 }
 
 ol {
-    display: table;
     margin: 0;
     padding: 0;
-    counter-reset: item
+    counter-reset: item;
+    list-style-type:none;
+    display: table;
 }
 
 ol > li {
@@ -83,39 +86,48 @@ ol > li {
     display: table-row;
 }
 
-ol li:before {
+ol > li::before {
     content: counters(item, '.') '.';
     counter-increment: item;
-    padding-right: 5px;
     display: table-cell;
-    text-align: right;
+    padding-right: 0.5rem;
+}
+
+ol.list-inline > li{
+    padding: 0;
+    margin: 0 2rem 0 0;
+}
+
+ol.list-inline > li::before {
+    display: inline-block;
+    padding-right: 0.5rem;
 }
 
 dt {
-    margin-top: 1em;
-    font-family: serif;
-    font-size: 1.1em;
     font-weight: bold;
 }
 
-li,
-dt,
-dd {
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
+dt, dd{
+    line-height: 1.75;
 }
 
 thead th {
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
 }
 
 th, td {
-    border: 1px solid #E5E5E5;
-    padding: 0.6em;
+    border: 1px solid #e5e5e5;
+    padding: 1rem;
+}
+
+@media screen and (max-width: 780px){
+    th, td {
+    padding: 0.5rem;
+    }
 }
 
 th {
-    background-color: #F9F9F9;
+    background-color: #f9f9f9;
 }
 
 blockquote {
@@ -124,17 +136,17 @@ blockquote {
     margin-left: 3.5em;
     font-family: serif;
     font-size: 1em;
-    color: #4D4D4D;
+    color: #4d4d4d;
 }
 
-blockquote:before {
+blockquote::before {
     position: absolute;
     top: -0.3em;
     left: -0.6em;
     content: '“';
     font-size: 2.5em;
     font-family: serif;
-    color: #AAAAAA;
+    color: #aaaaaa;
 }
 
 pre {
@@ -166,6 +178,6 @@ input {
 article.entry h2 {
     overflow: hidden;
     border-bottom: 2px solid #bbbbbb;
-    line-height: 1.4em;
-	margin-bottom: 12px;
+    line-height: 1.75;
+	margin-bottom: 2rem;
 }
