@@ -1,14 +1,5 @@
 @charset "UTF-8";
 
-@media screen and (max-width: 780px) {
-    .entryTitle {
-        font-size: 2rem;
-    }
-    .entry {
-        padding: 0 1rem;
-    }
-}
-
 /* リンク装飾 */
 .entryContent a.link {
     padding: 0 0.25rem;
@@ -49,39 +40,6 @@ pre {
     .no_print {
         display: none;
     }
-}
-
-/* 投稿用class設定 */
-.color1 {
-    color: #ff0000;
-}
-.color2 {
-    color: #3366ff;
-}
-.color3 {
-    color: #70ad47;
-}
-
-.indent1 {
-    margin-left: 20px;
-    text-indent: -1em;
-    padding-left: 24px;
-    height: 100%;
-}
-
-.indent2 {
-    margin-left: 20px;
-    padding-left: 9px;
-    height: 100%;
-}
-
-.indent3 {
-    text-indent: -1em;
-    padding-left: 1em;
-}
-
-.pb {
-    page-break-inside: avoid;
 }
 
 .entryContent .siteorigin-widget-tinymce {
@@ -188,13 +146,22 @@ img.img-border {
 }
 
 /* 見出し */
+.entryContent .heading-02 h2,
+.entryContent h2.heading-02 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin: 0 0 2rem 0;
+    padding: 1rem;
+    background-color: #65ad8f;
+}
+
 .entryContent .heading-03 h3,
 .entryContent h3.heading-03 {
     font-size: 1.8rem;
     color: #666666;
     position: relative;
     margin: 0 0 2rem 0;
-    padding: 0.8rem;
+    padding: 1rem;
     border-bottom: 3px solid #65ad8f;
     background-color: #f5f5f5;
 }
@@ -682,12 +649,12 @@ img.img-border {
 }
 .entryContent ul.list-news > li .tag-student {
     background-color: #7762a0;
-    color: #fff;
+    color: #ffffff;
 }
 
 .entryContent ul.list-news > li .tag-teacher {
     background-color: #65ad8f;
-    color: #fff;
+    color: #ffffff;
 }
 .entryContent ul.list-news > li > p.text {
     width: calc(100% - 22rem);
@@ -839,7 +806,7 @@ img.img-border {
 
 .entryContent .box-pickup::before {
     content: "";
-    background-color: #fff;
+    background-color: #ffffff;
     width: 3rem;
     height: 3rem;
     position: absolute;
@@ -880,11 +847,11 @@ img.img-border {
 }
 .entryContent .box-pickup.teacher .heading-box-pickup {
     background-color: #65ad8f;
-    color: #fff;
+    color: #ffffff;
 }
 .entryContent .box-pickup.student .heading-box-pickup {
     background-color: #7762a0;
-    color: #fff;
+    color: #ffffff;
 }
 
 .entryContent .box-pickup .body-box-pickup {
@@ -903,7 +870,7 @@ img.img-border {
 
 .entryContent .heading-num::before {
     content: "";
-    background-color: #fff;
+    background-color: #ffffff;
     width: 5rem;
     height: 5rem;
     position: absolute;
@@ -936,19 +903,18 @@ img.img-border {
 .entryContent .heading-num h2 {
     border: none;
     font-size: 2rem;
-    padding: 0.8rem 1rem 0.8rem 3rem;
+    padding: 0.8rem 1rem 0.8rem 5rem;
     background-color: #65ad8f;
     color: #fff;
-    margin: 0 0 2rem 2rem;
-    width: calc(100% - 2rem);
+    margin: 0 0 2rem 0;
 }
 
 .entryContent .heading-num-02 h3 {
     font-size: 1.8rem;
-    color: #666;
+    color: #666666;
     position: relative;
     margin: 0 0 2rem 0;
-    padding: 0.8rem 0.8rem 0.8rem 4rem;
+    padding: 1rem 1rem 1rem 4rem;
     border-bottom: 3px solid #65ad8f;
     background-color: #f5f5f5;
 }
@@ -982,7 +948,6 @@ img.img-border {
     color: #65ad8f;
     font-weight: bold;
     float: left;
-    line-height: 1.75;
 }
 .entryContent .text-num-02 {
     counter-increment: number-text;
@@ -1011,6 +976,10 @@ img.img-border {
 }
 
 /* テーブル */
+.entryContent table{
+    margin-bottom: 2rem;
+}
+
 .entryContent table tbody tr td > :last-child,
 .entryContent table tbody tr td > :last-child > :last-child {
     margin-bottom: 0;
@@ -1020,10 +989,12 @@ img.img-border {
 .entryContent table.table-100 {
     width: 100%;
 }
+
 .entryContent table.table-2col {
     border-bottom: 1px solid #e5e5e5;
     margin-bottom: 2rem;
 }
+
 .entryContent table.table-2col tr td,
 .entryContent table.table-2col tr th {
     border: 1px solid #e5e5e5;
@@ -1133,6 +1104,230 @@ img.img-border {
     padding-bottom: 0;
 }
 
+/* 静的アコーディオン */
+.entryContent .acd-01 {
+    margin-bottom: 2rem;
+}
+
+.entryContent .acd-01 .acd-panel > .panel-grid-cell > .so-panel{
+    padding: 0;
+}
+.entryContent .acd-01 > .panel-layout > .panel-grid:not(:last-child){
+    margin-bottom: 1rem!important;
+}
+
+.entryContent .acd-01 .acd-panel .acd-panel-heading{
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    display: block;
+    z-index: 3;
+    width: 100%;
+    position: relative;
+    border: 1px solid #c6c6c6;
+    background-color: #637f97;
+}
+
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading{
+    background-color: #ffffff;
+}
+
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading:focus,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading:hover,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading:active{
+    background-color: #f9f9f9;
+    outline-offset: 1px;
+}
+
+.entryContent .acd-01 .acd-panel .acd-panel-heading h2,
+.entryContent .acd-01 .acd-panel .acd-panel-heading h3,
+.entryContent .acd-01 .acd-panel .acd-panel-heading h4,
+.entryContent .acd-01 .acd-panel .acd-panel-heading h5,
+.entryContent .acd-01 .acd-panel .acd-panel-heading h6{
+    padding: 0.5rem 3rem 0.5rem 1rem;
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.75;
+    color: #ffffff;
+    position: relative;
+    font-weight: normal;
+    border: none;
+}
+
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h2,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h3,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h4,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h5,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h6{
+    color: #666666;
+}
+
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h2::before,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h3::before,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h4::before,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h5::before,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h6::before{
+    position: absolute;
+    content: "";
+    width: 1.2rem;
+    height: 2px;
+    background-color: #4d4d4d;
+    right: 1rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h2::after,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h3::after,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h4::after,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h5::after,
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h6::after{
+    position: absolute;
+    content: "";
+    width: 1.2rem;
+    height: 2px;
+    background-color: #4d4d4d;
+    right: 1rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%)rotate(90deg);
+        -ms-transform: translateY(-50%)rotate(90deg);
+            transform: translateY(-50%)rotate(90deg);
+}
+
+.entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h2::before,
+.entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h3::before,
+.entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h4::before,
+.entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h5::before,
+.entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h6::before{
+    position: absolute;
+    content: "";
+    width: 1.2rem;
+    height: 2px;
+    background-color: #ffffff;
+    right: 1rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+.entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h2::after,
+.entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h3::after,
+.entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h4::after,
+.entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h5::after,
+.entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h6::after{
+    content: none;
+}
+
+.entryContent .acd-01 .acd-panel{
+    display: block;
+    position: relative;
+    counter-reset : acd-number-text;
+}
+
+.entryContent .acd-01 .acd-panel .acd-panel-content{
+    padding: 2rem 1rem;
+    background-color: #f9f9f9;
+    border:1px solid #c6c6c6;
+    border-top: none;
+    width: 100%;
+}
+
+.entryContent .acd-01 .acd-panel.is-open .acd-panel-content{
+    padding: 2rem 1rem;
+    line-height: 1.75;
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition-duration: .3s;
+         -o-transition-duration: .3s;
+            transition-duration: .3s;
+}
+
+.entryContent .acd-01 .acd-panel.is-close .acd-panel-content{
+    padding: 0 1rem;
+    line-height: 0;
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition-duration: .3s;
+         -o-transition-duration: .3s;
+            transition-duration: .3s;
+}
+
+.entryContent .acd-01 .text-num{
+    counter-increment: acd-number-text;
+}
+
+.entryContent .acd-01 .text-num::before {
+    content: counter(acd-number-text) ".";
+}
+
+
+/* 静的アコーディオン ナンバリング*/
+.entryContent .acd-01.acd-num {
+    counter-reset: number-text;
+}
+
+.entryContent .acd-01.acd-num .acd-panel .acd-panel-heading{
+    counter-increment: number-text;
+    padding: 0 0 0 5rem;
+}
+
+.entryContent .acd-01.acd-num .acd-panel .acd-panel-heading::before{
+    content: "";
+    width: 5rem;
+    height: 100%;
+    position: absolute;
+    background-color: #637f97;
+    left: 0;
+    top: 0;
+    border-right: 1px solid #ffffff;
+}
+
+.entryContent .acd-01.acd-num .acd-panel.is-close .acd-panel-heading::before {
+    border-right: none;
+}
+
+.entryContent .acd-01.acd-num .acd-panel .acd-panel-heading::after{
+    content: counter(number-heading) "-" counter(number-text);
+    position: absolute;
+    font-weight: bold;
+    left: 0;
+    width: 5rem;
+    text-align: center;
+    color: #ffffff;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+}
+
+/* アコーディオン 調整*/
+.entryContent .acd-01 .acd-panel .acd-panel-content > :not(.box-02):last-child{
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.entryContent .acd-01 .acd-panel .acd-panel-content .box-01, 
+.entryContent .acd-01 .acd-panel .acd-panel-content .box-02.primary,
+.entryContent .acd-01 .acd-panel .acd-panel-content h3.heading-03, 
+.entryContent .acd-01 .acd-panel .acd-panel-content table td {
+    background-color: #ffffff;
+}
+
+.entryContent .acd-01 .acd-panel table th{
+    background-color: #637f97;
+    color: #ffffff;
+}
+
+.entryContent .acd-01 .acd-panel hr {
+    border-color: #c6c6c6;
+}
+
 /* ボタン */
 
 .entryContent .btn-external a {
@@ -1186,7 +1381,7 @@ img.img-border {
 .entryContent .btn-external a .fa.fa-external-link::before {
     content: "\f57e";
     left: 0;
-    color: #fff;
+    color: #ffffff;
     font-size: 2.4rem;
 }
 

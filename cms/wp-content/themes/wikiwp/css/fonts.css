@@ -1,17 +1,6 @@
 @charset "UTF-8";
 
-
-.cat-title,
-.page-title,
-.entryTitle {
-    margin-top: 0;
-}
-
-h1 {
-    font-size: 2.8rem;
-    margin-bottom: 3rem;
-}
-
+h1,
 h2,
 h3,
 h4,
@@ -19,6 +8,11 @@ h5,
 h6 {
     margin-top: 0;
     margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
 }
 
 h2 {
@@ -44,6 +38,23 @@ h5 {
 h6 {
     font-size: 1.6rem;
 }
+@media screen and (max-width: 780px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.8rem;
+    }
+
+    h4,h5,h6 {
+        font-size: 1.6rem;
+    }
+}
 
 p {
     margin: 0 0 2rem;
@@ -63,6 +74,10 @@ a:visited {
     color: #637f97;
 }
 
+a:focus,
+a:active{
+    outline-offset: 1px;
+}
 
 /* lists */
 ul, ol{
