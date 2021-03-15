@@ -2,9 +2,14 @@
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
-RewriteRule ^archives/3584$ /online/zoom/account [R=301,L]
-RewriteRule ^archives/3935$ /online/zoom/account [R=301,L]
-RewriteRule ^archives/3997$ /online/zoom/account [R=301,L]
+RewriteRule ^archives/3584$ /zoom/account [R=301,L]
+RewriteRule ^archives/3935$ /zoom/account [R=301,L]
+RewriteRule ^archives/3997$ /zoom/account [R=301,L]
+RewriteRule ^online/zoom$ /zoom [R=301,L]
+RewriteRule ^online/zoom/manual$ /zoom/zoom_tea [R=301,L]
+RewriteRule ^archives/3461$ /zoom/zoom_stu [R=301,L]
+RewriteRule ^online/zoom/secure$ /zoom/secure [R=301,L]
+RewriteRule ^online/zoom/faq$ /zoom/faq [R=301,L]
 # RewriteRule ^元ページ$ リダイレクト先 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
