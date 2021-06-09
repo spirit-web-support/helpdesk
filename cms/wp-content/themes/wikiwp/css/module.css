@@ -1495,3 +1495,40 @@ img.img-border {
         height: 80%;
     }
 }
+
+/* タブパネル */
+
+.entryContent .tab-content .tab-menu .btn-tab a{
+    background:#F9F9F9;
+    color: #333333!important;
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    width: 100%;
+    text-align: center;
+    display: block;
+    border-color:#333333;
+}
+
+.entryContent .tab-content .tab-menu .btn-tab a.active,
+.entryContent .tab-content .tab-menu .btn-tab a.active:hover,
+.entryContent .tab-content .tab-menu .btn-tab a.active:active,
+.entryContent .tab-content .tab-menu .btn-tab a.active:focus{
+    background:#637f97!important;
+    color: #ffffff!important;
+}
+
+.entryContent .tab-content .tab-menu .btn-tab a:hover,
+.entryContent .tab-content .tab-menu .btn-tab a:active,
+.entryContent .tab-content .tab-menu .btn-tab a:focus{
+    background:#E8E8E8!important;
+    color: #333333!important;
+    border-color:#333333;
+}
+
+.entryContent .tab-content .tab-panel.inactive{
+    display:none;
+}
+
+.entryContent .tab-content .tab-panel.active{
+    display:block;
+}

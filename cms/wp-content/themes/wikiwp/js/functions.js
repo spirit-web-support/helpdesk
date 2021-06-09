@@ -128,4 +128,24 @@ jQuery(document).ready(function ($) {
         $('body,html').stop().animate({scrollTop:position}, 500);   
         return false;
     });
+
+    //タブモジュール
+    if ($(".entryContent .tab-content").length) {
+        $(".tab-content .tab-menu .btn-tab.default a").addClass("active");
+        $(".tab-content .tab-panel:not(.default)").addClass("inactive");
+
+        $(".tab-content .tab-menu .btn-tab a").on("click", function () {
+                $(".tab-content .tab-menu .btn-tab a").removeClass("active");
+                $(this).addClass("active");
+            return false;
+        });
+
+        $(".tab-content .tab-menu .btn-tab a").on('keydown', function(event){
+            if (event.key === "Enter"){
+                $(".tab-content .tab-menu .btn-tab a").removeClass("active");
+                $(this).addClass("active");
+                return false;
+            }
+        });
+    }
 });
