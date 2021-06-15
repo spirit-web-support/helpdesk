@@ -656,8 +656,22 @@ img.img-border {
     background-color: #65ad8f;
     color: #ffffff;
 }
-.entryContent ul.list-news > li > p.text {
+
+.entryContent ul.list-news > li > p.text,
+.entryContent ul.list-news > li > div.text {
     width: calc(100% - 22rem);
+    margin-bottom: 0;
+}
+
+.entryContent ul.list-news > li > div.text > *{
+    margin-bottom: 0.5rem;
+}
+
+.entryContent ul.list-news > li > div.text > :first-child{
+    margin-top: 0;
+}
+
+.entryContent ul.list-news > li > div.text > :last-child{
     margin-bottom: 0;
 }
 .entryContent ul.list-news > li > p.text a{
@@ -669,7 +683,8 @@ img.img-border {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     }
-    .entryContent ul.list-news > li > p.text {
+    .entryContent ul.list-news > li > p.text,
+    .entryContent ul.list-news > li > div.text {
         width: 100%;
         margin-top: 1rem;
     }
