@@ -893,7 +893,7 @@ img.img-border {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    left: -1rem;
+    left: -0.5rem;
     border-radius: 30px;
     border: 3px solid #65ad8f;
 }
@@ -908,7 +908,7 @@ img.img-border {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    left: 0;
+    left: 0.5rem;
     right: 0;
     font-size: 2.6rem;
     font-weight: bold;
@@ -921,7 +921,8 @@ img.img-border {
     padding: 0.8rem 1rem 0.8rem 5rem;
     background-color: #65ad8f;
     color: #fff;
-    margin: 0 0 2rem 0;
+    width: calc(100% - 0.5rem);
+    margin: 0 0 2rem 0.5rem;
 }
 
 .entryContent .heading-num-02 h3 {
