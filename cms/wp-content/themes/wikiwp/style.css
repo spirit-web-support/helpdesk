@@ -1031,7 +1031,15 @@ aside {
 .entryTypePostExcerpt .entryContent p:last-child {
     margin-bottom: 0;
 }
-
+@media only screen and (max-width:767px) {
+    .entryTypePostExcerptHeader,
+    .entryTypePostExcerptMeta,
+    .entry,
+    .comments,
+    .last-posts-list {
+        padding: 0 10px;
+    }
+}
 
 /*
  * sticky post on excerpt
