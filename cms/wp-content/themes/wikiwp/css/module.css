@@ -206,7 +206,7 @@ img.img-border {
     color: #666666;
     font-weight: bold;
     margin: 0 0 2rem;
-    border-bottom: 2px solid #e5e5e5;
+    border-bottom: 3px solid #e5e5e5;
 }
 
 .entryContent .heading-05 h5,
@@ -215,7 +215,8 @@ img.img-border {
     font-weight: bold;
     margin: 0 0 2rem;
     padding: 1rem 0.5rem;
-    border-bottom: 1px dotted #666666;
+    border-bottom: 1px solid #e5e5e5;
+    color: #666666;
 }
 
 .entryContent .heading-06 h6,
@@ -1018,7 +1019,7 @@ img.img-border {
 }
 
 .entryContent .text-num-02::before {
-    content: counter(number-heading) "-" counter(number-heading-02, upper-alpha) "-" counter(number-text) ".";
+    content: counter(number-text) ".";
     padding-right: 0.5rem;
     color: #71b799;
     font-weight: bold;
