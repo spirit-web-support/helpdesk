@@ -73,9 +73,11 @@ jQuery(document).ready(function ($) {
                 tgl.removeClass("is-close");
                 tgl.addClass("is-open").attr({"aria-expanded": "true","aria-hidden": "false"});
                 $(".acd-01 .acd-panel").not(tgl).addClass("is-close").removeClass("is-open").attr({"aria-expanded": "false","aria-hidden": "true"});
+            }
+            setTimeout(function(){
                 var pos = Math.floor(tgl.offset().top) - 100;
                 $("html, body").animate({scrollTop:pos}, 600);
-            }
+            },300);
             return false;
         });
 
@@ -94,6 +96,10 @@ jQuery(document).ready(function ($) {
                 var pos = Math.floor(tgl.offset().top) - 100;
                 $("html, body").animate({scrollTop:pos}, 600);                
             }
+            setTimeout(function(){
+                var pos = Math.floor(tgl.offset().top) - 100;
+                $("html, body").animate({scrollTop:pos}, 600);
+            },300);
             return false;
             }
         });
