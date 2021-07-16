@@ -68,12 +68,16 @@ jQuery(document).ready(function ($) {
             var tgl = $(this).parents(".acd-panel");
             if (tgl.hasClass("is-open")) {
                 tgl.removeClass("is-open");
-                tgl.addClass("is-close").attr({"aria-expanded": "false","aria-hidden": "true"});;
+                tgl.addClass("is-close").attr({"aria-expanded": "false","aria-hidden": "true"});
             } else {
                 tgl.removeClass("is-close");
                 tgl.addClass("is-open").attr({"aria-expanded": "true","aria-hidden": "false"});
                 $(".acd-01 .acd-panel").not(tgl).addClass("is-close").removeClass("is-open").attr({"aria-expanded": "false","aria-hidden": "true"});
             }
+            setTimeout(function(){
+                var pos = Math.floor(tgl.offset().top) - 100;
+                $("html, body").animate({scrollTop:pos}, 600);
+            },300);
             return false;
         });
 
@@ -88,7 +92,14 @@ jQuery(document).ready(function ($) {
             } else {
                 tgl.removeClass("is-close");
                 tgl.addClass("is-open").attr({"aria-expanded": "true","aria-hidden": "false"});
+                $(".acd-01 .acd-panel").not(tgl).addClass("is-close").removeClass("is-open").attr({"aria-expanded": "false","aria-hidden": "true"});
+                var pos = Math.floor(tgl.offset().top) - 100;
+                $("html, body").animate({scrollTop:pos}, 600);                
             }
+            setTimeout(function(){
+                var pos = Math.floor(tgl.offset().top) - 100;
+                $("html, body").animate({scrollTop:pos}, 600);
+            },300);
             return false;
             }
         });

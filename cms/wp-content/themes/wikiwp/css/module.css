@@ -193,7 +193,7 @@ img.img-border {
     color: #666666;
     margin: 0 0 2rem 0;
     padding: 1rem 1rem 1rem 1.5rem;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #c6c6c6;
     border-left: 5px solid #71b799;
     background-color: #f9f9f9;
 }
@@ -1197,13 +1197,13 @@ img.img-border {
 }
 
 .entryContent .acd-01 .acd-panel.is-close .acd-panel-heading{
-    background-color: #ffffff;
+    background-color: #f9f9f9;
 }
 
 .entryContent .acd-01 .acd-panel.is-close .acd-panel-heading:focus,
 .entryContent .acd-01 .acd-panel.is-close .acd-panel-heading:hover,
 .entryContent .acd-01 .acd-panel.is-close .acd-panel-heading:active{
-    background-color: #f9f9f9;
+    background-color: #e6eff5;
     outline-offset: 1px;
 }
 
@@ -1218,8 +1218,8 @@ img.img-border {
     line-height: 1.75;
     color: #ffffff;
     position: relative;
-    font-weight: normal;
     border: none;
+    font-weight: bold;
 }
 
 .entryContent .acd-01 .acd-panel.is-close .acd-panel-heading h2,
