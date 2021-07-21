@@ -1089,3 +1089,8 @@ aside {
 .pis-thumbnail {
     margin: 0;
 }
+
+/* ブラウザ調整 */
+.entryContent .panel-grid-cell {
+    min-height: 0;
+}
