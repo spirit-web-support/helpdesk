@@ -1578,24 +1578,37 @@ img.img-border {
     width: 100%;
 }
 .entryContent .tab-content .tab-menu > li > .btn-tab-outer{
-    display:table;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    -webkit-justify-content: center; 
     height: 100%;
     width: 100%;
+    padding: 0;
+    border: none;
 }
 .entryContent .tab-content .tab-menu > li > .btn-tab-outer .btn-tab{
     color: #666666;
-    background: #F9F9F9;
+    background-color: #ffffff;
     border: 1px solid #637f97;
-    border-bottom: 2px solid #637f97;
+    border-bottom: 3px solid #637f97;
     border-right: none;
     font-size: 1.6rem;
     width: 100%;
     height: 100%;
-    padding: 1.2rem 2rem;
+    padding: 1.5rem 2rem;
     text-align: center;
     vertical-align: middle;
-    display: table-cell;
     line-height: 1.4;
+      display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .entryContent .tab-content .tab-menu > li:last-child > .btn-tab-outer .btn-tab{
@@ -1620,9 +1633,7 @@ img.img-border {
 .entryContent .tab-content .tab-menu > li > .btn-tab-outer .btn-tab:hover,
 .entryContent .tab-content .tab-menu > li > .btn-tab-outer .btn-tab:active,
 .entryContent .tab-content .tab-menu > li > .btn-tab-outer .btn-tab:focus{
-    background:#E8E8E8;
     color: #666666;
-    opacity: 1;
 }
 
 .entryContent .tab-content .tab-panel.inactive{
@@ -1635,8 +1646,7 @@ img.img-border {
 
 .entryContent .tab-content .tab-panel{
     color: #666666;
-    padding: 2rem 1rem;
-    border: 1px solid #637f97;
+    padding: 3rem 0;
     margin: 0 0 1rem;
 }
 
@@ -1644,7 +1654,8 @@ img.img-border {
     .entryContent .tab-content .tab-menu{
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
-        margin: -0.5rem;
+        flex-wrap: wrap;
+        margin: 0 -0.5rem;
     }
     .entryContent .tab-content .tab-menu > li {
         -webkit-box-flex: 1;
@@ -1658,10 +1669,12 @@ img.img-border {
         display: block;
         border-right: 1px solid #637f97;
         border-bottom: 1px solid #637f97;
-        padding: 0.5rem 1rem;
+        padding: 0.8rem 1rem;
     }
     .entryContent .tab-content .tab-panel{
         border: none;
+        margin: 0 -10px;
+        padding: 3rem 1rem;
     }
 }
 

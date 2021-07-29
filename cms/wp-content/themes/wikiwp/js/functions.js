@@ -143,31 +143,82 @@ jQuery(document).ready(function ($) {
     });
 
     //タブモジュール
+
     if ($(".entryContent .tab-content").length) {
-        $(".tab-content .tab-menu li .btn-tab.default").addClass("active");
-        $(".tab-content .tab-panel:not(.default)").addClass("inactive");
+        $(".tab-content .tab-menu li .btn-tab.default").addClass("active").attr({"role": "tab","aria-expanded": "true","aria-selected": "true","tabindex": 0});
+        $(".tab-content .tab-menu li .btn-tab:not(.default)").addClass("inactive").attr({"role": "tab","aria-expanded": "false","aria-selected": "false","tabindex": -1})
+        
+        $(".tab-content .tab-panel.default").addClass("active").attr({"role": "tabpanel","aria-hidden": "false"})
+        $(".tab-content .tab-panel:not(.default)").addClass("inactive").attr({"role": "tabpanel","aria-hidden": "true"});
+
+        var tabPanelAll = $(".tab-content .tab-panel");
+        var max = tabPanelAll.length;
+        var i = 0;
+        for(i;i < max;i++){
+            var panelId = tabPanelAll[i].getAttribute('id');
+            var tabId = panelId.replace( "panel", "tab" );
+            tabPanelAll[i].setAttribute("aria-labelledby",tabId);
+        };
 
         $(".tab-content .tab-menu li .btn-tab[href^='#']").on("click", function () {
                 var tabContent = $(this).parents(".tab-content");
-                tabContent.find('.btn-tab').removeClass("active");
-                $(this).addClass("active");
+                tabContent.find('.btn-tab').removeClass("active").addClass("inactive").attr({"aria-expanded": "false","aria-selected": "false","tabindex": -1});
+                $(this).addClass("active").attr({"aria-expanded": "true","aria-selected": "true","tabindex": 0});
                 tabContent.find('.tab-panel').removeClass("active").addClass("inactive");
+                tabContent.find('.tab-panel').attr({"aria-hidden": "true"});
                 val = $(this).attr("href");
                 var target = $(val == "#" || val == "" ? 'html' : val);
                 target.removeClass("inactive").addClass("active");
+                target.attr({"aria-hidden": "false"});
             return false;
         });
 
-        $(".tab-content .tab-menu li .btn-tab[href^='#']").on('keydown', function(event){
+        $(".tab-content .tab-menu li .btn-tab").on('keydown', function(event){
             if (event.key === "Enter"){
-                var tabContent = $(this).parents(".tab-content");
-                tabContent.find('.btn-tab').removeClass("active");
-                $(this).addClass("active");
-                tabContent.find('.tab-panel').removeClass("active").addClass("inactive");
-                val = $(this).attr("href");
-                var target = $(val == "#" || val == "" ? 'html' : val);
-                target.removeClass("inactive").addClass("active");
+                var href = $(this).attr("href");
+
+                if(href.startsWith('#')){
+                    var tabContent = $(this).parents(".tab-content");
+                    tabContent.find('.btn-tab').removeClass("active").addClass("inactive").attr({"aria-expanded": "false","aria-selected": "false","tabindex": -1});
+                    $(this).addClass("active").attr({"aria-expanded": "true","aria-selected": "true","tabindex": 0});
+                    
+                    tabContent.find('.tab-panel').removeClass("active").addClass("inactive");
+                    tabContent.find('.tab-panel').attr({"aria-hidden": "true"});
+                    val = $(this).attr("href");
+                    var target = $(val == "#" || val == "" ? 'html' : val);
+                    target.removeClass("inactive").addClass("active");
+                    target.attr({"aria-hidden": "false"});
+                }else{
+                    var target = $(this).attr("target");
+                    if(target == "_blank"){
+                        window.open(href);
+                    }else{
+                        location.href = href;
+                    }
+                }
             return false;
+            } else if(event.keyCode === 39) { 
+                var tabContent = $(this).parents(".tab-content");
+                var All = tabContent.find('.btn-tab');
+                var index = All.index(this);
+                var nextTab = All[index + 1];
+
+                if(index == All.length - 1){
+                }else{
+                    nextTab.focus();
+                }
+                return false;
+            } else if(event.keyCode === 37) { 
+                var tabContent = $(this).parents(".tab-content");
+                var All = tabContent.find('.btn-tab');
+                var index = All.index(this);
+                var prevTab = All[index - 1];
+
+                if(index == 0){
+                }else{
+                    prevTab.focus();
+                }
+                return false;
             }
         });
 
@@ -180,20 +231,83 @@ jQuery(document).ready(function ($) {
                 if(titleHash){
                     var menu = $(titleHash).parents(".tab-menu");
                     var menuList = menu.children("li");
-                    menuList.find('.btn-tab').removeClass("active").addClass("inactive");
-                    $(titleHash).removeClass("inactive").addClass("active");
+                    menuList.find('.btn-tab').removeClass("active").addClass("inactive").attr({"aria-expanded": "false","aria-selected": "false","tabindex": -1});
+                    $(titleHash).removeClass("inactive").addClass("active").attr({"aria-expanded": "true","aria-selected": "true","tabindex": 0});
+
                     var tabContent = $(titleHash).parents(".tab-content");
                     tabContent.find('.tab-panel').removeClass("active").addClass("inactive");
-                    val = $(titleHash).attr("href");
+                    tabContent.find('.tab-panel').attr({"aria-hidden": "true"});
+                    val = $(this).attr("href");
                     var target = $(val == "#" || val == "" ? 'html' : val);
                     target.removeClass("inactive").addClass("active");
+                    target.attr({"aria-hidden": "false"});
                 }
 
                 if(contentHash){
                     var tabContent = $(contentHash).parents(".tab-content");
-                    tabContent.find('.btn-tab').removeClass("active").addClass("inactive");
+                    tabContent.find('.btn-tab').removeClass("active").addClass("inactive").attr({"aria-expanded": "false","aria-selected": "false","tabindex": -1});
+
                     tabContent.find('.tab-panel').removeClass("active").addClass("inactive");
+                    tabContent.find('.tab-panel').attr({"aria-hidden": "true"});
                     $(contentHash).parents(".tab-panel").removeClass("inactive").addClass("active");
+                    $(contentHash).parents(".tab-panel").attr({"aria-hidden": "false"});
+
+                    var all = tabContent.find('.btn-tab');
+                    var max = all.length;
+                    var i = 0;
+                    for(i;i < max;i++){
+                        var target = all[i].getAttribute('href');
+                        var hrefId = $(contentHash).parents(".tab-panel").attr('id');
+                        var href = "#" + hrefId;
+                        if(target === href){
+                            all[i].classList.add("active");
+                            all[i].setAttribute("aria-expanded","false");
+                            all[i].setAttribute("aria-selected", "false");
+                            all[i].setAttribute("tabindex", -1);
+                        }else{
+                            all[i].classList.remove("active");
+                            all[i].classList.add("inactive");
+                            all[i].setAttribute("aria-expanded","true");
+                            all[i].setAttribute("aria-selected", "true");
+                            all[i].setAttribute("tabindex", 0);
+                        }
+                    };
+
+                }
+            }
+        });
+
+        $('a[href^="#"]:not(.btn-tab)').on("click", function () {
+            var hrefHash = $(this).attr("href");
+
+            if(hrefHash){
+                var titleHash = $(".tab-menu").find(hrefHash);
+                var contentHash = $(".tab-panel").find(hrefHash);
+
+                if(titleHash){
+                    var menu = $(titleHash).parents(".tab-menu");
+                    var menuList = menu.children("li");
+                    menuList.find('.btn-tab').removeClass("active").addClass("inactive").attr({"aria-expanded": "false","aria-selected": "false","tabindex": -1});
+                    $(titleHash).removeClass("inactive").addClass("active").attr({"aria-expanded": "true","aria-selected": "true","tabindex": 0});
+
+                    var tabContent = $(titleHash).parents(".tab-content");
+                    tabContent.find('.tab-panel').removeClass("active").addClass("inactive");
+                    tabContent.find('.tab-panel').attr({"aria-hidden": "true"});
+
+                    val = $(titleHash).attr("href");
+                    var target = $(val == "#" || val == "" ? 'html' : val);
+                    target.removeClass("inactive").addClass("active");
+                    target.attr({"aria-hidden": "false"});
+                }
+
+                if(contentHash){
+                    var tabContent = $(contentHash).parents(".tab-content");
+                    tabContent.find('.btn-tab').removeClass("active").addClass("inactive").attr({"aria-expanded": "false","aria-selected": "false","tabindex": -1});
+
+                    tabContent.find('.tab-panel').removeClass("active").addClass("inactive");
+                    tabContent.find('.tab-panel').attr({"aria-hidden": "true"});
+                    $(contentHash).parents(".tab-panel").removeClass("inactive").addClass("active");
+                    $(contentHash).parents(".tab-panel").attr({"aria-hidden": "false"});
 
                     var all = tabContent.find('.btn-tab');
                     var max =all.length;
@@ -204,13 +318,23 @@ jQuery(document).ready(function ($) {
                         var href = "#" + hrefId;
                         if(target === href){
                             all[i].classList.add("active");
+                            all[i].setAttribute("aria-expanded","false");
+                            all[i].setAttribute("aria-selected", "false");
+                            all[i].setAttribute("tabindex", -1);
                         }else{
                             all[i].classList.remove("active");
+                            all[i].classList.add("inactive");
+                            all[i].setAttribute("aria-expanded","true");
+                            all[i].setAttribute("aria-selected", "true");
+                            all[i].setAttribute("tabindex", 0);
                         }
                     };
-
                 }
             }
+            var target = $(hrefHash);
+            var position = target.offset().top - 60;
+            $('body,html').stop().animate({scrollTop:position}, 500);   
+            return false;
         });
     }
 });

@@ -268,5 +268,6 @@ body > .container-fluid > .meta.clearfix{
     .pageContainer,
     .postContainer{
         width: 100%;
+        border :none;
     }
 }
