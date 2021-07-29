@@ -252,7 +252,7 @@ article { margin: 0; }
 .postContainer,
 .pageContainer,
 .searchContainer {
-    border-bottom: 1px solid #E5E5E5;
+    border-bottom: none;
     border-left: 1px solid #E5E5E5;
     padding: 3rem 0;
     width: 100%;
@@ -1088,4 +1088,9 @@ aside {
 
 .pis-thumbnail {
     margin: 0;
+}
+
+/* ブラウザ調整 */
+.entryContent .panel-grid-cell {
+    min-height: 0;
 }
