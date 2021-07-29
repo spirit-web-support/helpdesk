@@ -605,11 +605,11 @@ img.img-border {
     display: block;
 }
 
-.entryContent ol.list-index li {
+.entryContent ol.list-index > li {
     display: block;
 }
 
-.entryContent ol.list-index li::before {
+.entryContent ol.list-index > li::before {
     display: inline-block;
     content: counter(item, decimal-leading-zero);
     font-weight: bold;
@@ -619,6 +619,27 @@ img.img-border {
 .entryContent ol.list-index li a {
     color: #717171;
 }
+
+.entryContent ol.list-index > li > ol{
+    padding-left: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.entryContent ol.list-index > li > ol > li{
+    display: block;
+}
+
+.entryContent ol.list-index > li > ol > li::before {
+    display: inline-block;
+    content: counter(item, decimal-leading-zero);
+    font-weight: bold;
+    color: #717171;
+}
+
+.entryContent ol.list-index > li:last-child > ol:last-child{
+    margin-bottom: 0;
+}
+
 @media screen and (max-width: 780px) {
     .entryContent ol.list-index{
         margin: 2.5rem 0 0;
@@ -630,6 +651,7 @@ img.img-border {
         left: 1rem;
     }
 }
+
 /* 注釈リスト */
 .entryContent ul.list-note{
     line-height: 1.6;
