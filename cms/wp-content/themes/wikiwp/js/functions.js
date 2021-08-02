@@ -61,8 +61,8 @@ jQuery(document).ready(function ($) {
 
     //アコーディオンモジュール
     if ($(".acd-01 .acd-panel .acd-panel-heading").length) {
-        $(".acd-01 .acd-panel").addClass("is-close").attr({"aria-expanded": "false","aria-hidden": "true","role":"button"});
-        $(".acd-01 .acd-panel .acd-panel-heading").attr({ "tabindex": "0" });
+        $(".acd-01 .acd-panel").addClass("is-close").attr({"aria-expanded": "false","aria-hidden": "true"});
+        $(".acd-01 .acd-panel .acd-panel-heading").attr({"role": "button","tabindex": "0"});
 
         $(".acd-01 .acd-panel .acd-panel-heading").on("click", function () {
             var tgl = $(this).parents(".acd-panel");
