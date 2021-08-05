@@ -83,6 +83,12 @@ pre {
     padding-bottom: 0;
 }
 
+@media screen and (max-width: 780px) {
+    .entryContent .panel-grid .panel-grid-cell:not(:last-child) .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):last-child {
+        margin-bottom: 15px;
+    }
+}
+
 /* モーダル調整 */
 #fancybox-wrap {
     max-width: calc(100% - 40px);
