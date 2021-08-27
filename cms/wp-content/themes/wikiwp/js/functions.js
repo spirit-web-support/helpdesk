@@ -120,6 +120,27 @@ jQuery(document).ready(function ($) {
                 }
             }
         });
+        $('a[href^="#"]:not(.btn-tab)').click(function() {
+            $(".acd-01 .acd-panel").addClass("is-close").attr({"aria-expanded": "false","aria-hidden": "true"});
+            $(".acd-01 .acd-panel .acd-panel-heading").attr({"role": "button","tabindex": "0"});
+            var href = $(this).attr("href");
+            if(href){
+                var titleHash = $(".acd-panel").find(href);
+                var contentHash = $(".acd-panel-content").find(href);
+
+                if(titleHash){
+                    $(titleHash).parents(".acd-panel").removeClass("is-close").addClass("is-open").attr({"aria-expanded": "true","aria-hidden": "false"});
+                    setTimeout(function(){
+                    var pos = Math.floor($(titleHash).parents(".acd-panel").offset().top) - 100;
+                    $("html, body").animate({scrollTop:pos}, 600);
+                    },300);
+                }
+                if(contentHash){
+                    $(contentHash).parents(".acd-panel").removeClass("is-close").addClass("is-open").attr({"aria-expanded": "true","aria-hidden": "false"});
+                }
+            }
+        return false;
+        });
     }
 
     //ページ内リンクのスクロール調整
