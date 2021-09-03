@@ -166,6 +166,7 @@ jQuery(document).ready(function ($) {
     //タブモジュール
 
     if ($(".entryContent .tab-content").length) {
+        $(".tab-content .tab-menu").css('display','flex');
         $(".tab-content .tab-menu li .btn-tab.default").addClass("active").attr({"role": "tab","aria-expanded": "true","aria-selected": "true","tabindex": 0});
         $(".tab-content .tab-menu li .btn-tab:not(.default)").addClass("inactive").attr({"role": "tab","aria-expanded": "false","aria-selected": "false","tabindex": -1})
         
