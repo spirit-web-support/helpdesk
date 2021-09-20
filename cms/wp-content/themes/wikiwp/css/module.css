@@ -427,6 +427,7 @@ img.img-border {
     z-index: 100;
 }
 
+.entryContent ol.list-02 > li > p,
 .entryContent ol.list-02 > li > a,
 .entryContent ol.list-02 > li > a:visited,
 .entryContent ol.list-02 > li > a:hover,
