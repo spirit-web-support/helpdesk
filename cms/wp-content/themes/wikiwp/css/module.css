@@ -1258,10 +1258,6 @@ img.img-border {
 }
 
 /* 静的アコーディオン */
-.entryContent .acd-01 {
-    margin-bottom: 2rem;
-}
-
 .entryContent .acd-01 .acd-panel > .panel-grid-cell > .so-panel{
     padding: 0;
 }
