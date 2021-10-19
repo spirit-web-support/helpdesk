@@ -277,6 +277,59 @@ img.img-border {
     color: #637f97;
 }
 
+/* リンク ファイルアイコン */
+.entryContent p.txt-link a[href*=".pdf"] .fa.fa-external-link::before,
+.entryContent span.txt-link a[href*=".pdf"] .fa.fa-external-link::before,
+.entryContent div.txt-link a[href*=".pdf"] .fa.fa-external-link::before,
+.entryContent ul.list-02 a[href*=".pdf"] .fa.fa-external-link::before{
+    content: "\f1c1";
+    color: #b30b00;
+    font: normal normal normal 18px/1 FontAwesome;
+}
+
+.entryContent p.txt-link a[href*=".doc"] .fa.fa-external-link::before,
+.entryContent span.txt-link a[href*=".doc"] .fa.fa-external-link::before,
+.entryContent div.txt-link a[href*=".doc"] .fa.fa-external-link::before,
+.entryContent ul.list-02 a[href*=".doc"] .fa.fa-external-link::before,
+.entryContent p.txt-link a[href*=".docx"] .fa.fa-external-link::before,
+.entryContent span.txt-link a[href*=".docx"] .fa.fa-external-link::before,
+.entryContent div.txt-link a[href*=".docx"] .fa.fa-external-link::before,
+.entryContent ul.list-02 a[href*=".docx"] .fa.fa-external-link::before{
+    content: "\f1c2";
+    color: #185abd;
+    font: normal normal normal 18px/1 FontAwesome;
+}
+
+.entryContent p.txt-link a[href*=".xls"] .fa.fa-external-link::before,
+.entryContent span.txt-link a[href*=".xls"] .fa.fa-external-link::before,
+.entryContent div.txt-link a[href*=".xls"] .fa.fa-external-link::before,
+.entryContent ul.list-02 a[href*=".xls"] .fa.fa-external-link::before,
+.entryContent p.txt-link a[href*=".xlsx"] .fa.fa-external-link::before,
+.entryContent span.txt-link a[href*=".xlsx"] .fa.fa-external-link::before,
+.entryContent div.txt-link a[href*=".xlsx"] .fa.fa-external-link::before,
+.entryContent ul.list-02 a[href*=".xlsx"] .fa.fa-external-link::before,
+.entryContent p.txt-link a[href*=".xlsm"] .fa.fa-external-link::before,
+.entryContent span.txt-link a[href*=".xlsm"] .fa.fa-external-link::before,
+.entryContent div.txt-link a[href*=".xlsm"] .fa.fa-external-link::before,
+.entryContent ul.list-02 a[href*=".xlsm"] .fa.fa-external-link::before{
+    content: "\f1c3";
+    color: #107c41;
+    font: normal normal normal 18px/1 FontAwesome;
+}
+
+.entryContent p.txt-link a[href*=".ppt"] .fa.fa-external-link::before,
+.entryContent span.txt-link a[href*=".ppt"] .fa.fa-external-link::before,
+.entryContent div.txt-link a[href*=".ppt"] .fa.fa-external-link::before,
+.entryContent ul.list-02 a[href*=".ppt"] .fa.fa-external-link::before,
+.entryContent p.txt-link a[href*=".pptx"] .fa.fa-external-link::before,
+.entryContent span.txt-link a[href*=".pptx"] .fa.fa-external-link::before,
+.entryContent div.txt-link a[href*=".pptx"] .fa.fa-external-link::before,
+.entryContent ul.list-02 a[href*=".pptx"] .fa.fa-external-link::before{
+    content: "\f1c4";
+    color: #c43e1c;
+    font: normal normal normal 18px/1 FontAwesome;
+}
+
 .entryContent p.txt-link a,
 .entryContent span.txt-link a,
 .entryContent div.txt-link a{
@@ -811,10 +864,14 @@ img.img-border {
     padding-top: 0;
 }
 
+.entryContent .box-02 > :last-child:not(.btn-external),
+.entryContent .box-02 > :last-child:not(.btn-external) > :last-child:not(.btn-external) {
+    padding-bottom: 0;
+}
+
 .entryContent .box-02 > :last-child,
 .entryContent .box-02 > :last-child > :last-child {
     margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .entryContent .box-02 .heading-box-02 {
@@ -1075,6 +1132,10 @@ img.img-border {
 .entryContent table tbody tr td > :last-child,
 .entryContent table tbody tr td > :last-child > :last-child {
     margin-bottom: 0;
+}
+
+.entryContent table tbody tr td > :last-child:not(.btn-external),
+.entryContent table tbody tr td > :last-child:not(.btn-external) > :last-child:not(.btn-external) {
     padding-bottom: 0;
 }
 
@@ -1431,11 +1492,11 @@ img.img-border {
     border-color: #c6c6c6;
 }
 
-/* ボタン */
+/* 外部ボタン */
 
 .entryContent .btn-external a {
     border: 3px solid #637f97;
-    padding: 0.5rem 2rem 0.5rem 5rem;
+    padding: 0.5rem 2.5rem 0.5rem 5rem;
     color: #4d4d4a;
     position: relative;
     display: inline-block;
@@ -1456,7 +1517,7 @@ img.img-border {
 .entryContent .btn-external a::after {
     position: absolute;
     top: calc(50% - 5px);
-    right: 0.8rem;
+    right: 0.95rem;
     width: 10px;
     height: 10px;
     content: "";
@@ -1486,6 +1547,121 @@ img.img-border {
     left: 0;
     color: #ffffff;
     font-size: 2.4rem;
+}
+
+/* 外部ボタンPDF */
+.entryContent .btn-external a[href*=".pdf"] {
+    border: 3px solid #b30b00;
+}
+
+.entryContent .btn-external a[href*=".pdf"]::before {
+    background-color: #b30b00;
+}
+
+.entryContent .btn-external a[href*=".pdf"]::after {
+    border-top: 2px solid #b30b00;
+    border-right: 2px solid #b30b00;
+}
+.entryContent .btn-external a[href*=".pdf"] .fa.fa-external-link {
+    left: 0.9rem;
+    -webkit-transform: translateY(-50%) rotate(0deg);
+    -ms-transform: translateY(-50%) rotate(0deg);
+    transform: translateY(-50%) rotate(0deg);
+}
+.entryContent .btn-external a[href*=".pdf"] .fa.fa-external-link::before {
+    content: "\f1c1";
+}
+
+/* 外部ボタンword */
+
+.entryContent .btn-external a[href*=".doc"],
+.entryContent .btn-external a[href*=".docx"] {
+    border: 3px solid #185abd;
+}
+
+.entryContent .btn-external a[href*=".doc"]::before,
+.entryContent .btn-external a[href*=".docx"]::before {
+    background-color: #185abd;
+}
+
+.entryContent .btn-external a[href*=".doc"]::after,
+.entryContent .btn-external a[href*=".docx"]::after {
+    border-top: 2px solid #185abd;
+    border-right: 2px solid #185abd;
+}
+.entryContent .btn-external a[href*=".doc"] .fa.fa-external-link,
+.entryContent .btn-external a[href*=".docx"] .fa.fa-external-link {
+    left: 0.9rem;
+    -webkit-transform: translateY(-50%) rotate(0deg);
+    -ms-transform: translateY(-50%) rotate(0deg);
+    transform: translateY(-50%) rotate(0deg);
+}
+.entryContent .btn-external a[href*=".doc"] .fa.fa-external-link::before,
+.entryContent .btn-external a[href*=".docx"] .fa.fa-external-link::before {
+    content: "\f1c2";
+}
+
+/* 外部ボタンexcel */
+
+.entryContent .btn-external a[href*=".xls"],
+.entryContent .btn-external a[href*=".xlsx"],
+.entryContent .btn-external a[href*=".xlsm"] {
+    border: 3px solid #107c41;
+}
+
+.entryContent .btn-external a[href*=".xls"]::before,
+.entryContent .btn-external a[href*=".xlsx"]::before,
+.entryContent .btn-external a[href*=".xlsm"]::before {
+    background-color: #107c41;
+}
+
+.entryContent .btn-external a[href*=".xls"]::after,
+.entryContent .btn-external a[href*=".xlsx"]::after,
+.entryContent .btn-external a[href*=".xlsm"]::after {
+    border-top: 2px solid #107c41;
+    border-right: 2px solid #107c41;
+}
+.entryContent .btn-external a[href*=".xls"] .fa.fa-external-link,
+.entryContent .btn-external a[href*=".xlsx"] .fa.fa-external-link,
+.entryContent .btn-external a[href*=".xlsm"] .fa.fa-external-link {
+    left: 0.9rem;
+    -webkit-transform: translateY(-50%) rotate(0deg);
+    -ms-transform: translateY(-50%) rotate(0deg);
+    transform: translateY(-50%) rotate(0deg);
+}
+.entryContent .btn-external a[href*=".xls"] .fa.fa-external-link::before,
+.entryContent .btn-external a[href*=".xlsx"] .fa.fa-external-link::before,
+.entryContent .btn-external a[href*=".xlsm"] .fa.fa-external-link::before {
+    content: "\f1c3";
+}
+
+/* 外部ボタンppt */
+
+.entryContent .btn-external a[href*=".ppt"],
+.entryContent .btn-external a[href*=".pptx"] {
+    border: 3px solid #c43e1c;
+}
+
+.entryContent .btn-external a[href*=".ppt"]::before,
+.entryContent .btn-external a[href*=".pptx"]::before {
+    background-color: #c43e1c;
+}
+
+.entryContent .btn-external a[href*=".ppt"]::after,
+.entryContent .btn-external a[href*=".pptx"]::after {
+    border-top: 2px solid #c43e1c;
+    border-right: 2px solid #c43e1c;
+}
+.entryContent .btn-external a[href*=".ppt"] .fa.fa-external-link,
+.entryContent .btn-external a[href*=".pptx"] .fa.fa-external-link {
+    left: 0.9rem;
+    -webkit-transform: translateY(-50%) rotate(0deg);
+    -ms-transform: translateY(-50%) rotate(0deg);
+    transform: translateY(-50%) rotate(0deg);
+}
+.entryContent .btn-external a[href*=".ppt"] .fa.fa-external-link::before,
+.entryContent .btn-external a[href*=".pptx"] .fa.fa-external-link::before {
+    content: "\f1c4";
 }
 
 @media only print {
