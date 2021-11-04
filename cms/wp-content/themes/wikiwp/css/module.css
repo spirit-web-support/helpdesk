@@ -223,7 +223,7 @@ img.img-border {
 .entryContent h6.heading-06{
     font-size: 1.6rem;
     font-weight: bold;
-    color: #71b799;
+    color: #637f97;
     margin: 0 0 2rem;
 }
 
@@ -1143,6 +1143,8 @@ img.img-border {
     width: 100%;
 }
 
+/* スマホ時に回り込むテーブル */
+
 .entryContent table.table-2col {
     border-bottom: 1px solid #e5e5e5;
     margin-bottom: 2rem;
@@ -1166,6 +1168,29 @@ img.img-border {
         display: block;
         width: 100% !important;
         border-bottom: 0;
+    }
+}
+
+/* スマホ時スクロールするテーブル */
+
+.entryContent .scroll table{
+    width:100%;
+}
+
+@media screen and (max-width: 780px) {
+    .entryContent .scroll{
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+    .entryContent .scroll::-webkit-scrollbar{
+        height: 5px;
+    }
+    .entryContent .scroll::-webkit-scrollbar-track{
+        background: #f9f9f9;
+    }
+    .entryContent .scroll::-webkit-scrollbar-thumb {
+        background: #71b799;
     }
 }
 
@@ -1480,8 +1505,8 @@ img.img-border {
 }
 
 .entryContent .acd-01 .acd-panel table th{
-    background-color: #637f97;
-    color: #ffffff;
+    background-color: #e5e5e5;
+    border-color: #c6c6c6;
 }
 
 .entryContent .acd-01 .acd-panel hr {
