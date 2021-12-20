@@ -28,7 +28,14 @@
 		 '<link rel="pingback" href="'.get_bloginfo('pingback_url').'">';
 	wp_head();
 
-	echo '<!-- Google Tag Manager -->'."\n",
+	echo '<!-- Favicon -->'."\n",
+		 '<link rel="apple-touch-icon" sizes="180x180" href="/cms/wp-content/themes/wikiwp/images/apple-touch-icon.png">'."\n",
+		 '<link rel="icon" type="image/png" sizes="32x32" href="/cms/wp-content/themes/wikiwp/images/favicon-32x32.png">'."\n",
+		 '<link rel="icon" type="image/png" sizes="16x16" href="/cms/wp-content/themes/wikiwp/images/favicon-16x16.png">'."\n",
+		 '<link rel="manifest" href="/cms/wp-content/themes/wikiwp/images/site.webmanifest">'."\n",
+		 '<meta name="msapplication-TileColor" content="#541b85">'."\n",
+		 '<meta name="theme-color" content="#ffffff">'."\n",
+		 '<!-- Google Tag Manager -->'."\n",
 		 '<script>'."\n",
 		 '(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});'."\n",
 		 'var f=d.getElementsByTagName(s)[0],'."\n",
@@ -46,7 +53,7 @@
 		 '<!-- Google Tag Manager (noscript) -->'."\n",
 		 '<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQZ3QMM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>'."\n",
 		 '<!-- End Google Tag Manager (noscript) -->'."\n",
-    
+	
 
     // Header
 		 '<header class="headerMain">',
