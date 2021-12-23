@@ -1,5 +1,5 @@
 <?php
-	echo '</div>', // end of .container
+	echo '</div></div>', // end of .container
     // FOOTER
          '<footer>';
 
