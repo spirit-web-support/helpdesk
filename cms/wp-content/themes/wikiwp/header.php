@@ -29,12 +29,10 @@
 	wp_head();
 
 	echo '<!-- Favicon -->'."\n",
-		 '<link rel="apple-touch-icon" sizes="180x180" href="/cms/wp-content/themes/wikiwp/images/apple-touch-icon.png">'."\n",
-		 '<link rel="icon" type="image/png" sizes="32x32" href="/cms/wp-content/themes/wikiwp/images/favicon-32x32.png">'."\n",
-		 '<link rel="icon" type="image/png" sizes="16x16" href="/cms/wp-content/themes/wikiwp/images/favicon-16x16.png">'."\n",
-		 '<link rel="manifest" href="/cms/wp-content/themes/wikiwp/images/site.webmanifest">'."\n",
-		 '<meta name="msapplication-TileColor" content="#541b85">'."\n",
-		 '<meta name="theme-color" content="#ffffff">'."\n",
+		 '<link rel="icon" href="/cms/wp-content/themes/wikiwp/images/favicon.ico"><!-- 32×32 -->'."\n",
+		 '<link rel="icon" href="/cms/wp-content/themes/wikiwp/images/icon.svg" type="image/svg+xml">'."\n",
+		 '<link rel="apple-touch-icon" href="/cms/wp-content/themes/wikiwp/images/apple-touch-icon.png"><!-- 180×180 -->'."\n",
+		 '<link rel="manifest" href="/cms/wp-content/themes/wikiwp/images/manifest.webmanifest">'."\n",
 		 '<!-- Google Tag Manager -->'."\n",
 		 '<script>'."\n",
 		 '(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});'."\n",
