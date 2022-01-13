@@ -10,6 +10,18 @@
 
     <div class="primary-menu primary-menu-side">
         <div class="primary-menu-container">
+          <input id="acd-check1" class="acd-check" type="checkbox">
+          <label class="acd-label" for="acd-check1">Language</label>
+          <div class="acd-content">
+            <ul>
+        <li><?php echo do_shortcode('[glt language="Japanese" label="日本語" text="yes"]'); ?></li>
+        <li><?php echo do_shortcode('[glt language="English" label="English" text="yes"]'); ?></li>
+        <li><?php echo do_shortcode('[glt language="Korean" label="한국어" text="yes"]'); ?></li>
+        <li><?php echo do_shortcode('[glt language="Chinese (Simplified)" label="简体中文" text="yes"]'); ?></li>
+        <li><?php echo do_shortcode('[glt language="Chinese (Traditional)" label="繁体中文" text="yes"]'); ?></li>
+      </ul>
+
+          </div>
             <nav class="nav-container">
 
 <!--
@@ -72,7 +84,6 @@ foreach($main_menu as $menu){
                     'items_wrap' => '<ul class="meta-menu">%3$s</ul>',
                     'fallback_cb' => '',
                 ));
-
                 ?>
 
             </nav>
