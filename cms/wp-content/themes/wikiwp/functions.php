@@ -548,24 +548,111 @@ function disable_author_archive() {
 
 // オートフォーマット関連の無効化
 add_action('init', function() {
-remove_filter('the_title', 'wptexturize');
-remove_filter('the_content', 'wptexturize');
-remove_filter('the_excerpt', 'wptexturize');
-remove_filter('the_title', 'wpautop');
-remove_filter('the_content', 'wpautop');
-remove_filter('the_excerpt', 'wpautop');
-remove_filter('the_editor_content', 'wp_richedit_pre');
+    remove_filter('the_title', 'wptexturize');
+    remove_filter('the_content', 'wptexturize');
+    remove_filter('the_excerpt', 'wptexturize');
+    remove_filter('the_title', 'wpautop');
+    remove_filter('the_content', 'wpautop');
+    remove_filter('the_excerpt', 'wpautop');
+    remove_filter('the_editor_content', 'wp_richedit_pre');
 });
 
 // オートフォーマット関連の無効化 TinyMCE
 add_filter('tiny_mce_before_init', function($init) {
-$init['wpautop'] = false;
-$init['apply_source_formatting'] = ture;
-return $init;
+    $init['wpautop'] = false;
+    $init['apply_source_formatting'] = true;
+    return $init;
 });
 
-/* 
+// パンくずリスト
+function breadcrumb() {
+    if ( is_front_page() ) {
+        // トップページの場合
+    }else{
+        $home = '<li><a href="'.get_bloginfo('url').'" ><i class="fas fa-home"></i>TOP</a></li>';
+    
+        echo '<ul class="list-breadcrumb">';
+        if ( is_category() ) {
+            // カテゴリページの場合
+            $cat = get_queried_object();
+            $cat_id = $cat->parent;
+            $cat_list = array();
+            while ($cat_id != 0){
+                $cat = get_category( $cat_id );
+                $cat_link = get_category_link( $cat_id );
+                array_unshift( $cat_list, '<li><a href="'.$cat_link.'">'.$cat->name.'</a></li>' );
+                $cat_id = $cat->parent;
+            }
+            echo $home;
+            foreach($cat_list as $value){
+                echo $value;
+            }
+            the_archive_title('<li>', '</li>');
+        }
+        else if ( is_archive() ) {
+        // 月別アーカイブ・タグページの場合
+        echo $home;
+        the_archive_title('<li>', '</li>');
+        }
+        else if ( is_single() ) {
+        // 投稿ページの場合
+        echo $home;
+        /*
+        $cat = get_the_category();
+        if( isset($cat[0]->cat_ID) ) $cat_id = $cat[0]->cat_ID;
+        $cat_list = array();
+        while ($cat_id != 0){
+            $cat = get_category( $cat_id );
+            $cat_link = get_category_link( $cat_id );
+            array_unshift( $cat_list, '<li><a href="'.$cat_link.'">'.$cat->name.'</a></li>' );
+            $cat_id = $cat->parent;
+        }
+        foreach($cat_list as $value){
+            echo $value;
+        }
+        */
+        single_post_title('<li>', '</li>');
+        }
+        else if( is_page() ) {
+        // 固定ページの場合
+            echo $home;
+            $ancestors_ids = array_reverse(get_post_ancestors( $post ));
+            foreach($ancestors_ids as $ancestors_id){
+                echo '<li><a href="';
+                echo get_page_link( $ancestors_id );
+                echo '" >';
+                echo get_page($ancestors_id)->post_title;
+                echo '</a></li>';
+            }
+            the_title('<li>', '</li>');
+        }
+        else if( is_search() ) {
+        // 検索ページの場合
+        echo $home;
+        echo '<li>「'.get_search_query().'」の検索結果</li>';
+        }
+        else if( is_404() ) {
+        // 404ページの場合
+        echo $home;
+        echo '<li>ページが見つかりません</li>';
+        }
+        echo "</ul>";
+    }
+}
+ 
+// アーカイブの余計なタイトルを削除
+add_filter( 'get_the_archive_title', function ($title) {
+    if ( is_category() ) {
+        $title = single_cat_title( '', false );
+    } elseif ( is_tag() ) {
+        $title = single_tag_title( '', false );
+    } elseif ( is_month() ) {
+        $title = single_month_title( '', false );
+    }
+    return $title;
+});
 
+/*
 // テーマカスタマイザー
 function my_theme_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'bloginfo_sub', array(

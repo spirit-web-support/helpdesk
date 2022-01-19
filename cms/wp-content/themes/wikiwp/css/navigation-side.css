@@ -36,7 +36,6 @@
 .primary-menu-side .primary-menu-container > .nav-container:not(:last-child) {
     margin: 0;
     padding: 0;
-    border-top: 1px dotted #e5e5e5;
     border-bottom: 1px dotted #e5e5e5;
     width: 100%;
     color: #aaaaaa;

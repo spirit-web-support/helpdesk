@@ -3,27 +3,19 @@ get_header();
 get_template_part('navigation');
 ?>
 
-<div class="postContainer">
+<div class="pageContainer">
 	<?php
-	// get content format
-	get_template_part( 'content', get_post_format() );
-
-	// comments
-	comments_template( '', true );
+	breadcrumb();
 	?>
-	<!-- Last Posts非表示 -->
-	<!-- 
-	<div class="last-posts-list postinfo clearfix">
-		<hr>
-		<h4 class="lastPostsListTitle">
-			<?php echo __('Last posts', 'wikiwp'); ?>
-		</h4>
+	<div class="pageInner">
+		<?php
+		// get content format
+		get_template_part( 'content', get_post_format() );
 
-		<ul>
-			<?php wp_get_archives('type=postbypost&limit=10'); ?>
-		</ul>
+		// comments
+		comments_template( '', true );
+		?>
 	</div>
-	-->
 </div>
 
 <?php
