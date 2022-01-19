@@ -4,6 +4,9 @@ get_template_part('navigation');
 ?>
 
 <div class="pageContainer">
+	<?php
+	breadcrumb();
+	?>
 	<div class="pageInner">
 		<div class="entry entryTypePost">
 			<div class="entryHeader">

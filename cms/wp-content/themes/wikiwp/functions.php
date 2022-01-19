@@ -596,19 +596,22 @@ function breadcrumb() {
         }
         else if ( is_single() ) {
         // 投稿ページの場合
+        echo $home;
+        /*
         $cat = get_the_category();
-            if( isset($cat[0]->cat_ID) ) $cat_id = $cat[0]->cat_ID;
-            $cat_list = array();
-            while ($cat_id != 0){
-                $cat = get_category( $cat_id );
-                $cat_link = get_category_link( $cat_id );
-                array_unshift( $cat_list, '<li><a href="'.$cat_link.'">'.$cat->name.'</a></li>' );
-                $cat_id = $cat->parent;
-            }
-            foreach($cat_list as $value){
-                echo $value;
-            }
-            the_title('<li>', '</li>');
+        if( isset($cat[0]->cat_ID) ) $cat_id = $cat[0]->cat_ID;
+        $cat_list = array();
+        while ($cat_id != 0){
+            $cat = get_category( $cat_id );
+            $cat_link = get_category_link( $cat_id );
+            array_unshift( $cat_list, '<li><a href="'.$cat_link.'">'.$cat->name.'</a></li>' );
+            $cat_id = $cat->parent;
+        }
+        foreach($cat_list as $value){
+            echo $value;
+        }
+        */
+        single_post_title('<li>', '</li>');
         }
         else if( is_page() ) {
         // 固定ページの場合

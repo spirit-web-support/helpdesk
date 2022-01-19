@@ -269,6 +269,24 @@ body > .container-fluid > .meta.clearfix{
     padding: 0.7rem 3rem;
     font-size: 1.4rem;
     margin-bottom: 0;
+    scrollbar-width: thin;
+    scrollbar-color: #e5e5e5 #f9f9f9;
+}
+
+.list-breadcrumb::-webkit-scrollbar {
+    height: 0.5rem;
+    display:block;
+    width: 10px;
+}
+
+.list-breadcrumb::-webkit-scrollbar-thumb {
+    background: #e5e5e5;
+    width: 10px;
+    display:block;
+}
+
+.list-breadcrumb::-webkit-scrollbar-track {
+    background: #f9f9f9;
 }
 
 .list-breadcrumb li{
@@ -297,6 +315,15 @@ body > .container-fluid > .meta.clearfix{
     margin-right: 0.5rem;
 }
 
+@media only screen and (max-width: 767px){
+    .list-breadcrumb{
+        padding: 5px 10px;
+        line-height: 1.4;
+        overflow: auto;
+        white-space: nowrap;
+    }
+}
+
 @media only screen and (max-width: 991px){
     body >.container-fluid > .meta.clearfix{
         display: block;
@@ -310,11 +337,5 @@ body > .container-fluid > .meta.clearfix{
     .postContainer{
         width: 100%;
         border :none;
-    }
-}
-@media only screen and (max-width: 767px){
-    .list-breadcrumb{
-        padding: 5px 10px;
-        line-height: 1.4;
     }
 }
