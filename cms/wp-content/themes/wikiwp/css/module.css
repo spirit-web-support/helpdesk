@@ -477,7 +477,7 @@ img.img-border {
     padding: 0;
     text-align: center;
     top: 0.3rem;
-    z-index: 100;
+    z-index: 1;
 }
 
 .entryContent ol.list-02 > li > p,
@@ -1295,7 +1295,6 @@ img.img-border {
     border: none;
     cursor: pointer;
     display: block;
-    z-index: 3;
     width: 100%;
     position: relative;
     border: 1px solid #c6c6c6;
