@@ -1,15 +1,15 @@
 <?php
 	echo '</div></div>', // end of .container
     // FOOTER
-         '<footer>';
-
+         '<footer class="footerMain">',
+         '<div id="page-top"><a href="#" tabindex="0">TOP</a></div>';
     // COPYRIGHT
 
-    echo '<div class="col-md-12 copyright">',
+    echo '<div class="copyright">',
 
          '<p>',
 		 '&copy;&nbsp;';
-	echo //'&nbsp;<a href="'.esc_url( home_url() ).'">'.get_bloginfo('name').'</a></strong>',
+	echo 
          '2018-',
          (int)date('Y'),
          '&nbsp;立教大学&nbsp;Rikkyo University',

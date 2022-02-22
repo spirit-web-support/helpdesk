@@ -634,9 +634,12 @@ article { margin: 0; }
 
 
 /* Footer */
-footer {
+footer.footerMain {
     clear: both;
     width: 100%;
+    position: relative;
+    height: 6rem;
+    background-color: #333333;
 }
 
 footer .content {
@@ -645,7 +648,6 @@ footer .content {
 
 footer .copyright { 
     padding: 1rem 0;
-    background-color: #333333;
 }
 
 footer .copyright p { 
@@ -694,15 +696,46 @@ footer .copyright p a:active{
 
 footer input { width: 100% }
 
-/* search form */
-footer .search-form label { width: 70% }
+#page-top{
+    width: 5rem;
+    height: 5rem;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background: #637f97;
+    z-index: 9999;
+}
 
-footer .search-form .search-submit {
-    float: right;
-    margin-top: 17px;
-    padding-right: 0px;
-    padding-left: 0px;
-    width: 30%
+#page-top a{
+    position: relative;
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    text-decoration: none;
+    color: #ffffff;
+    vertical-align: bottom;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 6.2;
+    cursor: pointer;
+}
+
+#page-top a::before{
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f062';
+    font-size: 2.2rem;
+    color: #ffffff;
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    line-height: 1.6;
 }
 
 /* Plugin support for Table of Contents Plus */

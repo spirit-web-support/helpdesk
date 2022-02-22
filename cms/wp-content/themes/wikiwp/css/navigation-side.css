@@ -1,5 +1,24 @@
 
-/* Navigation */    
+.navMenu{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+}
+
+@media only screen and (max-width: 991px) {
+    .navMenu.fixed{
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+    }
+}
+
+/* Navigation */
 .primary-menu-side {
     display: block;
     overflow: hidden;
@@ -9,6 +28,9 @@
     background-color:#f9f9f9;
     padding: 0;
     color: #4d4d4d;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
 }
 
 @media only screen and (max-width: 991px) {
@@ -42,12 +64,19 @@
 }
 
 /* select-language*/
-.primary-menu .acd-check{
-  display: none;
+.navMenu .label-lang{
+    border-bottom: 1px dotted #e5e5e5;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
 }
 
-.primary-menu .acd-label{
-  display: block;
+.navMenu #checkLangButton{
+    display: none;
+}
+
+.navMenu .acd-label{
+    display: block;
     font-size: 1.6rem;
     padding: 0.5rem 2.5rem 0.5rem 0.5rem;
     margin-bottom: 0;
@@ -55,59 +84,96 @@
     cursor: pointer;
 }
 
-.primary-menu .acd-label::after {
-    font-family: fontawesome;
-    content: "\f57e";
-    right: 0;
-    position: absolute;
-        width: 3.6rem;
-    text-align: center;
-}
-
-.primary-menu .acd-label:hover, 
-.primary-menu .acd-label:focus {
-    background: #e8e8e8;
+.navMenu .acd-label:hover, 
+.navMenu .acd-label:focus {
+    background-color: #e8e8e8;
     text-decoration: none;
     cursor: pointer;
 }
 
-.primary-menu .acd-check:checked + .acd-label{
-    background-color: #637f97;
-    color:#ffffff;
+.navMenu .acd-label::before{
+    position: absolute;
+    content: "";
+    width: 1.2rem;
+    height: 2px;
+    background-color: #4d4d4d;
+    right: 1rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border: none;
 }
 
-.primary-menu .acd-content{
-  height: 0;
-  line-height: 0;
-  opacity: 0;
-  padding: 0;
-  transition: .5s;
-  visibility: hidden;
-  -webkit-transition: all 0.3s;
-    -o-transition: all 0.3s;
+.navMenu .acd-label::after{
+    position: absolute;
+    content: "";
+    width: 1.2rem;
+    height: 2px;
+    background-color: #4d4d4d;
+    right: 1rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%)rotate(90deg);
+    -ms-transform: translateY(-50%)rotate(90deg);
+    transform: translateY(-50%)rotate(90deg);
+}
+
+.navMenu .acd-label .fa-globe-americas{
+    margin-right: 1rem;
+}
+
+.navMenu .acd-check:checked  ~  .acd-label{
+    background-color: #637f97;
+    color:#ffffff;
+    border-bottom: none;
+}
+
+.navMenu .acd-check:checked ~ .acd-label::before{
+    background-color: #ffffff;
+}
+
+.navMenu .acd-check:checked ~ .acd-label::after{
+    content: none;
+}
+
+.navMenu .acd-content ul{
+    margin: 0;
+    height: 0;
+    line-height: 0;
+    opacity: 0;
+    padding: 0;
+    visibility: hidden;
+        -webkit-transition: all 0.3s;
+        -o-transition: all 0.3s;
     transition: all 0.3s;
 }
 
-.primary-menu .acd-check:checked + .acd-label + .acd-content{
-  height: 100%;
-  opacity: 1;
-  visibility: visible;
-  line-height: 1.75;
-}
-
-.primary-menu .primary-menu .acd-content ul li:not(:last-child) {
+.navMenu .acd-check:checked ~ .acd-label ~ .acd-content ul{
+    height: 100%;
+    opacity: 1;
+    visibility: visible;
+    line-height: 1.75;
     border-bottom: 1px dotted #e5e5e5;
 }
 
-.primary-menu .acd-content ul li a{
+.navMenu .acd-content{
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+}
+
+.navMenu .acd-content ul li:not(:last-child) {
+    border-bottom: 1px dotted #e5e5e5;
+}
+
+.navMenu .acd-content ul li a{
     position: relative;
     padding: 0.5rem 0.5rem 0.5rem 2.5rem;
     display: block;
-    border-bottom: 1px dotted #e5e5e5;
     color: #4d4d4d;
 }
 
-.primary-menu .acd-content ul li a::before{
+.navMenu .acd-content ul li a::before{
     content: '';
     position: absolute;
     width: 0.8rem;
@@ -117,11 +183,39 @@
     border-bottom: solid 2px #4d4d4d;
     border-left: solid 2px #4d4d4d;
 }
-.primary-menu .acd-content ul li a:hover, 
-.primary-menu .acd-content ul li a:focus {
-    background: #e8e8e8;
+.navMenu .acd-content ul li a:hover, 
+.navMenu .acd-content ul li a:focus {
+    background-color: #e8e8e8;
     text-decoration: none;
     cursor: pointer;
+}
+@media only screen and (max-width: 991px) {
+    .navMenu .acd-label.label-lang{
+        width: 6rem;
+        float: left;
+        padding: 0.7rem 0;
+        border-bottom: 1px solid #e5e5e5;
+        border-left: 1px solid #e5e5e5;
+        font-size: 1.2rem;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .navMenu .acd-label::before,
+    .navMenu .acd-label::after{
+        content: none;
+    }
+
+    .navMenu .acd-label .fa-globe-americas{
+        margin-right: 0;
+        font-size: 2rem;
+    }
+    .navMenu .acd-check ~ .acd-label.label-lang ~ .acd-content{
+        -webkit-box-ordinal-group: 5;
+            -ms-flex-order: 4;
+                order: 4;
+        width: 100%;
+    }
 }
 
 /* main-menu*/
@@ -251,10 +345,10 @@
 }
 
 /* current */
-.primary-menu .nav-container .main-menu .sub-menu .current-menu-item a,
-.primary-menu .nav-container .main-menu .sub-menu .current-menu-item a:visited,
-.primary-menu .nav-container .main-menu .sub-menu .current-menu-item a:hover,
-.primary-menu .nav-container .main-menu .sub-menu .current-menu-item a:active{
+.primary-menu .nav-container .main-menu .current-menu-item a,
+.primary-menu .nav-container .main-menu .current-menu-item a:visited,
+.primary-menu .nav-container .main-menu .current-menu-item a:hover,
+.primary-menu .nav-container .main-menu .current-menu-item a:active{
     background-color: #e8e8e8;
     border-color: #637f97;
     color: #4d4d4d;
@@ -282,21 +376,32 @@
 
 @media only screen and (max-width: 991px) {
     .navMenu {
-        display: block;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
         background-color: #f9f9f9;
-        border-bottom: 1px solid #e5e5e5;
+        width: 100%;
     }
 
     .navMenu label[for="checkMenuButton"]{
         z-index: 100;
         margin: 0;
-        padding: 0 1rem 0 1rem;
+        padding: 0 1.2rem 0 1.2rem;
         cursor: pointer;
-        width: 5rem;
-        height: 4rem;
+        width: 6rem;
         display: block;
         float: left;
+        border-bottom: 1px solid #e5e5e5;
     }
+
+    .navMenu label[for="checkMenuButton"]:hover,
+    .navMenu label[for="checkMenuButton"]:focus{
+        background-color: #e8e8e8;
+    }
+
     .navMenu label[for="checkMenuButton"] span {
         position: relative;
         top: 50%;
@@ -337,17 +442,24 @@
                 transform: translateY(250%);
     }
 
+    .navMenu #checkMenuButton:checked ~ label[for="checkMenuButton"]{
+        background-color: #637f97;
+        border-bottom: none;
+    }
+
     .navMenu #checkMenuButton:checked ~ label[for="checkMenuButton"] span{
         background-color: transparent;
     }
 
     .navMenu #checkMenuButton:checked ~ label[for="checkMenuButton"] span::before {
+        background-color: #ffffff;
         -webkit-transform: translateY(0) rotate(45deg);
             -ms-transform: translateY(0) rotate(45deg);
                 transform: translateY(0) rotate(45deg);
     }
 
     .navMenu #checkMenuButton:checked ~ label[for="checkMenuButton"] span::after {
+        background-color: #ffffff;
         -webkit-transform: translateY(0) rotate(-45deg);
             -ms-transform: translateY(0) rotate(-45deg);
                 transform: translateY(0) rotate(-45deg);
@@ -365,7 +477,6 @@
         transition: all .3s ;
         visibility: hidden;
         height: 0;
-
     }
 
     .navMenu #checkMenuButton:checked ~ .primary-menu-side {
@@ -405,7 +516,11 @@
     align-items: center;
     width: auto;
     border-bottom: 1px dotted #e5e5e5;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
 }
+
 .navMenu .search-form label {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -416,7 +531,8 @@
     width: auto;
     max-width: none;
 }
-.navMenu .search-form label::after {
+
+.navMenu .search-form label::before {
     font-family: "fontawesome";
     content: "\f002";
     position: absolute;
@@ -424,29 +540,32 @@
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    right: 0;
-    padding: 0 1rem;
-    z-index: 1;
+    left: 0;
+    padding: 0 0.5rem;
+    z-index: 101;
 }
+
 .navMenu .search-form label:focus::after {
     right: 0;
 }
+
 .navMenu input[type="search"]{ 
-    width: calc(30rem - 3.6rem);
-    height: auto;
-    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    width: calc(30rem - 6rem);
+    height: 4rem;
+    padding: 0.5rem 1rem 0.5rem 3rem;
     margin: 0;
     color: #4d4d4d;
-    background-color: #f9f9f9;
-    border: none;
+    background-color: #ffffff;
+    border-right: 1px solid #e5e5e5;
+    border-top: none;
+    border-left: none;
+    border-bottom: none;
 }
 
 .navMenu input[type="search"]:hover,
 .navMenu input[type="search"]:active,
 .navMenu input[type="search"]:focus{ 
     -webkit-transition: border 0.3s, width 0.3s, color 0.3s;
-    -moz-transition: border 0.3s, width 0.3s, color 0.3s;
-    -ms-transition: border 0.3s, width 0.3s, color 0.3s;
     -o-transition: border 0.3s, width 0.3s, color 0.3s;
     transition: border 0.3s, width 0.3s, color 0.3s;
     color: #4d4d4d;
@@ -474,29 +593,32 @@
 }
 
 .navMenu input[type="submit"] { 
-    cursor: pointer;
+cursor: pointer;
     position: relative;
     border: none;
     float: none;
     margin: 0;
     padding: 0;
-    width: 3.6rem;
-    z-index: 2;
-    background-color: transparent;
+    width: 6rem;
+    z-index: 101;
+    background-color: #f9f9f9;
 }
 
 .navMenu input[type="submit"]:active,
 .navMenu input[type="submit"]:hover,
 .navMenu input[type="submit"]:focus{
-    background-color: transparent;
+    background-color: #e8e8e8;
 }
 
 @media only screen and (max-width: 991px){
     .navMenu .search-form{
-        width: calc(100% - 5rem);
+        width: calc(100% - 12rem);
         background-color: #f9f9f9;
         border-left: 1px solid #e5e5e5;
-        height: 4rem;
+        border-bottom: 1px solid #e5e5e5;
+        -webkit-box-ordinal-group: 4;
+            -ms-flex-order: 3;
+                order: 3;
     }
 
     .navMenu .search-form label{
@@ -506,6 +628,7 @@
 
     .navMenu input[type="search"]{
         width: calc(100% - 3.6rem);
+        height: auto;
     }
 
     .navMenu input[type="search"]:hover,

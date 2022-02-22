@@ -59,6 +59,88 @@ jQuery(document).ready(function ($) {
         return false;
     });
 
+    //メニュー追随
+    $(function() {
+        var headNav = $(".navMenu");
+        var headNavHeight = $(".navMenu").innerHeight();
+        var windowWidth = window.innerWidth;
+        if(windowWidth <= 990){
+            $(window).on('load scroll', function () {
+                if($(this).scrollTop() > 200 && headNav.hasClass('fixed') == false) {
+                    headNav.addClass('fixed');
+                    headNav.css({"top": '-100px'});
+                    headNav.animate({"top": 0},600);
+                    $(".pageContainer").css({"margin-top": headNavHeight});
+                }
+                else if($(this).scrollTop() < 199 && headNav.hasClass('fixed') == true){
+                    headNav.removeClass('fixed');
+                    $(".pageContainer").css({"margin-top": "0"});
+                }
+            });
+        }
+    });
+
+    //メニュー開閉
+    $(function(){
+        $("#checkMenuButton").on("click", function (evt) {
+            chk_status = $("#checkLangButton").prop("checked");
+            if(chk_status){
+                $("#checkLangButton").prop("checked", false);
+            }
+        });
+        $("#checkLangButton").on("click", function (evt) {
+            chk_status = $("#checkMenuButton").prop("checked");
+            if(chk_status){
+                $("#checkMenuButton").prop("checked", false);
+            }
+        });
+    });
+
+    //Page Top追随
+    $(function() {
+        $("#page-top").hide();
+        $("#page-top a").removeAttr('href');
+        $(window).on('load scroll', function () {
+            scrollHeight = $(document).height();
+            scrollPosition = $(window).height() + $(window).scrollTop();
+            footHeight = $("footer.footerMain").innerHeight();
+            TopBtnHeight = $("#page-top").innerHeight();
+            var windowWidth = window.innerWidth;
+            if(windowWidth <= 990){
+                NavHeight = $(".navMenu.fixed").innerHeight();
+                if (scrollHeight - scrollPosition  - NavHeight  - TopBtnHeight <= footHeight) {
+                    $("#page-top").fadeIn(600);
+                    $("#page-top").css({ position: "absolute", bottom: footHeight});
+                } else if($(this).scrollTop() > 100){
+                    $("#page-top").fadeIn(600);
+                    $("#page-top").css({ position: "fixed", bottom: "0" });
+                } else if($(this).scrollTop() < 99 ){
+                    $("#page-top").fadeOut(600);
+                }
+            }else{
+                if (scrollHeight - scrollPosition - TopBtnHeight <= footHeight) {
+                    $("#page-top").fadeIn(600);
+                    $("#page-top").css({ position: "absolute", bottom: footHeight});
+                } else if($(this).scrollTop() > 100){
+                    $("#page-top").fadeIn(600);
+                    $("#page-top").css({ position: "fixed", bottom: "0" });
+                } else if($(this).scrollTop() < 99 ){
+                    $("#page-top").fadeOut(600);
+                }
+            }
+        });
+        $("#page-top a").click(function () {
+            $('body, html').animate({ scrollTop: 0 }, 500);
+            return false;
+        });
+        $("#page-top a").on('keydown', function(event){
+            if (event.key === "Enter"){
+                $('body, html').animate({ scrollTop: 0 }, 500);
+                return false;
+            }
+        });
+    });
+
     //アコーディオンモジュール
     if ($(".acd-01 .acd-panel .acd-panel-heading").length) {
         $(".acd-01 .acd-panel").addClass("is-close").attr({"aria-expanded": "false","aria-hidden": "true"});
@@ -155,11 +237,13 @@ jQuery(document).ready(function ($) {
         }
         }
     });
-    $('a[href^="#"]:not(.btn-tab)').click(function() {
+    $('a[href^="#"]:not(.btn-tab):not(.single-language)').click(function() {
         var href= $(this).attr("href");
         var target = $(href);
-        var position = target.offset().top - 60;
-        $('body,html').stop().animate({scrollTop:position}, 500);   
+        if(target.length){
+            var position = target.offset().top - 60;
+            $('body,html').stop().animate({scrollTop:position}, 500);  
+        } 
         return false;
     });
 
