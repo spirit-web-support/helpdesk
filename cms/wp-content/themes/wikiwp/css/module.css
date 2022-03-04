@@ -885,6 +885,7 @@ img.img-border {
     display: block;
     border: none;
 }
+
 .entryContent .box-02 h3:not(.heading-box-02),
 .entryContent .box-02 h4:not(.heading-box-02),
 .entryContent .box-02 h5:not(.heading-box-02),
@@ -900,6 +901,7 @@ img.img-border {
     border: solid 1px #c6c6c6;
     background-color: #f5f5f5;
 }
+
 .entryContent .box-02.primary .heading-box-02 {
     background: #637f97;
     color: #ffffff;
@@ -909,10 +911,12 @@ img.img-border {
     border: solid 1px #fdc206;
     background-color: #feffd5;
 }
+
 .entryContent .box-02.warning .heading-box-02 {
     background: #fdc206;
     color: #ffffff;
 }
+
 .entryContent .box-02.warning h3,
 .entryContent .box-02.warning h4,
 .entryContent .box-02.warning h5,
@@ -923,6 +927,11 @@ img.img-border {
 .entryContent .box-02 hr {
     border-top: 1px solid #c6c6c6;
 }
+
+.entryContent .box-02 .wp-caption-text {
+    background-color: #ffffff;
+}
+
 @media screen and (max-width: 780px) {
     .entryContent .box-02{
         margin: 2.5rem 0 2rem 0;
@@ -956,6 +965,7 @@ img.img-border {
     left: -0.7rem;
     border-radius: 30px;
 }
+
 .entryContent .box-pickup.teacher::before {
     border: 3px solid #71b799;
 }
@@ -987,10 +997,12 @@ img.img-border {
     padding: 0.3rem 1rem 0.3rem 2rem;
     margin: 0 0 0 1rem;
 }
+
 .entryContent .box-pickup.teacher .heading-box-pickup {
     background-color: #71b799;
     color: #ffffff;
 }
+
 .entryContent .box-pickup.student .heading-box-pickup {
     background-color: #7762a0;
     color: #ffffff;
@@ -1128,6 +1140,10 @@ img.img-border {
 .entryContent table{
     margin-bottom: 2rem;
 }
+.entryContent table th,
+.entryContent table td{
+    line-height: 1.4;
+}
 
 .entryContent table tbody tr td > :last-child,
 .entryContent table tbody tr td > :last-child > :last-child {
@@ -1143,6 +1159,17 @@ img.img-border {
     width: 100%;
 }
 
+.entryContent table caption{
+    background-color: #637f97;
+    padding: 1rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+@media screen and (max-width: 780px) {
+    .entryContent table caption{
+        padding: 0.5rem;
+    }
+}
 /* スマホ時に回り込むテーブル */
 
 .entryContent table.table-2col {
@@ -1510,6 +1537,10 @@ img.img-border {
 
 .entryContent .acd-01 .acd-panel hr {
     border-color: #c6c6c6;
+}
+
+.entryContent .acd-01 .acd-panel .wp-caption-text {
+    background-color: #ffffff;
 }
 
 /* 外部ボタン */

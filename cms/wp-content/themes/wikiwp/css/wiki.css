@@ -96,14 +96,12 @@ select option {
 
 
 /* Media */
-.wp-caption {
-    text-align: center;
-}
-
 .wp-caption-text {
-    line-height: 15px;
-    padding-top: 5px;
-    margin: 0;
+    background-color: #f9f9f9;
+    padding: 1rem 0.5rem;
+    border: 1px solid #c6c6c6;
+    border-top: none;
+    line-height: 1.4;
 }
 
 /* Category */
