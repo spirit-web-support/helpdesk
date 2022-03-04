@@ -1535,6 +1535,10 @@ img.img-border {
     border-color: #c6c6c6;
 }
 
+.entryContent .acd-01 .acd-panel table td{
+    border-color: #c6c6c6;
+}
+
 .entryContent .acd-01 .acd-panel hr {
     border-color: #c6c6c6;
 }
