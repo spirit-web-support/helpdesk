@@ -567,13 +567,12 @@ add_filter('tiny_mce_before_init', function($init) {
 // パンくずリスト
 function breadcrumb() {
     if ( is_front_page() ) {
-        // トップページの場合
+        // 
     }else{
         $home = '<li><a href="'.get_bloginfo('url').'" ><i class="fas fa-home"></i>TOP</a></li>';
     
         echo '<ul class="list-breadcrumb">';
         if ( is_category() ) {
-            // カテゴリページの場合
             $cat = get_queried_object();
             $cat_id = $cat->parent;
             $cat_list = array();
@@ -587,15 +586,9 @@ function breadcrumb() {
             foreach($cat_list as $value){
                 echo $value;
             }
-            the_archive_title('<li>', '</li>');
-        }
-        else if ( is_archive() ) {
-        // 月別アーカイブ・タグページの場合
-        echo $home;
-        the_archive_title('<li>', '</li>');
+            the_archive_title('<li>「', '」の記事一覧</li>');
         }
         else if ( is_single() ) {
-        // 投稿ページの場合
         echo $home;
         /*
         $cat = get_the_category();
@@ -614,7 +607,6 @@ function breadcrumb() {
         single_post_title('<li>', '</li>');
         }
         else if( is_page() ) {
-        // 固定ページの場合
             echo $home;
             $ancestors_ids = array_reverse(get_post_ancestors( $post ));
             foreach($ancestors_ids as $ancestors_id){
@@ -627,49 +619,54 @@ function breadcrumb() {
             the_title('<li>', '</li>');
         }
         else if( is_search() ) {
-        // 検索ページの場合
         echo $home;
         echo '<li>「'.get_search_query().'」の検索結果</li>';
         }
         else if( is_404() ) {
-        // 404ページの場合
         echo $home;
-        echo '<li>ページが見つかりません</li>';
+        echo '<li>Page Not Found</li>';
         }
         echo "</ul>";
     }
 }
- 
-// アーカイブの余計なタイトルを削除
-add_filter( 'get_the_archive_title', function ($title) {
-    if ( is_category() ) {
-        $title = single_cat_title( '', false );
-    } elseif ( is_tag() ) {
-        $title = single_tag_title( '', false );
-    } elseif ( is_month() ) {
-        $title = single_month_title( '', false );
-    }
-    return $title;
-});
 
-/*
-// テーマカスタマイザー
-function my_theme_customize_register( $wp_customize ) {
-    $wp_customize->add_setting( 'bloginfo_sub', array(
-        'default'   => '',
-        'type'      => 'option',
-        'transport' => 'postMessage',
-    ));
-    $wp_customize->add_control( 'bloginfo_sub_origin_text', array(
-        'settings'  => 'bloginfo_sub', // settingのキー
-        'label'     => 'サブタイトル', // ラベル名
-        'section'   => 'title_tagline', // sectionを指定
-        'type'      => 'text', // フォームの種類を指定
-    ));
-
-}
-add_action( 'customize_register', 'my_theme_customize_register' );
+// タイトルタグ
 
 add_theme_support( 'title-tag' );
 
-*/
+function wp_document_title_separator( $separator ) {
+  $separator = '|';
+  return $separator;
+}
+add_filter( 'document_title_separator', 'wp_document_title_separator' );
+
+function wp_document_title_parts( $title ) {
+  if ( is_home() || is_front_page() ) {
+    unset( $title['tagline'] );
+  } 
+else if ( is_page() ) {
+    $ancestors_ids = array_reverse(get_post_ancestors( $post ));
+    $args = [];
+    foreach($ancestors_ids as $ancestors_id){
+        $args[] = " | ".get_page($ancestors_id)->post_title.$text;
+    }
+    if(count($arr) > 2){
+        $title['title'] = $title['title'].$args[1];
+    }else{
+        $title['title'] = $title['title'].$args[0];
+    }
+  }
+   else if ( is_search() ) {
+    $title['title'] = '「' . get_search_query() . '」の検索結果';
+  } else if ( is_404() ) {
+    $title['title'] = 'Page Not Found';
+  } else if ( is_category() ) {
+    $title['title'] = '「' . $title['title'] . '」の記事一覧';
+  } else if ( is_tag() ) {
+    $title['title'] = '「' . $title['title'] . '」の記事一覧';
+  } else if ( is_archive() ) {
+    $title['title'] = $title['title'] . 'の記事一覧';
+  }
+  return $title;
+}
+add_filter( 'document_title_parts', 'wp_document_title_parts', 10, 1 );
