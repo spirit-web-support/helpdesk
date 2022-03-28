@@ -11,7 +11,7 @@
         <section class="entryTypePostExcerptHeader">
             <div class="entryHeader">
                 <h1 class="entryTitle">
-                    <?php single_cat_title(); ?>
+                    「<?php single_cat_title(); ?>」の記事一覧
                 </h1>
             </div>
 

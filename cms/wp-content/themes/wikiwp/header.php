@@ -11,21 +11,27 @@
 
 <?php
     // Blog description
-	echo '<meta name="description" content="';
-	if ( is_single() ) { 
-		bloginfo('name'); echo "|"; 
-		single_post_title('', true); 
-	} else { 
-		bloginfo('name'); echo "|"; 
-		bloginfo('description'); 
-	} 
-	echo '" />',
+	if(is_search() || is_404() || is_category()){
+		//
+	} else {
+		echo '<meta name="description" content="';
+		if(is_front_page()){
+			bloginfo('name'); echo " | "; 
+			bloginfo('description'); 
+		} else if ( is_page() || is_single() ){
+			bloginfo('name');
+			echo "「";
+			single_post_title('', true);
+			echo "」のページです。";
+		} else { 
+			bloginfo('name'); echo " | "; 
+			bloginfo('description'); 
+		} 
+		echo '" />';
+	}
 
-	 	 '<title>';
-		wp_title( '|', true, 'right' );
-	echo '</title>';
+	echo  '<link rel="pingback" href="'.get_bloginfo('pingback_url').'">';
 
-		 '<link rel="pingback" href="'.get_bloginfo('pingback_url').'">';
 	wp_head();
 
 	echo '<!-- Favicon -->'."\n",
