@@ -12,6 +12,7 @@ RewriteRule ^online/zoom/secure$ /zoom/secure [R=301,L]
 RewriteRule ^online/zoom/faq$ /zoom/faq [R=301,L]
 RewriteRule ^archives/3488$ https://spirit.rikkyo.ac.jp/cdshe/online_class/SitePages/law.aspx [R=301,L]
 RewriteRule ^online/tips$ https://spirit.rikkyo.ac.jp/cdshe/online_class/SitePages/know-how.aspx [R=301,L]
+RewriteRule ^archives/3656$ online/online_stu [R=301,L]
 # RewriteRule ^元ページ$ リダイレクト先 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
