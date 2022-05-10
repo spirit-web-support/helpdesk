@@ -30,7 +30,7 @@ pre {
     font-size: 15px;
 }
 
-/* カスタムサイドバー非表示？ */
+/* カスタムサイドバー非表示 */
 .customSidebar {
     display: none;
 }
@@ -1229,16 +1229,6 @@ img.img-border {
         overflow: auto;
         white-space: nowrap;
     }
-
-    .entryContent .scroll::-webkit-scrollbar{
-        height: 5px;
-    }
-    .entryContent .scroll::-webkit-scrollbar-track{
-        background: #e5e5e5;
-    }
-    .entryContent .scroll::-webkit-scrollbar-thumb {
-        background: #71b799;
-    }
 }
 
 /* アコーディオン */
@@ -1982,6 +1972,15 @@ img.img-border {
 
 .simplebar-track.simplebar-vertical{
     width: 6px;
+}
+
+.simplebar-track.simplebar-horizontal{
+    height: 6px;
+}
+
+.simplebar-track.simplebar-horizontal .simplebar-scrollbar{
+    height: 6px;
+    top: 0;
 }
 
 .simplebar-scrollbar,
