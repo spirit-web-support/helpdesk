@@ -443,4 +443,35 @@ jQuery(document).ready(function ($) {
             return false;
         });
     }
+
+    (function(){
+        if ($(".entryContent .widget_media_image").length) {
+            var Container = $(".pageContainer");
+            var all = $(".entryContent .widget_media_image .panel-widget-style a");
+            var max = all.length;
+            var i = 0;
+            var text = "";
+            for(i ;i < max; i++){
+                text += all[i].innerHTML;
+            };
+            Container.append('<div class="modal-container"><div class="modal-body"><div class="modal-close"><i class="fas fa-times-circle"></i><span class="sr-only">閉じるボタン</span></div><div class="modal-content">' + text +'</div></div></div>');
+            var scrollPosition;
+            $(".entryContent .widget_media_image .panel-widget-style a img").on("click", function () {
+                $('.modal-container').addClass("cover");
+                var index = $('.entryContent .widget_media_image .panel-widget-style a img').index(this);
+                console.log('クリックされたのは'+ index + '番目です。');
+                var modalImg = $(".modal-container img");
+                modalImg.eq([index]).addClass("active");
+                scrollPosition = $(window).scrollTop();
+                $('html').addClass('fixed').css({'top': -scrollPosition});
+                return false;
+            });
+            $('.modal-close').on("click", function () {
+                $('.modal-container').removeClass("cover");
+                $('.modal-container img').removeClass("active");
+                $('html').removeClass('fixed').css({'top': 0});
+                window.scrollTo( 0 , scrollPosition );
+            });
+        }
+    }());
 });

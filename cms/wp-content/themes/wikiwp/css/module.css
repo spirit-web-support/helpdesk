@@ -1964,12 +1964,95 @@ img.img-border {
     }
 }
 
-@media only print and (max-width: 780px) {
-    .widget_media_image {
+html.fixed {
+    position: fixed!important;
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+
+
+/*モーダル本体の指定 + モーダル外側の背景の指定*/
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 50%);
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
+/*モーダル本体の擬似要素の指定*/
+.modal-container::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+
+/*モーダル本体に「active」クラス付与した時のスタイル*/
+.modal-container.cover {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*モーダル枠の指定*/
+.modal-body {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: auto;
+    max-width: 70%;
+    padding: 0;
+    margin: 70px;
+}
+
+/*モーダルを閉じるボタンの指定*/
+.modal-close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -40px;
+    right: -40px;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/*モーダル内のコンテンツの指定*/
+.modal-content {
+    background: #ffffff;
+    text-align: left;
+    padding: 0;
+    border-radius: 0;
+}
+
+.modal-container img {
+    width: auto;
+    display: none;
+}
+
+.modal-container img.active {
+    display: block;
+}
+
+@media only screen and (max-width: 780px) {
+    .modal-body {
         max-width: 70%;
     }
 }
 
+/*simplebar*/
 .simplebar-track.simplebar-vertical{
     width: 6px;
 }
