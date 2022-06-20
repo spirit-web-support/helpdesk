@@ -2151,3 +2151,25 @@ html.fixed {
 .simplebar-track {
     background: #e5e5e5;
 }
+
+/*画像付きBox*/
+.entryContent .box-2col{
+    border: 1px solid #e5e5e5;
+    padding: 2rem;
+}
+
+@media only screen and (max-width: 780px) {
+    .entryContent .box-2col {
+        border: 1px solid #e5e5e5;
+        padding: 2rem 1rem;
+    }
+    .entryContent .box-2col .panel-grid-cell:first-child{
+        width: 18rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .entryContent .box-2col .heading-top{
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+}
