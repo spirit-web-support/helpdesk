@@ -497,7 +497,8 @@ img.img-border {
     opacity: 1;
 }
 
-.entryContent ol.list-02 > li > p{
+.entryContent ol.list-02 > li > p,
+.entryContent ol.list-02 > li> div{
     padding: 0.5rem 0.5rem 0.5rem 4rem;
     display: block;
 }
