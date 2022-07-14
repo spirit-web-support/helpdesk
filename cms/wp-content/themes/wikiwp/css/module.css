@@ -1161,10 +1161,6 @@ img.img-border {
 .entryContent table{
     margin-bottom: 2rem;
 }
-.entryContent table th,
-.entryContent table td{
-    line-height: 1.4;
-}
 
 .entryContent table tbody tr td > :last-child,
 .entryContent table tbody tr td > :last-child > :last-child {
