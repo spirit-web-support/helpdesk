@@ -30,8 +30,7 @@
 		echo '" />';
 	}
 
-	echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"/>'."\n",
-		 '<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>'."\n",'<link rel="pingback" href="'.get_bloginfo('pingback_url').'">';
+	echo '<link rel="pingback" href="'.get_bloginfo('pingback_url').'">';
 
 	wp_head();
 

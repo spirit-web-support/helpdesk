@@ -124,6 +124,13 @@
 
 
 	// LOAD STYLES
+
+    // simplebar
+    function enqueue_simplebar() {
+        wp_enqueue_script( 'jquery-simplebar', 'https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js',[], '', true);
+        wp_enqueue_style( 'css-simplebar', 'https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css' );
+        }
+    add_action( 'wp_enqueue_scripts', 'enqueue_simplebar' );
 	// load stylesheet for bootstrap
 	function wikiwp_load_bootstrap_styles() {                       
 	  	wp_register_style( 'bootstrap-style', 
