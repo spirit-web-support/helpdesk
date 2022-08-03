@@ -34,7 +34,9 @@
 
 	wp_head();
 
-	echo '<!-- Favicon -->'."\n",
+	echo '<!-- wovn -->'."\n",
+		 '<script src="https://j.wovn.io/1" data-wovnio="key=AMy2Dn" async></script>'."\n",
+		 '<!-- Favicon -->'."\n",
 		 '<link rel="icon" href="/cms/wp-content/themes/wikiwp/images/favicon.ico"><!-- 32×32 -->'."\n",
 		 '<link rel="icon" href="/cms/wp-content/themes/wikiwp/images/icon.svg" type="image/svg+xml">'."\n",
 		 '<link rel="apple-touch-icon" href="/cms/wp-content/themes/wikiwp/images/apple-touch-icon.png"><!-- 180×180 -->'."\n",
