@@ -124,10 +124,9 @@
 
 
 	// LOAD STYLES
-
     // simplebar
     function enqueue_simplebar() {
-        wp_enqueue_script( 'jquery-simplebar', 'https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js',[], '', true);
+        wp_enqueue_script( 'jquery-simplebar', 'https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js',[], '6.0.0', true);
         wp_enqueue_style( 'css-simplebar', 'https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css' );
         }
     add_action( 'wp_enqueue_scripts', 'enqueue_simplebar' );
@@ -578,7 +577,7 @@ function breadcrumb() {
     }else{
         $home = '<li><a href="'.get_bloginfo('url').'" ><i class="fas fa-home"></i>TOP</a></li>';
     
-        echo '<ul class="list-breadcrumb">';
+        echo '<ul class="list-breadcrumb" data-simplebar>';
         if ( is_category() ) {
             $cat = get_queried_object();
             $cat_id = $cat->parent;
