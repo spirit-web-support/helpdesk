@@ -2371,3 +2371,20 @@ html.fixed {
         display: inline-flex !important;
     }
 }
+
+/*canvasモジュール*/
+.entryContent .txt-canvas{
+    background-color: #0374B5;
+    padding: 0 1rem;
+    color: #ffffff;
+    border-radius: 0.5rem;
+    font-size: 1.4rem;
+    display: inline-block;
+    margin: 0 0.5rem;
+    vertical-align: middle;
+    line-height: 2;
+}
+
+.entryContent .txt-canvas .icon-inline{
+    margin-left: 0;
+}
