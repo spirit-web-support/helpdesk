@@ -1242,94 +1242,6 @@ img.img-border {
 }
 
 /* アコーディオン */
-.entryContent .sow-accordion .sow-accordion-panel .sow-accordion-panel-header,
-.entryContent .acd-01 .sow-accordion .sow-accordion-panel .sow-accordion-panel-header{
-    padding: 0.5rem 3rem 0.5rem 1rem;
-}
-
-.entryContent .sow-accordion .sow-accordion-panel-header[aria-expanded="true"],
-.entryContent .acd-01 .sow-accordion .sow-accordion-panel-header[aria-expanded="true"]{
-    background-color: #637f97 !important;
-    color: #ffffff !important;
-}
-.entryContent .sow-accordion .sow-accordion-panel .sow-accordion-panel-header .sow-accordion-open-close-button{
-    position: relative;
-}
-.entryContent .sow-accordion .sow-accordion-panel .sow-accordion-panel-header .sow-accordion-open-button,
-.entryContent .sow-accordion .sow-accordion-panel .sow-accordion-panel-header .sow-accordion-close-button{
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: -2rem;
-
-}
-.entryContent .sow-accordion .sow-accordion-panel .sow-accordion-panel-content .sow-accordion-panel-border,
-.entryContent .acd-01 .sow-accordion .sow-accordion-panel .sow-accordion-panel-content .sow-accordion-panel-border,
-.entryContent .acd-num .sow-accordion .sow-accordion-panel .sow-accordion-panel-content .sow-accordion-panel-border {
-    border-top: none;
-    padding: 2rem 1rem;
-}
-
-.entryContent .sow-accordion-panel-content .box-01,
-.entryContent .sow-accordion-panel-content .box-02.primary,
-.entryContent .sow-accordion-panel-content h3.heading-03,
-.entryContent .sow-accordion-panel-content table td{
-    background-color: #ffffff;
-}
-.entryContent .sow-accordion-panel-content table th{
-    background-color: #637f97;
-    color: #ffffff;
-}
-.entryContent .sow-accordion-panel-content hr {
-    border-color: #dfdfdf;
-}
-
-/* アコーディオン ナンバリング */
-.entryContent .acd-num {
-    counter-reset: number-text;
-}
-.entryContent .acd-num .sow-accordion .sow-accordion-panel .sow-accordion-panel-header{
-    counter-increment: number-text;
-    padding: 0.5rem 3rem 0.5rem 6rem;
-}
-.entryContent .acd-num .sow-accordion .sow-accordion-panel .sow-accordion-panel-header::before{
-    content: "";
-    width: 5rem;
-    height: 100%;
-    position: absolute;
-    background-color: #637f97;
-    left: 0;
-    top: 0;
-    border-right: 1px solid #dfdfdf;
-}
-.entryContent .acd-num .sow-accordion .sow-accordion-panel .sow-accordion-panel-header::after{
-    content: counter(number-heading) "-" counter(number-text);
-    position: absolute;
-    font-weight: bold;
-    left: 0;
-    width: 5rem;
-    text-align: center;
-    color: #ffffff;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.entryContent .acd-num .sow-accordion .sow-accordion-panel .sow-accordion-panel-header[aria-expanded="true"]::before{
-    background-color: #637f97;
-    color: #ffffff;
-}
-.entryContent .acd-num .sow-accordion .sow-accordion-panel .sow-accordion-panel-header[aria-expanded="true"] {
-    background-color: #637f97 !important;
-}
-.entryContent .acd-num .sow-accordion .sow-accordion-panel .sow-accordion-panel-content .sow-accordion-panel-border{
-    border-top: none;
-    padding: 2rem 1rem;
-}
-.entryContent .acd-num .sow-accordion .sow-accordion-panel .sow-accordion-panel-content .sow-accordion-panel-border > :not(.box-01):not(.box-02):last-child{
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-/* 静的アコーディオン */
 .entryContent .acd-01 .acd-panel > .panel-grid-cell > .so-panel{
     padding: 0;
 }
@@ -1460,8 +1372,7 @@ img.img-border {
 
 .entryContent .acd-01 .acd-panel .acd-panel-content{
     padding: 2rem 1rem;
-    background-color: #f9f9f9;
-    border:1px solid #dfdfdf;
+    border: 1px solid #dfdfdf;
     border-top: none;
     width: 100%;
 }
@@ -1498,7 +1409,7 @@ img.img-border {
 }
 
 
-/* 静的アコーディオン ナンバリング*/
+/* アコーディオン ナンバリング*/
 .entryContent .acd-01.acd-num {
     counter-reset: number-text;
 }
@@ -1541,30 +1452,6 @@ img.img-border {
 .entryContent .acd-01 .acd-panel .acd-panel-content > :not(.box-01):not(.box-02):last-child{
     margin-bottom: 0;
     padding-bottom: 0;
-}
-
-.entryContent .acd-01 .acd-panel .acd-panel-content .box-01, 
-.entryContent .acd-01 .acd-panel .acd-panel-content .box-02.primary,
-.entryContent .acd-01 .acd-panel .acd-panel-content h3.heading-03, 
-.entryContent .acd-01 .acd-panel .acd-panel-content table td {
-    background-color: #ffffff;
-}
-
-.entryContent .acd-01 .acd-panel table th{
-    background-color: #dfdfdf;
-    border-color: #dfdfdf;
-}
-
-.entryContent .acd-01 .acd-panel table td{
-    border-color: #dfdfdf;
-}
-
-.entryContent .acd-01 .acd-panel hr {
-    border-color: #dfdfdf;
-}
-
-.entryContent .acd-01 .acd-panel .wp-caption-text {
-    background-color: #ffffff;
 }
 
 /* 外部ボタン */
