@@ -133,7 +133,7 @@
 	// load stylesheet for bootstrap
 	function wikiwp_load_bootstrap_styles() {                       
 	  	wp_register_style( 'bootstrap-style', 
-	    get_stylesheet_directory_uri().'/css/bootstrap.min.css', array(), false, 'all' );    
+	    get_stylesheet_directory_uri().'/css/bootstrap.min.css', array(), filemtime( get_stylesheet_directory() . '/css/bootstrap.min.css'), 'all' );
 	  	wp_enqueue_style( 'bootstrap-style' );
 	}
 	add_action('wp_enqueue_scripts', 'wikiwp_load_bootstrap_styles');
@@ -141,7 +141,7 @@
     // load stylesheet for the theme
 	function wikiwp_load_styles() {                       
 	  	wp_register_style( 'theme_style', 
-	    get_stylesheet_directory_uri().'/style.css', array(), false, 'all' );    
+	    get_stylesheet_directory_uri().'/style.css', array(), filemtime( get_stylesheet_directory() . '/style.css'), 'all' );    
 	  	wp_enqueue_style( 'theme_style' );
 	}
 	add_action('wp_enqueue_scripts', 'wikiwp_load_styles');
@@ -149,7 +149,7 @@
     // load stylesheet for navigation
 	function wikiwp_load_navigation_side_styles() {                       
 	  	wp_register_style( 'navigation-side-style', 
-	    get_stylesheet_directory_uri().'/css/navigation-side.css', array(), false, 'all' );    
+	    get_stylesheet_directory_uri().'/css/navigation-side.css', array(), filemtime( get_stylesheet_directory() . '/css/navigation-side.css'), 'all' );    
 	  	wp_enqueue_style( 'navigation-side-style' );
 	}
 	add_action('wp_enqueue_scripts', 'wikiwp_load_navigation_side_styles');
@@ -157,7 +157,7 @@
     // load stylesheet for wiki
 	function wikiwp_load_wiki_styles() {                       
 	  	wp_register_style( 'wiki-style', 
-	    get_stylesheet_directory_uri().'/css/wiki.css', array(), false, 'all' );    
+	    get_stylesheet_directory_uri().'/css/wiki.css', array(), filemtime( get_stylesheet_directory() . '/css/wiki.css'), 'all' );    
 	  	wp_enqueue_style( 'wiki-style' );
 	}
     add_action('wp_enqueue_scripts', 'wikiwp_load_wiki_styles');
@@ -165,7 +165,7 @@
     // load stylesheet for module
     function wikiwp_load_module_styles() {                       
 	  	wp_register_style( 'module-style', 
-	    get_stylesheet_directory_uri().'/css/module.css', array(), false, 'all' );    
+	    get_stylesheet_directory_uri().'/css/module.css', array(), filemtime( get_stylesheet_directory() . '/css/module.css'), 'all' );    
 	  	wp_enqueue_style( 'module-style' );
 	}
     add_action('wp_enqueue_scripts', 'wikiwp_load_module_styles');
@@ -175,7 +175,8 @@
         wp_enqueue_script(
             'functions-script',
             get_stylesheet_directory_uri() . '/js/functions.js',
-            array( 'jquery' )
+            array( 'jquery' ), 
+            filemtime( get_theme_file_path( '/js/functions.js' ) )
         );
     }
     add_action( 'wp_enqueue_scripts', 'wikiwp_function_script' );
