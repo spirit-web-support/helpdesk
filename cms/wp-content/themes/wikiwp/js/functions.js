@@ -234,7 +234,7 @@ jQuery(document).ready(function ($) {
         }
         }
     });
-    $('a[href^="#"]:not(.btn-tab):not(.acd-panel a)').click(function() {
+    $('a[href^="#"]:not(.btn-tab)').click(function() {
         var href= $(this).attr("href");
         var target = $(href);
         if(target.length){
