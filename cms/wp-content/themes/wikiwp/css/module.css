@@ -1120,7 +1120,7 @@ img.img-border {
 }
 
 .entryContent .lyt-num {
-    counter-reset: number-text;
+    counter-reset: number-text number-heading-02;
 }
 
 @media screen and (max-width: 780px) {
