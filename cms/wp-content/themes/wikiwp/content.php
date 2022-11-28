@@ -27,6 +27,19 @@
             the_title();
             ?>
         </h1>
+            <?php $value = get_post_meta($post->ID, 'linkUrl', true);?>
+            <?php if(!empty($value)):?>
+                <div class="btn-external">
+                    <?php
+                        $page_id = get_the_ID(); //ページのIDを取得
+                        echo '<a href="';
+                        echo esc_url(get_post_meta($page_id, 'linkUrl', true));
+                        echo '" target="_blank">';
+                        echo esc_html(get_post_meta($page_id, 'linkText', true));
+                        echo '</a>';
+                    ?>
+                </div>
+            <?php endif;?>
     </div>
 
     <div class="entryContent">
