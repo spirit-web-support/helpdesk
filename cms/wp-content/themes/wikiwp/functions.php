@@ -676,3 +676,68 @@ else if ( is_page() ) {
   return $title;
 }
 add_filter( 'document_title_parts', 'wp_document_title_parts', 10, 1 );
+
+
+//カスタムフィールドのメタボックス
+function add_custom_fields(){
+   add_meta_box(
+      'custom_field_01', //セクションのID
+      'リンクボタン', //セクションのタイトル
+      'insert_titleBtn_fields', //フォーム部分を指定する関数
+      'page', //投稿タイプの場合は「post」、カスタム投稿タイプの場合は「スラッグ名」、固定ページの場合は「page」
+      'normal', //セクションの表示場所
+      'high'  //優先度
+    );
+  }
+add_action('admin_menu', 'add_custom_fields');
+ 
+//カスタムフィールドの入力エリア
+function insert_titleBtn_fields() {
+  global $post;
+  //nounceフィールドの追加
+  wp_nonce_field('custom_field_save_meta_box_data', 'custom_field_meta_box_nonce');
+echo '
+<table class="custom-fields">
+  <tr class="border-top border-bottom">
+     <th scope="row">
+       <label for="linkText">リンクテキスト</label>
+     </th>
+     <td> 
+       <input type="text" id="linkText" name="linkText" value="'.get_post_meta($post->ID, 'linkText', true).'" />
+     </td>
+   </tr>
+   <tr class="border-bottom">
+      <th scope="row">
+        <label for="linkUrl">リンク先URL</label>
+      </th>
+      <td> 
+        <input type="text" id="linkUrl" name="linkUrl" value="'.get_post_meta($post->ID, 'linkUrl', true).'" />
+      </td>
+   </tr>
+</table>
+';
+}
+ 
+//カスタムフィールドの値を保存
+function save_custom_fields( $post_id ) {
+  //nonceがセットされているか確認
+  if (!isset($_POST['custom_field_meta_box_nonce'])) {
+   return;
+ }
+ //nounceが正しいか検証
+   if (!wp_verify_nonce($_POST['custom_field_meta_box_nonce'], 'custom_field_save_meta_box_data')) {
+    return;
+}
+  if(!empty($_POST['linkText'])) { //入力済みの場合
+    update_post_meta($post_id, 'linkText', $_POST['linkText'] ); //値を保存
+  } else { //未入力の場合
+    delete_post_meta($post_id, 'linkText'); //値を削除
+  }
+  if(!empty($_POST['linkUrl'])) { //入力済みの場合
+   update_post_meta($post_id, 'linkUrl', $_POST['linkUrl'] ); //値を保存
+ } else { //未入力の場合
+   delete_post_meta($post_id, 'linkUrl'); //値を削除
+ }
+}
+add_action('save_post', 'save_custom_fields');
+?>
