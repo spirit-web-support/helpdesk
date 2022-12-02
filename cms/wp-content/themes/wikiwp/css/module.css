@@ -123,10 +123,10 @@ pre {
 }
 
 /* 画像 */
-.entryContent img:not(.img-inline) {
+.entryContent img:not(.img-inline):not(.icon-inline) {
     margin-bottom: 2rem;
 }
-.entryContent .widget_media_image.panel-last-child img:not(.img-inline) {
+.entryContent .widget_media_image.panel-last-child img:not(.img-inline):not(.icon-inline) {
     margin-bottom: 0;
 }
 .entryContent .img-border img,
@@ -137,6 +137,7 @@ img.img-border {
 /* インライン画像 */
 .entryContent .img-inline {
     margin: 0 0.5rem;
+    border: 1px solid #dfdfdf;
 }
 
 .entryContent .icon-inline {
@@ -1038,18 +1039,17 @@ img.img-border {
 .entryContent .heading-num::after {
     counter-increment: number-heading;
     content: counter(number-heading, decimal-leading-zero);
-    padding-right: 5px;
     color: #71b799;
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    left: 0.5rem;
-    right: 0;
+    left: -0.5rem;
+    text-align: center;
+    width: 5rem;
     font-size: 2.6rem;
     font-weight: bold;
-    letter-spacing: -0.1rem;
 }
 
 .entryContent .heading-num h2 {
