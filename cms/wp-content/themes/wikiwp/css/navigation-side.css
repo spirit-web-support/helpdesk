@@ -9,7 +9,7 @@
             flex-direction: column;
 }
 
-@media only screen and (max-width: 991px) {
+@media screen and (max-width: 1199px) {
     .navMenu.fixed{
         position: fixed;
         top: 0;
@@ -30,7 +30,7 @@
     color: #333333;
 }
 
-@media only screen and (max-width: 991px) {
+@media screen and (max-width: 1199px) {
     .primary-menu-side {
         width: 100%;
     }
@@ -185,7 +185,7 @@
 
 .primary-menu .nav-container .main-menu .menu-item > a:hover,
 .primary-menu .nav-container .main-menu .menu-item > a:focus{
-    background: #e8e8e8;
+    background-color: #e8e8e8;
     text-decoration: none;
     cursor : pointer;
 }
@@ -310,7 +310,7 @@
     display: none;
 }
 
-@media only screen and (max-width: 991px) {
+@media screen and (max-width: 1199px) {
     .navMenu {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
@@ -404,7 +404,7 @@
 
 /* mobile menu */
 
-@media only screen and (max-width: 991px){
+@media screen and (max-width: 1199px){
     .navMenu #checkMenuButton ~ .primary-menu-side {
         line-height: 0;
         opacity: 0;
@@ -518,7 +518,7 @@
 }
 .navMenu input[type="search"]:-webkit-autofill {
     background-color: transparent !important;
-    -webkit-box-shadow: 0 0 0 50px #333 inset;
+    -webkit-box-shadow: 0 0 0 50px #333333 inset;
     color: #333333!important;
 }
 
@@ -534,7 +534,7 @@
     background-color: transparent;
 }
 
-@media only screen and (max-width: 991px){
+@media screen and (max-width: 1199px){
     .navMenu .search-form{
         width: calc(100% - 5rem);
         border-left: 1px solid #ebebeb;
@@ -587,5 +587,5 @@
 
 .navMenu .wovn-lang-list li:not(.selected):hover,
 .navMenu .wovn-lang-list li:not(.selected):focus {
-    background: #e8e8e8;
+    background-color: #e8e8e8;
 }

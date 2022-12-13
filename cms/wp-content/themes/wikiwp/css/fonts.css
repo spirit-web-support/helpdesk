@@ -38,7 +38,7 @@ h5 {
 h6 {
     font-size: 1.6rem;
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width:767px) {
     h1 {
         font-size: 2.2rem;
     }
@@ -135,7 +135,7 @@ th, td {
     padding: 1rem;
 }
 
-@media screen and (max-width: 780px){
+@media screen and (max-width:767px){
     th, td {
     padding: 0.5rem;
     }
