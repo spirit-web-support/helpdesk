@@ -86,7 +86,7 @@ pre {
     padding-bottom: 0;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 767px) {
     .entryContent .panel-grid .panel-grid-cell:not(:last-child) .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):last-child {
         margin-bottom: 15px;
     }
@@ -596,7 +596,7 @@ img.img-border {
     display: block;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 767px) {
     .entryContent dl.list-inline dt,
     .entryContent dl.list-inline dd {
     display: block;
@@ -708,7 +708,7 @@ img.img-border {
     margin-bottom: 0;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 767px) {
     .entryContent ol.list-index{
         margin: 2.5rem 0 0;
         padding: 2.5rem 1rem 1rem;
@@ -855,7 +855,7 @@ img.img-border {
     border: none;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 767px) {
     .entryContent ul.list-news > li{
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -1000,7 +1000,7 @@ img.img-border {
     background-color: #ffffff;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 767px) {
     .entryContent .box-02{
         margin: 2.5rem 0 2rem 0;
         padding: 2.5rem 1rem 1rem;
@@ -1087,7 +1087,7 @@ img.img-border {
     counter-reset: number-text number-heading-02;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 767px) {
     .entryContent .heading-num h2 {
         font-size: 1.8rem;
     }
@@ -1117,7 +1117,7 @@ img.img-border {
     float: left;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 767px) {
     .entryContent .text-num::before,
     .entryContent .text-num-02::before {
         width: 100%;
@@ -1154,7 +1154,7 @@ img.img-border {
     color: #ffffff;
     font-weight: bold;
 }
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 767px) {
     .entryContent table caption{
         padding: 0.5rem;
     }
@@ -1171,7 +1171,7 @@ img.img-border {
     border: 1px solid #dfdfdf;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 767px) {
     .entryContent table.table-2col {
         width: 100%;
     }
@@ -1193,7 +1193,7 @@ img.img-border {
     width:100%;
 }
 
-@media screen and (max-width: 780px) {
+@media screen and (max-width: 767px) {
     .entryContent .scroll{
         overflow: auto;
         white-space: nowrap;
@@ -1634,7 +1634,7 @@ img.img-border {
     margin: 0 0 1rem;
 }
 
-@media only screen and (max-width: 576px){
+@media screen and (max-width: 576px){
     .entryContent .tab-content .tab-menu{
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
@@ -1915,7 +1915,7 @@ html.fixed {
     transform: translateY(-50%)rotate(-135deg);
 }
 
-@media only screen and (max-width: 780px) {
+@media screen and (max-width: 767px) {
     .entryContent .widget_media_image a {
         pointer-events: none;
     }
@@ -1991,7 +1991,7 @@ html.fixed {
     display: inline-flex !important;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (max-width: 767px) {
     .d-sm-none {
         display: none !important;
     }
@@ -2033,7 +2033,7 @@ html.fixed {
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 991px) {
     .d-md-none {
         display: none !important;
     }
@@ -2075,7 +2075,7 @@ html.fixed {
     }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 1199px) {
     .d-lg-none {
         display: none !important;
     }
@@ -2117,47 +2117,47 @@ html.fixed {
     }
 }
 
-@media screen and (min-width: 1200px) {
-    .d-xl-none {
-        display: none !important;
-    }
 
-    .d-xl-inline {
-        display: inline !important;
-    }
-
-    .d-xl-inline-block {
-        display: inline-block !important;
-    }
-
-    .d-xl-block {
-        display: block !important;
-    }
-
-    .d-xl-table {
-        display: table !important;
-    }
-
-    .d-xl-table-row {
-        display: table-row !important;
-    }
-
-    .d-xl-table-cell {
-        display: table-cell !important;
-    }
-
-    .d-xl-flex {
-        display: -ms-flexbox !important;
-        display: -webkit-box !important;
-        display: flex !important;
-    }
-
-    .d-xl-inline-flex {
-        display: -ms-inline-flexbox !important;
-        display: -webkit-inline-box !important;
-        display: inline-flex !important;
-    }
+.d-xl-none {
+    display: none !important;
 }
+
+.d-xl-inline {
+    display: inline !important;
+}
+
+.d-xl-inline-block {
+    display: inline-block !important;
+}
+
+.d-xl-block {
+    display: block !important;
+}
+
+.d-xl-table {
+    display: table !important;
+}
+
+.d-xl-table-row {
+    display: table-row !important;
+}
+
+.d-xl-table-cell {
+    display: table-cell !important;
+}
+
+.d-xl-flex {
+    display: -ms-flexbox !important;
+    display: -webkit-box !important;
+    display: flex !important;
+}
+
+.d-xl-inline-flex {
+    display: -ms-inline-flexbox !important;
+    display: -webkit-inline-box !important;
+    display: inline-flex !important;
+}
+
 
 /*canvasモジュール*/
 .entryContent .txt-canvas{

@@ -104,7 +104,7 @@ iframe { max-width: 100%; }
     padding: 1rem;
 }
 
-@media only screen and (max-width:991px) {
+@media screen and (max-width:1199px) {
     .headerMain{
         padding: 0;
     }
@@ -132,7 +132,7 @@ iframe { max-width: 100%; }
     width: auto;
     max-width: 100%;
 }
-@media only screen and (max-width:991px) {
+@media screen and (max-width:1199px) {
     #site-logo {
         width: 100%;
         height: 100%;
@@ -754,7 +754,7 @@ footer .content {
     padding: 0;
 }
 
-@media only screen and (max-width:767px) {
+@media screen and (max-width:767px) {
     /* Content */
     .container-menu-side-open {
         margin-left: 200px;
@@ -862,7 +862,7 @@ aside {
     padding-top: 32px;
 }
 
-@media only screen and (max-width:767px) {
+@media screen and (max-width:767px) {
     .admin-bar aside {
         padding-top: 46px;
     }
@@ -888,7 +888,7 @@ aside {
     text-indent: -99999px;
 }
 
-@media only screen and (max-width:1199px) {
+@media screen and (max-width:1199px) {
     .asideMenuButton {
         display: block;
     }
@@ -907,7 +907,7 @@ aside {
 
 }
 
-@media only screen and (max-width:1199px) {
+@media screen and (max-width:1199px) {
     .asideMenuButtonActive {
         right: 0;
         margin: 0;
@@ -969,7 +969,7 @@ aside {
 /* sidebar content */
 .dynamic-sidebar-container { padding: 30px 0; }
 
-@media only screen and (max-width:767px) {
+@media screen and (max-width:767px) {
     /* Sidebar */
     aside {
         color: #333333;
@@ -1020,7 +1020,7 @@ aside {
 .entryTypePostExcerpt .entryContent p:last-child {
     margin-bottom: 0;
 }
-@media only screen and (max-width:767px) {
+@media screen and (max-width:767px) {
     .entryTypePostExcerptHeader,
     .entryTypePostExcerptMeta,
     .entry,
