@@ -740,4 +740,17 @@ function save_custom_fields( $post_id ) {
  }
 }
 add_action('save_post', 'save_custom_fields');
+
+//画像に追加されるwidthとheightを削除
+	
+function custum_theme_content_replacement($the_content) {
+        $return = $the_content;
+        $return = preg_replace(
+            array("/(sizes|width|height)=\"((?:\\\.|[^\"\\\])*)\"/i")
+            ,array(" ")
+            ,$return
+        );
+        return $return;
+}
+add_filter('the_content','custum_theme_content_replacement');
 ?>
