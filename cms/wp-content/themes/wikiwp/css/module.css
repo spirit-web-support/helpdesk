@@ -19,11 +19,11 @@
 }
 
 .entryContent .widget_media_image a,
-.entryContent a.fancybox.image,
 .entryContent a.no-border {
     border: none;
     padding: 0;
 }
+
 .entryContent a:hover{
     opacity: 0.8;
 }
@@ -90,36 +90,6 @@ pre {
     .entryContent .panel-grid .panel-grid-cell:not(:last-child) .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):last-child {
         margin-bottom: 15px;
     }
-}
-
-/* モーダル調整 */
-#fancybox-wrap {
-    max-width: calc(100% - 40px);
-    left: 0 !important;
-    right: 0 !important;
-    margin: 0 auto;
-}
-
-#fancybox-content {
-    max-width: 95% !important;
-    height: auto !important;
-}
-
-/* 2カラム */
-.entryContent .row {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin: 0;
-}
-
-.entryContent .row > .col-6 {
-    width: 50%;
-    padding:0 0.5rem 0 0;
-}
-
-.entryContent .row > .col-6:nth-child(2n) {
-    padding:0 0 0 0.5rem;
 }
 
 /* 画像 */
@@ -1948,6 +1918,16 @@ html.fixed {
 
 .simplebar-track {
     background-color: #dfdfdf;
+}
+
+/* カラム */
+.entryContent .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0;
 }
 
 /* 表示ユーティリティ */
