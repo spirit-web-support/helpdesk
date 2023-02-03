@@ -31,8 +31,13 @@
 
 /* pre設定 */
 pre {
-    margin: 15px 0 15px 0;
-    font-size: 15px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.6rem;
+}
+
+.entryContent pre > :last-child,
+.entryContent pre > :last-child> :last-child {
+    margin-bottom: 0;
 }
 
 /* カスタムサイドバー非表示 */
@@ -66,7 +71,7 @@ pre {
 }
 
 /* 余白調整 */
-.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):not:first-child,
+.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):first-child,
 .entryContent .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):first-child {
     margin-top: 0;
 }
@@ -76,13 +81,13 @@ pre {
     margin-bottom: 0;
 }
 
-.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):not(.list-index):not(.box-01):not(.box-02):first-child,
-.entryContent .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):not(.list-index):not(.box-01):not(.box-02):first-child {
+.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):first-child,
+.entryContent .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):first-child {
     padding-top: 0;
 }
 
-.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):not(.list-index):not(.box-01):not(.box-02):last-child,
-.entryContent .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):not(.list-index):not(.box-01):not(.box-02):last-child {
+.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):last-child,
+.entryContent .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):last-child {
     padding-bottom: 0;
 }
 
@@ -660,7 +665,6 @@ img.img-border {
 
 .entryContent ol.list-index > li > ol{
     padding-left: 2.2rem;
-    margin-bottom: 1rem;
 }
 
 .entryContent ol.list-index > li > ol > li{
@@ -853,7 +857,7 @@ img.img-border {
 }
 
 .entryContent .box-01 > *{
-    margin-bottom: 0.4rem;
+    margin-bottom: 1rem;
 }
 
 .entryContent .box-01 > :first-child,
@@ -874,6 +878,8 @@ img.img-border {
     line-height: 1.2;
     display: inline-block;
     font-size: 1.6rem;
+    border: none;
+    padding: 0;
 }
 
 .entryContent .box-01 .heading_01:first-child {
@@ -1378,7 +1384,7 @@ img.img-border {
 }
 
 /* アコーディオン 調整*/
-.entryContent .acd-01 .acd-panel .acd-panel-content > :not(.box-01):not(.box-02):last-child{
+.entryContent .acd-01 .acd-panel .acd-panel-content > :not([class^="box"]):last-child{
     margin-bottom: 0;
     padding-bottom: 0;
 }
