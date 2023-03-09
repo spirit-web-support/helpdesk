@@ -71,13 +71,13 @@ pre {
 }
 
 /* 余白調整 */
-.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):first-child,
-.entryContent .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):first-child {
+.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):first-child,
+.entryContent .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):first-child {
     margin-top: 0;
 }
 
-.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):last-child,
-.entryContent .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):last-child{
+.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):last-child,
+.entryContent .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):last-child{
     margin-bottom: 0;
 }
 

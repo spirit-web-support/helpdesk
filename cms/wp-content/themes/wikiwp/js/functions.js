@@ -197,7 +197,7 @@ jQuery(document).ready(function ($) {
                 }
             }
         });
-        $('a[href^="#"]:not(.btn-tab)').click(function() {
+        $('a[href^="#"]:not(.btn-tab):not(#page-top a)').click(function() {
             var href = $(this).attr("href");
             if(href){
                 var titleHash = $(".acd-panel").find(href);
@@ -234,7 +234,7 @@ jQuery(document).ready(function ($) {
         }
         }
     });
-    $('a[href^="#"]:not(.btn-tab)').click(function() {
+    $('a[href^="#"]:not(.btn-tab):not(#page-top a)').click(function() {
         var href= $(this).attr("href");
         var target = $(href);
         if(target.length){
@@ -379,7 +379,7 @@ jQuery(document).ready(function ($) {
             }
         });
 
-        $('a[href^="#"]:not(.btn-tab)').on("click", function () {
+        $('a[href^="#"]:not(.btn-tab):not(#page-top a)').on("click", function () {
             var hrefHash = $(this).attr("href");
 
             if(hrefHash){
