@@ -76,8 +76,8 @@ pre {
     margin-top: 0;
 }
 
-.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):last-child,
-.entryContent .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):last-child{
+.entryContent .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):last-child,
+.entryContent .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):last-child{
     margin-bottom: 0;
 }
 
@@ -1213,7 +1213,7 @@ img.img-border {
 .entryContent .acd-01 .acd-panel.is-close .acd-panel-heading:focus,
 .entryContent .acd-01 .acd-panel.is-close .acd-panel-heading:hover,
 .entryContent .acd-01 .acd-panel.is-close .acd-panel-heading:active{
-    background-color: #e6eff5;
+    background-color: #f5f5f5;
     outline-offset: 1px;
 }
 
