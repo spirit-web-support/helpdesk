@@ -183,17 +183,9 @@ jQuery(document).ready(function ($) {
 
                 if(titleHash.hasClass("acd-panel-heading")){
                     $(titleHash).parents(".acd-panel").removeClass("is-close").addClass("is-open").attr({"aria-expanded": "true","aria-hidden": "false"});
-                    setTimeout(function(){
-                    var pos = Math.floor($(titleHash).parents(".acd-panel").offset().top) - 100;
-                    $("html, body").animate({scrollTop:pos}, 600);
-                    },300);
                 }
                 if(contentHash.length){
                     $(contentHash).parents(".acd-panel").removeClass("is-close").addClass("is-open").attr({"aria-expanded": "true","aria-hidden": "false"});
-                    setTimeout(function(){
-                    var pos = Math.floor($(contentHash).offset().top) - 100;
-                    $("html, body").animate({scrollTop:pos}, 600);
-                    },300);
                 }
             }
         });
@@ -205,21 +197,39 @@ jQuery(document).ready(function ($) {
 
                 if(titleHash.hasClass("acd-panel-heading")){
                     $(titleHash).parents(".acd-panel").removeClass("is-close").addClass("is-open").attr({"aria-expanded": "true","aria-hidden": "false"});
-                    setTimeout(function(){
                     var pos = Math.floor($(titleHash).parents(".acd-panel").offset().top) - 100;
                     $("html, body").animate({scrollTop:pos}, 600);
-                    },300);
                 }
                 if(contentHash.length){
                     $(contentHash).parents(".acd-panel").removeClass("is-close").addClass("is-open").attr({"aria-expanded": "true","aria-hidden": "false"});
-                    setTimeout(function(){
                     var pos = Math.floor($(contentHash).offset().top) - 100;
                     $("html, body").animate({scrollTop:pos}, 600);
-                    },300);
                 }
             }
         return false;
         });
+        if ($(".acd-01 .btn-acd").length) {
+            $(".acd-01 .btn-acd button").on("click", function () {
+                if ($(this).hasClass("btn-open")) {
+                    $(this).removeClass("btn-open");
+                    $(this).addClass("btn-close");
+                    $(this).html("すべての項目を閉じる")
+                    var acd = $(this).parents(".acd-01");
+                    var tgl = acd.find(".acd-panel");
+                    tgl.removeClass("is-close");
+                    tgl.addClass("is-open").attr({"aria-expanded": "true","aria-hidden": "false"});
+                }else{
+                    $(this).removeClass("btn-close");
+                    $(this).addClass("btn-open");
+                    $(this).html("すべての項目を開く")
+                    var acd = $(this).parents(".acd-01");
+                    var tgl = acd.find(".acd-panel");
+                    tgl.removeClass("is-open");
+                    tgl.addClass("is-close").attr({"aria-expanded": "false","aria-hidden": "true"});
+                }
+                return false;
+            });
+        }       
     }
 
     //ページ内リンクのスクロール調整
