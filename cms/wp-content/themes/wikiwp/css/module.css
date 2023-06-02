@@ -1177,6 +1177,49 @@ img.img-border {
 }
 
 /* アコーディオン */
+.entryContent .acd-01 .btn-acd{
+    text-align: right;
+}
+.entryContent .acd-01 .btn-acd button{
+    position: relative;
+    padding-right: 4rem;
+    border: none;
+    background-color: transparent;
+}
+
+.entryContent .acd-01 .btn-acd button::before{
+    position: absolute;
+    content: "";
+    width: 1.2rem;
+    height: 2px;
+    background-color: #4d4d4d;
+    right: 1rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.entryContent .acd-01 .btn-acd button.btn-open::after{
+    position: absolute;
+    content: "";
+    width: 1.2rem;
+    height: 2px;
+    background-color: #4d4d4d;
+    right: 1rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%) rotate(90deg);
+    -ms-transform: translateY(-50%) rotate(90deg);
+    transform: translateY(-50%) rotate(90deg);
+}
+
+.entryContent .acd-01 .btn-acd button.btn-close::after{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 0;
+}
+
 .entryContent .acd-01 .acd-panel > .panel-grid-cell > .so-panel{
     padding: 0;
 }
@@ -1667,6 +1710,10 @@ img.img-border {
     }
     
     /* アコーディオン */
+    .entryContent .acd-01 .btn-acd button{
+        display:none;
+    }
+
     .entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h2, 
     .entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h3, 
     .entryContent .acd-01 .acd-panel.is-open .acd-panel-heading h4, 
