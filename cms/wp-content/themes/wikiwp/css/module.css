@@ -797,16 +797,22 @@ img.img-border {
     height: 100%;
     line-height: 1.6;
     text-align: center;
-}
-.entryContent ul.list-news > li .tag-student {
-    background-color: #7762a0;
     color: #ffffff;
+}
+
+.entryContent ul.list-news > li .tag-all {
+    background-color: #7762a0;
 }
 
 .entryContent ul.list-news > li .tag-teacher {
     background-color: #71b799;
-    color: #ffffff;
 }
+
+.entryContent ul.list-news > li .tag-student {
+    background-color: #637f97;
+}
+
+
 
 .entryContent ul.list-news > li > p.text,
 .entryContent ul.list-news > li > div.text {
