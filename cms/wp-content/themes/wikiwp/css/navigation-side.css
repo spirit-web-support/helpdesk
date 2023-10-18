@@ -452,7 +452,6 @@
     align-items: center;
     width: auto;
     border-bottom: 1px solid #dfdfdf;
-    background-color: #ffffff;
 }
 
 .navMenu .search-form label {
@@ -464,6 +463,7 @@
     position: relative;
     width: auto;
     max-width: none;
+    background-color: #ffffff;
 }
 
 .navMenu .search-form label::before {
@@ -476,7 +476,6 @@
     transform: translateY(-50%);
     right: 0.5rem;
     padding: 0 0.5rem;
-    z-index: 101;
 }
 
 .navMenu .search-form label:focus::after {
@@ -542,15 +541,16 @@
     }
 
     .navMenu .search-form label{
-        width: 100%;
-        height: 100%;
+        width: calc(100% - 2rem);
+        height: calc(100% - 2rem);
+        border: 1px solid #ebebeb;
+        margin: 0 auto;
     }
 
     .navMenu input[type="search"]{
         width: calc(100% - 3.6rem);
         height: auto;
         border-radius: 0;
-        background-color: #ffffff;
     }
 
     .navMenu input[type="search"]:hover,
