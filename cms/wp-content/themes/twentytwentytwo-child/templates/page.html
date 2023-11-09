@@ -1,17 +1,13 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
-<!-- wp:template-part {"slug":"navigation","tagName":"div"} /-->
-<!-- wp:group {"tagName":"main"} -->
-<main class="lyt-main"><!-- wp:group {"layout":{"inherit":true}} -->
-<div class="wp-block-group"><!-- wp:post-title {"level":1} /-->
-<!-- /wp:group -->
-
-
-<!-- wp:post-content {"layout":{"inherit":true}} /-->
-
-<!-- wp:group {"layout":{"inherit":true}} -->
-<div class="wp-block-group">
-<!-- wp:post-comments {"style":{"spacing":{"padding":{"top":"var(--wp--custom--spacing--medium, 6rem)"}}}} /--></div>
-<!-- /wp:group --></main>
-<!-- /wp:group -->
-
+<div class="container-fluid">
+    <div class="container-inner">
+        <!-- wp:template-part {"slug":"navigation","tagName":"div"} /-->
+        <main id="lyt-main">
+            <div class="lyt-main-inner">
+                <!-- wp:post-title {"level":1} /-->
+                <!-- wp:post-content {"layout":{"inherit":true}} /-->
+            </div>
+        </main>
+    </div>
+</div>
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

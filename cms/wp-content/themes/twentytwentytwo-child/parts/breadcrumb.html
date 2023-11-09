@@ -1,0 +1,68 @@
+<?php echo do_blocks( '
+
+function breadcrumb() {
+if ( is_front_page() ) {
+//
+}else{
+$home = '<li><a href="'.get_bloginfo('url').'"><i class="fas fa-home"></i>TOP</a></li>';
+
+echo '<ul class="list-breadcrumb" data-simplebar>';
+    if ( is_category() ) {
+    $cat = get_queried_object();
+    $cat_id = $cat->parent;
+    $cat_list = array();
+    while ($cat_id != 0){
+    $cat = get_category( $cat_id );
+    $cat_link = get_category_link( $cat_id );
+    array_unshift( $cat_list, '<li><a href="'.$cat_link.'">'.$cat->name.'</a></li>' );
+    $cat_id = $cat->parent;
+    }
+    echo $home;
+    foreach($cat_list as $value){
+    echo $value;
+    }
+    the_archive_title('<li>「', '」の記事一覧</li>');
+    }
+    else if ( is_single() ) {
+    echo $home;
+    /*
+    $cat = get_the_category();
+    if( isset($cat[0]->cat_ID) ) $cat_id = $cat[0]->cat_ID;
+    $cat_list = array();
+    while ($cat_id != 0){
+    $cat = get_category( $cat_id );
+    $cat_link = get_category_link( $cat_id );
+    array_unshift( $cat_list, '<li><a href="'.$cat_link.'">'.$cat->name.'</a></li>' );
+    $cat_id = $cat->parent;
+    }
+    foreach($cat_list as $value){
+    echo $value;
+    }
+    */
+    single_post_title('<li>', '</li>');
+    }
+    else if( is_page() ) {
+    echo $home;
+    $ancestors_ids = array_reverse(get_post_ancestors( $post ));
+    foreach($ancestors_ids as $ancestors_id){
+    echo '<li><a href="';
+                echo get_page_link( $ancestors_id );
+                echo '">';
+            echo get_page($ancestors_id)->post_title;
+            echo '</a></li>';
+    }
+    the_title('<li>', '</li>');
+    }
+    else if( is_search() ) {
+    echo $home;
+    echo '<li>「'.get_search_query().'」の検索結果</li>';
+    }
+    else if( is_404() ) {
+    echo $home;
+    echo '<li>Page Not Found</li>';
+    }
+    echo "</ul>";
+}
+}
+' );
+; ?>

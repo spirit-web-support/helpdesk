@@ -109,12 +109,15 @@ p {
     display: flex;
 }
 
-.lyt-nav {
+.container-inner{
+    min-height: 100svh;
+}
+
+#lyt-nav {
     width: 30rem;
     border-right: 1px solid #dfdfdf;
     background-color: #f9f9f9;
     height: 100%;
-    padding-bottom: 40rem;
 }
 
 .lyt-nav-inner{
@@ -124,9 +127,9 @@ p {
     z-index: 9999;
 }
 
-.lyt-main {
+#lyt-main {
     width: calc(100% - 30rem);
-    padding: 4rem;
+    padding: 4rem 4rem 10rem;
 }
 
 @media screen and (max-width: 1199px) {
@@ -134,16 +137,22 @@ p {
         width: 100%;
         display: block;
     }
-
+    #lyt-nav.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        height: auto;
+    }
     .lyt-nav-inner {
         display: flex;
         flex-wrap: wrap;
         position: relative;
     }
 
-    .lyt-main {
+    #lyt-main {
         width: 100%;
-        padding: 2rem;
+        padding: 4rem 2rem 10rem;
     }
 }
 
@@ -183,13 +192,13 @@ p {
 
 /* Navigation */
 /* Navigation Button */
-.lyt-nav input[id="btn-nav"],
-.lyt-nav #label-main-menu {
+#lyt-nav input[id="btn-nav"],
+#lyt-nav #label-main-menu {
     display: none;
 }
 
 @media screen and (max-width: 1199px) {
-    .lyt-nav input[id="btn-nav"]{
+    #lyt-nav input[id="btn-nav"]{
         display: block;
         border: 0;
         clip: rect(0 0 0 0);
@@ -203,11 +212,11 @@ p {
         width: 1px;
     }
 
-    .lyt-nav input[id="btn-nav"]:focus + #label-main-menu {
+    #lyt-nav input[id="btn-nav"]:focus + #label-main-menu {
         outline: auto;
     }
 
-    .lyt-nav #label-main-menu {
+    #lyt-nav #label-main-menu {
         z-index: 100;
         margin: 0;
         padding: 0 0.8rem;
@@ -219,7 +228,7 @@ p {
         background-color: #637f97;
     }
 
-    .lyt-nav #label-main-menu span {
+    #lyt-nav #label-main-menu span {
         position: relative;
         top: 50%;
         display: block;
@@ -234,8 +243,8 @@ p {
         user-select: none;
     }
 
-    .lyt-nav #label-main-menu span::before,
-    .lyt-nav #label-main-menu span::after {
+    #lyt-nav #label-main-menu span::before,
+    #lyt-nav #label-main-menu span::after {
         position: absolute;
         width: calc(100% - 1rem);
         width: 100%;
@@ -247,43 +256,44 @@ p {
         transition: all 0.5s;
     }
 
-    .lyt-nav #label-main-menu span::before {
+    #lyt-nav #label-main-menu span::before {
         -webkit-transform: translateY(-250%);
         -ms-transform: translateY(-250%);
         transform: translateY(-250%);
     }
 
-    .lyt-nav #label-main-menu span::after {
+    #lyt-nav #label-main-menu span::after {
         -webkit-transform: translateY(250%);
         -ms-transform: translateY(250%);
         transform: translateY(250%);
     }
-    .lyt-nav input[id="btn-nav"]:checked~#label-main-menu span {
+    #lyt-nav input[id="btn-nav"]:checked~#label-main-menu span {
         background-color: transparent;
     }
-    .lyt-nav input[id="btn-nav"]:checked ~ #label-main-menu span::before {
+    #lyt-nav input[id="btn-nav"]:checked ~ #label-main-menu span::before {
         -webkit-transform: translateY(0) rotate(45deg);
         -ms-transform: translateY(0) rotate(45deg);
         transform: translateY(0) rotate(45deg);
     }
 
-    .lyt-nav input[id="btn-nav"]:checked~#label-main-menu span::after{
+    #lyt-nav input[id="btn-nav"]:checked~#label-main-menu span::after{
         -webkit-transform: translateY(0) rotate(-45deg);
         -ms-transform: translateY(0) rotate(-45deg);
         transform: translateY(0) rotate(-45deg);
     }
 
-    .lyt-nav{
+    #lyt-nav{
         width: 100%;
         padding-bottom: 0;
         border-right: none;
     }
 
-    body.fixed .lyt-nav{
-        height: calc(100svh - 6rem);
-        overflow-y: scroll;
+    body.fixed #lyt-nav{
+        height: 100svh;
+        overflow-y: auto;
     }
-    .lyt-nav nav{
+
+    #lyt-nav nav{
         position: absolute;
         top: 5rem;
         width: 100%;
@@ -291,7 +301,8 @@ p {
         overflow: hidden;
         visibility: hidden;
     }
-    .lyt-nav input[id="btn-nav"]:checked + #label-main-menu + .search-form + nav {
+
+    #lyt-nav input[id="btn-nav"]:checked + #label-main-menu + .search-form + nav {
         display: block;
         overflow: visible;
         visibility: visible;
@@ -299,7 +310,7 @@ p {
 }
 
 /* Search Form */
-.lyt-nav .search-form {
+#lyt-nav .search-form {
     position: relative;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -311,7 +322,7 @@ p {
     border-bottom: 1px solid #dfdfdf;
 }
 
-.lyt-nav .search-form label {
+#lyt-nav .search-form label {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -323,7 +334,7 @@ p {
     background-color: #ffffff;
 }
 
-.lyt-nav .search-form label::before {
+#lyt-nav .search-form label::before {
     font-family: "fontawesome";
     content: "\f002";
     position: absolute;
@@ -335,11 +346,11 @@ p {
     padding: 0 0.5rem;
 }
 
-.lyt-nav .search-form label:focus::after {
+#lyt-nav .search-form label:focus::after {
     right: 0;
 }
 
-.lyt-nav input[type="search"] {
+#lyt-nav input[type="search"] {
     width: calc(30rem - 4rem);
     height: 4rem;
     padding: 0 1rem;
@@ -349,42 +360,42 @@ p {
     background-color: #ffffff;
 }
 
-.lyt-nav input[type="search"]:hover,
-.lyt-nav input[type="search"]:active,
-.lyt-nav input[type="search"]:focus {
+#lyt-nav input[type="search"]:hover,
+#lyt-nav input[type="search"]:active,
+#lyt-nav input[type="search"]:focus {
     -webkit-transition: border 0.3s, width 0.3s, color 0.3s;
     -o-transition: border 0.3s, width 0.3s, color 0.3s;
     transition: border 0.3s, width 0.3s, color 0.3s;
     color: #333333;
 }
 
-.lyt-nav input[type="search"]::-webkit-input-placeholder {
+#lyt-nav input[type="search"]::-webkit-input-placeholder {
     color: #333333;
 }
 
-.lyt-nav input[type="search"]::-moz-placeholder {
+#lyt-nav input[type="search"]::-moz-placeholder {
     color: #333333;
 }
 
-.lyt-nav input[type="search"]:-ms-input-placeholder {
+#lyt-nav input[type="search"]:-ms-input-placeholder {
     color: #333333;
 }
 
-.lyt-nav input[type="search"]::-ms-input-placeholder {
+#lyt-nav input[type="search"]::-ms-input-placeholder {
     color: #333333;
 }
 
-.lyt-nav input[type="search"]::placeholder {
+#lyt-nav input[type="search"]::placeholder {
     color: #333333;
 }
 
-.lyt-nav input[type="search"]:-webkit-autofill {
+#lyt-nav input[type="search"]:-webkit-autofill {
     background-color: transparent !important;
     -webkit-box-shadow: 0 0 0 50px #333333 inset;
     color: #333333 !important;
 }
 
-.lyt-nav input[type="submit"] {
+#lyt-nav input[type="submit"] {
     cursor: pointer;
     position: relative;
     border: none;
@@ -398,42 +409,42 @@ p {
 }
 
 @media screen and (max-width: 1199px) {
-    .lyt-nav .search-form {
+    #lyt-nav .search-form {
         width: calc(100% - 5rem);
         border-left: 1px solid #ebebeb;
         border-bottom: 1px solid #ebebeb;
     }
 
-    .lyt-nav .search-form label {
+    #lyt-nav .search-form label {
         width: calc(100% - 2rem);
         height: calc(100% - 1.2rem);
         border: 1px solid #9b9b9b;
         margin: 0 auto;
     }
 
-    .lyt-nav input[type="search"] {
+    #lyt-nav input[type="search"] {
         width: calc(100% - 3.6rem);
         height: auto;
         border-radius: 0;
         line-height: normal;
     }
 
-    .lyt-nav input[type="search"]:hover,
-    .lyt-nav input[type="search"]:active,
-    .lyt-nav input[type="search"]:focus {
+    #lyt-nav input[type="search"]:hover,
+    #lyt-nav input[type="search"]:active,
+    #lyt-nav input[type="search"]:focus {
         width: calc(100% - 3.6rem);
     }
 }
 
 /* wovn language */
-.lyt-nav .wovn-lang-list {
+#lyt-nav .wovn-lang-list {
     margin: 0;
     padding: 0;
     display: flex;
     border-bottom: 1px solid #ebebeb;
 }
 
-.lyt-nav .wovn-lang-list li {
+#lyt-nav .wovn-lang-list li {
     width: 50%;
     display: inline-block;
     text-align: center;
@@ -441,37 +452,38 @@ p {
     cursor: pointer;
 }
 
-.lyt-nav .wovn-lang-list li+li {
+#lyt-nav .wovn-lang-list li+li {
     border-left: 1px solid #ebebeb;
 }
 
-.lyt-nav .wovn-lang-list li.selected {
+#lyt-nav .wovn-lang-list li.selected {
     background-color: #637f97;
     color: #ffffff;
     cursor: auto;
 }
 
-.lyt-nav .wovn-lang-list li:not(.selected):hover,
-.lyt-nav .wovn-lang-list li:not(.selected):focus {
+#lyt-nav .wovn-lang-list li:not(.selected):hover,
+#lyt-nav .wovn-lang-list li:not(.selected):focus {
     background-color: #e8e8e8;
 }
 
 /* global-nav */
-.lyt-nav .main-menu,
-.lyt-nav .main-menu .sub-menu{
+#lyt-nav .main-menu,
+#lyt-nav .main-menu .sub-menu{
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
-.lyt-nav .main-menu > li{
+#lyt-nav .main-menu > li{
     padding: 0;
     position: relative;
     background-color: #f9f9f9;
     border-bottom: 1px solid #dfdfdf;
+    overflow: hidden;
 }
 
-.lyt-nav .main-menu input[id^="sub-menu"] {
+#lyt-nav .main-menu input[id^="sub-menu"] {
     border: 0;
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
@@ -484,7 +496,7 @@ p {
     width: 1px;
 }
 
-.lyt-nav .main-menu .label-sub-menu{
+#lyt-nav .main-menu .label-sub-menu{
     position: relative;
     display: block;
     cursor: pointer;
@@ -492,11 +504,13 @@ p {
     padding: 0.5rem 2.5rem 0.5rem 0.5rem;
 }
 
-.lyt-nav .main-menu input[id^="sub-menu"]:focus + .label-sub-menu {
+#lyt-nav .main-menu input[id^="sub-menu"]:focus + .label-sub-menu {
     outline: auto;
+    outline-offset: -1px;
+    background-color: #e8e8e8;
 }
 
-.lyt-nav .main-menu .label-sub-menu::before{
+#lyt-nav .main-menu .label-sub-menu::before{
     position: absolute;
     content: "";
     width: 1.2rem;
@@ -510,7 +524,7 @@ p {
     border: none;
 }
 
-.lyt-nav .main-menu .label-sub-menu::after {
+#lyt-nav .main-menu .label-sub-menu::after {
     position: absolute;
     content: "";
     width: 1.2rem;
@@ -524,33 +538,38 @@ p {
     transition: all 0.5s;
 }
 
-.lyt-nav .main-menu input[id^="sub-menu"]:checked + .label-sub-menu::after {
+#lyt-nav .main-menu input[id^="sub-menu"]:checked + .label-sub-menu::after {
     display: none;
 }
 
-.lyt-nav .main-menu input[id^="sub-menu"]:checked + .label-sub-menu::before {
+#lyt-nav .main-menu input[id^="sub-menu"]:checked + .label-sub-menu::before {
     background-color: #ffffff;
 }
 
-.lyt-nav .main-menu .label-sub-menu,
-.lyt-nav .main-menu .sub-menu{
+#lyt-nav .main-menu .label-sub-menu,
+#lyt-nav .main-menu .sub-menu{
     -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
 }
 
-.lyt-nav .main-menu .sub-menu {
+#lyt-nav .main-menu .sub-menu {
     max-height: 0;
     overflow: hidden;
     transition: all 1s;
     visibility: hidden;
 }
 
-.lyt-nav .main-menu input[id^="sub-menu"]:checked + .label-sub-menu{
+#lyt-nav .main-menu input[id^="sub-menu"]:checked + .label-sub-menu{
     background-color: #637f97;
     color: #ffffff;
 }
 
-.lyt-nav .main-menu input[id^="sub-menu"]:checked + .label-sub-menu + .sub-menu {
+#lyt-nav .main-menu input[id^="sub-menu"]:checked + .label-sub-menu:hover,
+#lyt-nav .main-menu input[id^="sub-menu"]:checked:focus + .label-sub-menu {
+    opacity: 0.8;
+}
+
+#lyt-nav .main-menu input[id^="sub-menu"]:checked + .label-sub-menu + .sub-menu {
     max-height: 400px;
     transition: all 2s;
     overflow: visible;
@@ -559,169 +578,42 @@ p {
     visibility: visible;
 }
 
-.lyt-nav .main-menu .sub-menu > li{
+#lyt-nav .main-menu .sub-menu > li{
     position: relative;
     border-bottom: 1px solid #dfdfdf;
 }
 
-.lyt-nav .main-menu .sub-menu > li:last-child {
+#lyt-nav .main-menu .sub-menu > li:last-child {
     border-bottom: none;
 }
 
-.lyt-nav .main-menu .sub-menu .modal-title{
-    padding: 0.5rem 0.5rem 0.5rem 2rem;
-    display: block;
-    cursor: pointer;
-    width: 100%;
-}
-
-.lyt-nav .main-menu .sub-menu .modal-menu {
-    display: none;
-    overflow: hidden;
-    visibility: hidden;
-}
-
-.lyt-nav .main-menu .sub-menu > li:hover .modal-menu,
-.lyt-nav .main-menu .sub-menu > li:focus-within .modal-menu,
-.lyt-nav .main-menu .sub-menu > li > .modal-title:hover + .modal-menu,
-.lyt-nav .main-menu .sub-menu > li > .modal-title:focus-within + .modal-menu {
-    position: absolute;
-    display: block;
-    padding: 2rem;
-    top: 0;
-    left: 30rem;
-    width: 50rem;
-    max-height: 40rem;
-    overflow: visible;
-    background-color: #f9f9f9;
-    border-top: 1px solid #dfdfdf;
-    border-right: 1px solid #dfdfdf;
-    border-bottom: 1px solid #dfdfdf;
-    z-index: 9999;
-    visibility: visible;
-}
-
-.lyt-nav .main-menu .sub-menu > li:hover .modal-menu.col-2 {
-    max-width: 120rem;
-    width: calc(100vw - 40rem);
-}
-
-.lyt-nav .main-menu .sub-menu .modal-menu .list-modal-menu {
-    list-style-type: none;
-    counter-reset: modal-number;
-    padding: 0;
-}
-
-.lyt-nav .main-menu .sub-menu > li:hover .modal-menu.col-2  .list-modal-menu{
-    column-count: 2;
-    column-rule: 1px solid #dfdfdf;
-    column-gap: 4rem;
-}
-
-.lyt-nav .main-menu .sub-menu .modal-menu .list-modal-menu > li{
-    position: relative;
-    list-style-type: none;
-}
-
-.lyt-nav .main-menu .sub-menu .modal-menu .list-modal-menu > li::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 0.5rem 0;
-    display: inline-block;
-    counter-increment: modal-number;
-    content: counter(modal-number, decimal-leading-zero);
-    font-weight: bold;
-    color: #637f97;
-}
-
-.lyt-nav .main-menu > li > a {
+#lyt-nav .main-menu > li > a {
     padding: 0.5rem;
     text-decoration: none;
     color: #333333;
     display: block;
+    outline-offset: -1px;
 }
 
-.lyt-nav .main-menu .sub-menu > li > a {
+#lyt-nav .main-menu .sub-menu > li > a {
     padding: 0.5rem 0.5rem 0.5rem 2rem;
     text-decoration: none;
     color: #333333;
     display: block;
+    outline-offset: -1px;
 }
 
-.lyt-nav .main-menu .label-sub-menu:hover,
-.lyt-nav .main-menu .label-sub-menu:focus,
-.lyt-nav .main-menu > li > a:hover,
-.lyt-nav .main-menu > li > a:focus,
-.lyt-nav .sub-menu > li > a:hover,
-.lyt-nav .sub-menu > li > a:focus,
-.lyt-nav .list-modal-menu > li > a:hover,
-.lyt-nav .list-modal-menu > li > a:focus {
+#lyt-nav .main-menu .label-sub-menu:hover,
+#lyt-nav .main-menu > li > a:hover,
+#lyt-nav .main-menu > li > a:focus,
+#lyt-nav .sub-menu > li > a:hover,
+#lyt-nav .sub-menu > li > a:focus {
     background-color: #e8e8e8;
 }
 
-.lyt-nav .main-menu .sub-menu .modal-menu .list-modal-menu > li > div {
-        padding: 0.5rem 0.5rem 0.5rem 3rem;
-}
-
-.lyt-nav .main-menu .sub-menu .modal-menu .list-modal-menu > li > a{
-    padding: 0.5rem 0.5rem 0.5rem 3rem;
-    text-decoration: none;
-    color: #333333;
-    display: block;
-}
-
-.lyt-nav ul.list-02 > li {
-    position: relative;
-    margin-left: 0.5rem;
-}
-
-.lyt-nav ul.list-02 > li::before {
-    content: "\f0a9";
-    font-family: fontawesome;
-    position: absolute;
-    left: -2rem;
-    color: #637f97;
-}
-
-.lyt-nav ul.list-02.list-inline {
-    padding: 0;
-    margin: 0 -2rem;
-}
-
-.lyt-nav ul.list-02.list-inline > li {
-    margin: 0 0 0 2rem;
-    padding: 0 0 0 2rem;
-    display: inline-block;
-}
-
-.lyt-nav ul.list-02.list-inline > li::before {
-    left: 0;
-}
-
-.lyt-nav ul.list-02 > li > a {
-    margin: 0;
-    border-bottom: none;
-    text-decoration: none;
-    color: #333333;
-}
-
-.lyt-nav ul.list-02 > li > a[href*=".pdf"] .fa.fa-external-link::before {
-    content: "\f1c1";
-    color: #b30b00;
-    font: normal normal normal 18px/1 FontAwesome;
-}
-
 @media screen and (max-width: 1199px) {
-    .lyt-nav .main-menu{
+    #lyt-nav .main-menu{
         padding-bottom: 10rem;
-    }
-
-    .lyt-nav .main-menu .sub-menu>li:hover .modal-menu,
-    .lyt-nav .main-menu .sub-menu>li:focus-within .modal-menu,
-    .lyt-nav .main-menu .sub-menu>li>.modal-title:hover+.modal-menu,
-    .lyt-nav .main-menu .sub-menu>li>.modal-title:focus-within+.modal-menu {
-        display: none;
     }
 }
 
