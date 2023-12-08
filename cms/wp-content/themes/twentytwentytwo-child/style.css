@@ -15,6 +15,7 @@ body {
     font-size: 1.6rem;
     line-height: 1.75;
     margin: 0;
+    color: #333333;
 }
 
 body.fixed {
@@ -100,6 +101,87 @@ p {
     line-height: 1.75;
 }
 
+a {
+    color: #637f97;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+/* Search Form */
+.search-form {
+    position: relative;
+}
+
+.search-form .search-field {
+    width: 100%;
+    border: 1px solid #dfdfdf;
+    padding: 0.5rem 6rem 0.5rem 1rem;
+    font-size: 1.6rem;
+    height: 4rem;
+}
+
+.search-form .btn-search[type="submit"] {
+    position: absolute;
+    right: 0;
+    font-size: 0rem;
+    cursor: pointer;
+    height: 100%;
+    width: 5rem;
+    background-color: transparent;
+    border: none;
+}
+
+.search-form .btn-search[type="submit"]::before {
+    font-family: "fontawesome";
+    font-size: 1.6rem;
+    content: "\f002";
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.search-field:hover,
+.search-field:active,
+.search-field:focus {
+    -webkit-transition: border 0.3s, width 0.3s, color 0.3s;
+    -o-transition: border 0.3s, width 0.3s, color 0.3s;
+    transition: border 0.3s, width 0.3s, color 0.3s;
+    color: #333333;
+}
+
+.search-field::-webkit-input-placeholder {
+    color: #333333;
+}
+
+.search-field::-moz-placeholder {
+    color: #333333;
+}
+
+.search-field:-ms-input-placeholder {
+    color: #333333;
+}
+
+.search-field::-ms-input-placeholder {
+    color: #333333;
+}
+
+.search-field::placeholder {
+    color: #333333;
+}
+
+.search-field:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-box-shadow: 0 0 0 50px #dfdfdf inset;
+    color: #333333 !important;
+}
+
 /* container */
 .wp-site-blocks {
     padding: 0;
@@ -113,46 +195,15 @@ p {
     min-height: 100svh;
 }
 
-#lyt-nav {
-    width: 30rem;
-    border-right: 1px solid #dfdfdf;
-    background-color: #f9f9f9;
-    height: 100%;
-}
+.wp-block-post-excerpt {
+    margin-bottom: 4rem;
 
-.lyt-nav-inner{
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-}
-
-#lyt-main {
-    width: calc(100% - 30rem);
-    padding: 4rem 4rem 10rem;
 }
 
 @media screen and (max-width: 1199px) {
     .wp-site-blocks > .container-fluid > .container-inner {
         width: 100%;
         display: block;
-    }
-    #lyt-nav.fixed {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;
-        height: auto;
-    }
-    .lyt-nav-inner {
-        display: flex;
-        flex-wrap: wrap;
-        position: relative;
-    }
-
-    #lyt-main {
-        width: 100%;
-        padding: 4rem 2rem 10rem;
     }
 }
 
@@ -191,6 +242,36 @@ p {
 
 
 /* Navigation */
+#lyt-nav {
+    width: 30rem;
+    border-right: 1px solid #dfdfdf;
+    background-color: #f9f9f9;
+    height: 100%;
+}
+
+.lyt-nav-inner {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+@media screen and (max-width: 1199px) {
+    #lyt-nav.fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        height: auto;
+    }
+
+    .lyt-nav-inner {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+    }
+}
+
 /* Navigation Button */
 #lyt-nav input[id="btn-nav"],
 #lyt-nav #label-main-menu {
@@ -236,7 +317,7 @@ p {
         height: 3px;
         margin: 0 auto;
         background-color: #ffffff;
-        font-size: 0px;
+        font-size: 0rem;
         -webkit-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
@@ -310,129 +391,29 @@ p {
 }
 
 /* Search Form */
-#lyt-nav .search-form {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    width: auto;
-    border-bottom: 1px solid #dfdfdf;
+#lyt-nav .search-form .search-field {
+    padding: 0.5rem 4rem 0.5rem 1rem;
+    border-right: none;
 }
-
-#lyt-nav .search-form label {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    margin-bottom: 0;
-    font-weight: normal;
-    position: relative;
-    width: auto;
-    max-width: none;
-    background-color: #ffffff;
-}
-
-#lyt-nav .search-form label::before {
-    font-family: "fontawesome";
-    content: "\f002";
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    right: 0.5rem;
-    padding: 0 0.5rem;
-}
-
-#lyt-nav .search-form label:focus::after {
-    right: 0;
-}
-
-#lyt-nav input[type="search"] {
-    width: calc(30rem - 4rem);
-    height: 4rem;
-    padding: 0 1rem;
-    margin: 0;
-    color: #333333;
-    border: none;
-    background-color: #ffffff;
-}
-
-#lyt-nav input[type="search"]:hover,
-#lyt-nav input[type="search"]:active,
-#lyt-nav input[type="search"]:focus {
-    -webkit-transition: border 0.3s, width 0.3s, color 0.3s;
-    -o-transition: border 0.3s, width 0.3s, color 0.3s;
-    transition: border 0.3s, width 0.3s, color 0.3s;
-    color: #333333;
-}
-
-#lyt-nav input[type="search"]::-webkit-input-placeholder {
-    color: #333333;
-}
-
-#lyt-nav input[type="search"]::-moz-placeholder {
-    color: #333333;
-}
-
-#lyt-nav input[type="search"]:-ms-input-placeholder {
-    color: #333333;
-}
-
-#lyt-nav input[type="search"]::-ms-input-placeholder {
-    color: #333333;
-}
-
-#lyt-nav input[type="search"]::placeholder {
-    color: #333333;
-}
-
-#lyt-nav input[type="search"]:-webkit-autofill {
-    background-color: transparent !important;
-    -webkit-box-shadow: 0 0 0 50px #333333 inset;
-    color: #333333 !important;
-}
-
-#lyt-nav input[type="submit"] {
-    cursor: pointer;
-    position: relative;
-    border: none;
-    float: none;
-    margin: 0;
-    padding: 0;
+#lyt-nav .search-form .btn-search[type="submit"] {
     width: 4rem;
-    z-index: 101;
-    background-color: transparent;
-    border-right: 1px solid #dfdfdf;
 }
 
 @media screen and (max-width: 1199px) {
     #lyt-nav .search-form {
         width: calc(100% - 5rem);
-        border-left: 1px solid #ebebeb;
+        padding: 0.6rem 1rem;
         border-bottom: 1px solid #ebebeb;
     }
 
-    #lyt-nav .search-form label {
-        width: calc(100% - 2rem);
-        height: calc(100% - 1.2rem);
+    #lyt-nav .search-form .search-field {
         border: 1px solid #9b9b9b;
-        margin: 0 auto;
+        height: 100%;
     }
 
-    #lyt-nav input[type="search"] {
-        width: calc(100% - 3.6rem);
-        height: auto;
-        border-radius: 0;
-        line-height: normal;
-    }
-
-    #lyt-nav input[type="search"]:hover,
-    #lyt-nav input[type="search"]:active,
-    #lyt-nav input[type="search"]:focus {
-        width: calc(100% - 3.6rem);
+    #lyt-nav .search-form .btn-search[type="submit"] {
+        height: 3.8rem;
+        right: 1rem;
     }
 }
 
@@ -617,6 +598,34 @@ p {
     }
 }
 
+/* main */
+#lyt-main {
+    width: calc(100% - 30rem);
+    padding: 4rem 4rem 10rem;
+}
+
+#lyt-main .lyt-main-title,
+#lyt-main .lyt-main-search{
+    margin-bottom: 4rem;
+}
+
+#lyt-main .lyt-main-search{
+    max-width: 50rem;
+}
+
+@media screen and (max-width: 1199px) {
+    #lyt-main {
+        width: 100%;
+        padding: 4rem 2rem 10rem;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #lyt-main {
+        padding: 2rem 1rem 5rem;
+    }
+}
+
 /* Footer */
 footer {
     clear: both;
@@ -690,3 +699,27 @@ footer .copyright p a:active {
     line-height: 1.6;
 }
 
+/* 検索結果ページ */
+.lyt-main-content .search-highlight{
+    background-color: transparent;
+    font-weight: bold;
+}
+
+.lyt-main-content a .search-highlight {
+    color: #637f97;
+}
+
+.lyt-main-content .lyt-post-content{
+    margin-bottom: 4rem;
+    overflow: hidden;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+}
+
+/* 404ページ */
+.lyt-main-title .txt-404{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+}

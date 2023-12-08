@@ -1,11 +1,28 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<!-- wp:group {"tagName":"main"} -->
-<main class="wp-block-group"><!-- wp:group {"layout":{"inherit":true}} -->
-<div class="wp-block-group">
-<!-- wp:pattern {"slug":"twentytwentytwo/hidden-404"} /-->
+<div class="container-fluid">
+    <div class="container-inner">
+        <!-- wp:template-part {"slug":"navigation","tagName":"div"} /-->
+        <main id="lyt-main">
+            <!-- wp:pattern {"slug":"breadcrumb"} /-->
+            <div class="lyt-main-title">
+                <h1><span class="txt-404">404</span><br>ページが見つかりませんでした</h1>
+            </div>
+            <div class="lyt-main-search">
+                <!-- wp:pattern {"slug":"searchBox"} /-->
+            </div>
+            <div class="lyt-main-content">
+                <div class="entry-content">
+                    <p>お探しのページは存在しません。<br>
+                    URLの入力ミスがないかを確認するか、トップページへ移動してください。</p>
+                    <ul class="list-02">
+                        <li><a href="/">トップページへ戻る</a></li>
+                        <li><a href="/contact" >お問い合わせについて</a></li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
 </div>
-<!-- /wp:group --></main>
-<!-- /wp:group -->
 
 <!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
