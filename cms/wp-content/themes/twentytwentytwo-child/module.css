@@ -1994,6 +1994,7 @@ html.fixed {
 
 .modal-container img.active {
     display: block;
+    height: auto;
 }
 
 .modal-move {
