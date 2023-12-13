@@ -601,6 +601,7 @@ a:link {
 /* main */
 #lyt-main {
     width: calc(100% - 30rem);
+    max-width: 1600px;
     padding: 4rem 4rem 10rem;
 }
 
@@ -721,5 +722,6 @@ footer .copyright p a:active {
 .lyt-main-title .txt-404{
     font-size: 4rem;
     margin-bottom: 2rem;
-    display: inline-block;
+    display: block;
+    color:#637f97;
 }
