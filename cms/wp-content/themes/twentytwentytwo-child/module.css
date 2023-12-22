@@ -58,14 +58,6 @@ pre code {
     margin-bottom: 0;
 }
 
-
-/* サイドバーのライン消し */
-@media print {
-    .no_print {
-        display: none;
-    }
-}
-
 .entry-content .siteorigin-widget-tinymce {
     page-break-inside: avoid;
 }
@@ -85,10 +77,6 @@ pre code {
 }
 
 /* 余白調整 */
-.widget {
-    padding: 0.5rem 0;
-}
-
 .entry-content .siteorigin-widget-tinymce > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):first-child,
 .entry-content .siteorigin-widget-tinymce .textwidget > :not(h2):not(h3):not(h4):not(h5):not(h6):not(pre):not(.list-index):not([class^="box"]):first-child {
     margin-top: 0;
@@ -160,7 +148,7 @@ img.img-border {
     background-color: #71b799;
     border: none;
     position: relative;
-    margin: 0 0 2rem 0.5rem;
+    margin: 1rem 0 3rem 1rem;
 }
 
 .entry-content .heading-02 h2::before,
@@ -797,7 +785,7 @@ img.img-border {
 /* Topページ用見出し */
 
 .entry-content h2.heading-top {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     position: relative;
     border-bottom: 1px solid #dfdfdf;
 }
@@ -805,36 +793,11 @@ img.img-border {
 .entry-content h2.heading-top::after {
     content: "";
     position: absolute;
-    bottom: -4px;
+    bottom: -6px;
     left: 0;
     width: 100%;
     border-bottom: 2px solid #dfdfdf;
 }
-
-/*
-.entry-content h2.heading-top {
-    margin-bottom: 2rem;
-    position: relative;
-}
-
-.entry-content h2.heading-top::before {
-    position: absolute;
-    content: " ";
-    display: block;
-    border-bottom: solid 4px #dfdfdf;
-    bottom: -4px;
-    width: 100%;
-}
-
-.entry-content h2.heading-top::after {
-    position: absolute;
-    content: " ";
-    display: block;
-    border-bottom: solid 4px #71b799;
-    bottom: -4px;
-    width: 20%;
-}
-*/
 
 /* news */
 .entry-content .lyt-news{
@@ -1086,7 +1049,7 @@ img.img-border {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    left: -0.5rem;
+    left: 0;
     border-radius: 30px;
     border: 3px solid #71b799;
 }
@@ -1100,7 +1063,7 @@ img.img-border {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    left: -0.5rem;
+    left: 0;
     text-align: center;
     width: 5rem;
     font-size: 2.6rem;
@@ -1113,8 +1076,8 @@ img.img-border {
     padding: 0.8rem 1rem 0.8rem 5rem;
     background-color: #71b799;
     color: #ffffff;
-    width: calc(100% - 0.5rem);
-    margin: 0 0 2rem 0.5rem;
+    width: calc(100% - 1rem);
+    margin: 1rem 0 3rem 1rem;
 }
 
 .entry-content .heading-num-02 h3 {
@@ -1170,23 +1133,6 @@ img.img-border {
     color: #71b799;
     font-weight: bold;
     float: left;
-}
-
-@media screen and (max-width: 767px) {
-    .entry-content .text-num::before,
-    .entry-content .text-num-02::before {
-        width: 100%;
-    }
-}
-
-@media only print {
-    .entry-content .heading-num h2 {
-        background-color: #71b799 !important;
-    }
-
-    .entry-content .heading-num-02 h3 {
-        background-color: #f5f5f5 !important;
-    }
 }
 
 /* テーブル */
@@ -1660,28 +1606,6 @@ img.img-border {
     font-size: 2.4rem;
 }
 
-
-@media only print {
-    .entry-content .btn-external a[href] {
-        border: none;
-        padding: 0 0 0 4rem;
-    }
-    .entry-content .btn-external a[href]::before {
-        content: none;
-    }
-    .entry-content .btn-external a[href]::after {
-        content: " (" attr(href) ")";
-        width: auto;
-        height: auto;
-        border: none;
-        position: static;
-    }
-    .entry-content .btn-external a .fa.fa-external-link::before {
-        color: #637f97;
-        top: 0;
-    }
-}
-
 /* タブパネル */
 .entry-content .tab-content .tab-menu{
     padding: 0 0 2rem;
@@ -1794,109 +1718,6 @@ img.img-border {
         border: none;
         margin: 0 -10px;
         padding: 3rem 1rem;
-    }
-}
-
-/* 印刷用表示設定 */
-@media only print {
-    footer,
-    .meta-search-form,
-    .navMenuButton,
-    .last-posts-list,
-    .headerMain,
-    .navMenu,
-    .asideMenuButton,
-    #glt-translate-trigger {
-        display: none !important;
-    }
-
-    body {
-        -webkit-print-color-adjust: exact;
-    }
-    .pageContainer,
-    .postContainer {
-        width:100%;
-    }
-    .widget img {
-        max-width: 100%;
-        height: auto;
-    }
-    .entry-content .panel-grid .panel-grid-cell:not(:first-child) {
-        margin-bottom: 15px;
-    }
-    
-    /* アコーディオン */
-    .entry-content .acd-01 .btn-acd button{
-        display:none;
-    }
-
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h2, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h3, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h4, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h5, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h6,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h2, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h3, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h4, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h5, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h6 {
-        background-color: #637f97;
-        color: #ffffff;
-        padding: 0.5rem 1rem 0.5rem 1rem;
-    }
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h2, 
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h3, 
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h4, 
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h5, 
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h6,
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h2, 
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h3, 
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h4, 
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h5, 
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h6 {
-        background-color: #ffffff;
-        color: #333333;
-        padding: 0.5rem 1rem 0.5rem 1rem;
-    }
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h2::before, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h3::before, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h4::before, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h5::before, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h6::before,
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h2::after, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h3::after, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h4::after, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h5::after, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h6::after,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h2::before, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h3::before, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h4::before, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h5::before, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h6::before,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h2::after, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h3::after, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h4::after, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h5::after, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h6::after {
-        content: none;
-    }
-
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-content,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-content{
-        margin-top: 0;
-        padding: 2rem 1rem;
-        line-height: 1.75;
-        height: auto;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    /* タブパネル */
-    .entry-content .tab-content .tab-menu{
-        display: none!important;
-    }
-    .entry-content .tab-content .tab-panel.inactive {
-        display: block;
     }
 }
 

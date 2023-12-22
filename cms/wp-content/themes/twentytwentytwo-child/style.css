@@ -577,7 +577,7 @@ a:link {
 }
 
 #lyt-nav .main-menu .sub-menu > li > a {
-    padding: 0.5rem 0.5rem 0.5rem 2rem;
+    padding: 0.5rem;
     text-decoration: none;
     color: #333333;
     display: block;
@@ -607,7 +607,7 @@ a:link {
 
 #lyt-main .lyt-main-title,
 #lyt-main .lyt-main-search{
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 #lyt-main .lyt-main-search{

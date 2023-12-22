@@ -6,15 +6,13 @@ remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' );
 function theme_enqueue_styles() {
     wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css');
     wp_enqueue_style('module', get_stylesheet_directory_uri() . '/module.css');
+    wp_enqueue_style('print', get_stylesheet_directory_uri() . '/print.css');
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles', 11);
 
 //js
 function custom_print_scripts() {
 	if (!is_admin()) {
-		//デフォルトjquery削除
-		wp_deregister_script('jquery');
-		//GoogleCDNから読み込む
 		wp_enqueue_script('jquery-js', '//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' );
 	}
 }
