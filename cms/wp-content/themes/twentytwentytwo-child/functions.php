@@ -1,4 +1,31 @@
 <?php
+// meta name='robots' content='max-image-preview:large' を非表示
+remove_filter( 'wp_robots', 'wp_robots_max_image_preview_large' );
+
+// meta name="generator" を非表示
+remove_action('wp_head', 'wp_generator');
+
+// EditURIを非表示
+remove_action('wp_head', 'rsd_link');
+
+// 短縮URLを非表示
+remove_action('wp_head', 'wp_shortlink_wp_head');
+
+// 絵文字用JS・CSSを非表示
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('admin_print_scripts', 'print_emoji_detection_script');
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('admin_print_styles', 'print_emoji_styles');
+
+// 投稿の RSS フィードリンクを非表示
+remove_action('wp_head', 'feed_links', 2);
+
+// REST APIを非表示
+remove_action('wp_head','rest_output_link_wp_head');
+
+// oEmbedを非表示
+remove_action('wp_head','wp_oembed_add_discovery_links');
+
 //CSS
 remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' );
@@ -16,6 +43,7 @@ function custom_print_scripts() {
 		wp_enqueue_script('jquery-js', '//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js' );
 	}
 }
+add_action('wp_print_scripts', 'custom_print_scripts');
 
 // simplebar
 function enqueue_simplebar() {
@@ -24,11 +52,16 @@ function enqueue_simplebar() {
 	}
 add_action( 'wp_enqueue_scripts', 'enqueue_simplebar' );
 
-add_action('wp_print_scripts', 'custom_print_scripts');
 function link_scripts() {
 wp_enqueue_script( 'custom', get_stylesheet_directory_uri() . '/js/custom.js', '', '', true );
 }
 add_action('wp_enqueue_scripts', 'link_scripts' );
+
+//FontAwesome
+function enqueue_fontAwesome() {
+	wp_enqueue_style( 'css-fontawesome', 'https://use.fontawesome.com/releases/v6.2.0/css/all.css' );
+	}
+add_action( 'wp_enqueue_scripts', 'enqueue_fontAwesome' );
 
 //Favicon
 function favicon(){
@@ -40,10 +73,6 @@ function favicon(){
 		 '<link rel="manifest" href="/cms/wp-content/themes/wikiwp/images/manifest.webmanifest">'."\n";
 }; 
 add_action( 'wp_head', 'favicon',100);
-
-//remove emoji
-remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
-remove_action( 'wp_print_styles', 'print_emoji_styles' ); 
 
 //タイトルタグ
 add_theme_support('title-tag');
@@ -119,7 +148,7 @@ add_filter(
         if ( ! is_search() ) {
             return $content;
         }
-        $count   = 100; // 検索した単語の前後の100文字を表示させます.
+        $count   = 100;
         $content = wp_strip_all_tags( $content );
         $keys    = implode( '|', array_filter( explode( ' ', get_search_query() ) ) );
         $pattern = '/(' . $keys . ')/iu';
