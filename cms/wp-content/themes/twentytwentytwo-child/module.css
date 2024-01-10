@@ -726,6 +726,7 @@ img.img-border {
 
 .entry-content ol.list-index > li > ol{
     padding-left: 2.2rem;
+    margin-bottom: 1rem;
 }
 
 .entry-content ol.list-index > li > ol > li{
@@ -734,9 +735,10 @@ img.img-border {
 
 .entry-content ol.list-index > li > ol > li::before {
     display: inline-block;
-    content: counter(item, decimal-leading-zero);
+    content: counter(item);
     font-weight: bold;
     color: #333333;
+    padding-right: 1rem;
 }
 
 .entry-content ol.list-index > li:last-child > ol:last-child{
@@ -958,6 +960,7 @@ img.img-border {
     left: -0.8rem;
     display: block;
     border: none;
+    line-height: 1.1;
 }
 
 .entry-content .box-02 h3:not(.heading-box-02),
@@ -1081,23 +1084,22 @@ img.img-border {
 }
 
 .entry-content .heading-num-02 h3 {
+    counter-increment: number-heading-02;
     font-size: 1.8rem;
     color: #333333;
     position: relative;
     margin: 0 0 2rem 0;
-    padding: 1rem 1rem 1rem 4.5rem;
+    padding: 1rem 1rem 1rem 6rem;
     background-color: #f9f9f9;
     border: 1px solid #dfdfdf;
     border-left: 5px solid #71b799;
 }
 
 .entry-content .heading-num-02 h3::after {
-    counter-increment: number-heading-02;
-    content: counter(number-heading-02, upper-alpha) ".";
+    content: counter(number-heading)"-" counter(number-heading-02) ".";
     color: #7ead8f;
     position: absolute;
-    font-size: 2rem;
-    top: 0.8rem;
+    top: 1.1rem;
     left: 1.5rem;
 }
 
