@@ -163,4 +163,37 @@ add_filter(
     }
 );
 
+//Authorアーカイブページを404ページにリダイレクト
+function author_custom_redirection() {
+    global $wp_rewrite;
+    $wp_rewrite->flush_rules();
+    $wp_rewrite->author_base = '';
+    $wp_rewrite->author_structure = '/';
+    if (isset($_REQUEST['author']) && !empty($_REQUEST['author'])) {
+        wp_redirect(home_url('/404.php'));
+        exit;
+    }
+}
+add_action('init', 'author_custom_redirection');
+
+//REST APIの無効化
+function deny_rest_api_except_permitted( $result, $wp_rest_server, $request ){
+ 
+  //permit Jetpack
+  $permitted_routes = [ 'Jetpack'];
+ 
+  $route = $request->get_route();
+ 
+  foreach ( $permitted_routes as $r ) {
+    if ( strpos( $route, "/$r/" ) === 0 ) return $result;
+  }
+ 
+  //permit Gutenberg（ユーザーが投稿やページの編集が可能な場合）
+  if ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' )) {
+    return $result;
+  }
+ 
+  return new WP_Error( 'rest_disabled', __( 'The REST API on this site has been disabled.' ), array( 'status' => rest_authorization_required_code() ) );
+}
+add_filter( 'rest_pre_dispatch', 'deny_rest_api_except_permitted', 10, 3 );
 ?>
