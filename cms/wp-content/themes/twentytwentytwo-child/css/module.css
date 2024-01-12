@@ -141,6 +141,7 @@ img.img-border {
 /* 見出し */
 .entry-content .heading-02 h2,
 .entry-content h2.heading-02 {
+    counter-increment: number-heading;
     position: relative;
     font-size: 2rem;
     color: #ffffff;

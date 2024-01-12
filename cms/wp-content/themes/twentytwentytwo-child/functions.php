@@ -31,9 +31,9 @@ remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' );
 
 function theme_enqueue_styles() {
-    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css');
-    wp_enqueue_style('module', get_stylesheet_directory_uri() . '/module.css');
-    wp_enqueue_style('print', get_stylesheet_directory_uri() . '/print.css');
+    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/css/style.css');
+    wp_enqueue_style('module', get_stylesheet_directory_uri() . '/css/module.css');
+    wp_enqueue_style('print', get_stylesheet_directory_uri() . '/css/print.css');
 }
 add_action('wp_enqueue_scripts', 'theme_enqueue_styles', 11);
 
@@ -67,10 +67,10 @@ add_action( 'wp_enqueue_scripts', 'enqueue_fontAwesome' );
 function favicon(){
 		echo 
 		 '<!-- Favicon -->'."\n",
-		 '<link rel="icon" href="/cms/wp-content/themes/wikiwp/images/favicon.ico"><!-- 32×32 -->'."\n",
-		 '<link rel="icon" href="/cms/wp-content/themes/wikiwp/images/icon.svg" type="image/svg+xml">'."\n",
-		 '<link rel="apple-touch-icon" href="/cms/wp-content/themes/wikiwp/images/apple-touch-icon.png"><!-- 180×180 -->'."\n",
-		 '<link rel="manifest" href="/cms/wp-content/themes/wikiwp/images/manifest.webmanifest">'."\n";
+		 '<link rel="icon" href="/cms/wp-content/themes/twentytwentytwo-child/images/favicon.ico"><!-- 32×32 -->'."\n",
+		 '<link rel="icon" href="/cms/wp-content/themes/twentytwentytwo-child/images/icon.svg" type="image/svg+xml">'."\n",
+		 '<link rel="apple-touch-icon" href="/cms/wp-content/themes/twentytwentytwo-child/images/apple-touch-icon.png"><!-- 180×180 -->'."\n",
+		 '<link rel="manifest" href="/cms/wp-content/themes/twentytwentytwo-child/images/manifest.webmanifest">'."\n";
 }; 
 add_action( 'wp_head', 'favicon',100);
 
@@ -196,4 +196,8 @@ function deny_rest_api_except_permitted( $result, $wp_rest_server, $request ){
   return new WP_Error( 'rest_disabled', __( 'The REST API on this site has been disabled.' ), array( 'status' => rest_authorization_required_code() ) );
 }
 add_filter( 'rest_pre_dispatch', 'deny_rest_api_except_permitted', 10, 3 );
+
+//オートフォーマットの無効化
+remove_filter('the_content', 'wpautop');
+
 ?>
