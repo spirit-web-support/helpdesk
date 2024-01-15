@@ -200,4 +200,68 @@ add_filter( 'rest_pre_dispatch', 'deny_rest_api_except_permitted', 10, 3 );
 //オートフォーマットの無効化
 remove_filter('the_content', 'wpautop');
 
+// WordPressの管理画面ログインURLを変更する
+define( 'LOGIN_CHANGE_PAGE', 'wordpress-admin-login.php' );
+
+// 指定以外のログインURLはTOPページへリダイレクト
+if ( ! function_exists( 'login_change_init' ) ) {
+  function login_change_init() {
+    if ( !defined( 'LOGIN_CHANGE' ) || sha1( 'keyword' ) != LOGIN_CHANGE ) {
+      wp_safe_redirect( home_url('/404.php') );
+      exit;
+    }
+  }
+}
+add_action( 'login_init', 'login_change_init' );
+
+// ログイン済みか新設のログインURLの場合はwp-login.phpを置き換える
+if ( ! function_exists( 'login_change_site_url' ) ) {
+  function login_change_site_url( $url, $path, $orig_scheme, $blog_id ) {
+    if ( $path == 'wp-login.php' &&
+      ( is_user_logged_in() || strpos( $_SERVER['REQUEST_URI'], LOGIN_CHANGE_PAGE ) !== false ) )
+      $url = str_replace( 'wp-login.php', LOGIN_CHANGE_PAGE, $url );
+    return $url;
+  }
+}
+add_filter( 'site_url', 'login_change_site_url', 10, 4 );
+
+// ログアウト時のリダイレクト先の設定
+if ( ! function_exists( 'login_change_wp_redirect' ) ) {
+  function login_change_wp_redirect( $location, $status ) {
+    if ( strpos( $_SERVER['REQUEST_URI'], LOGIN_CHANGE_PAGE ) !== false )
+      $location = str_replace( 'wp-login.php', LOGIN_CHANGE_PAGE, $location );
+    return $location;
+  }
+}
+add_filter( 'wp_redirect', 'login_change_wp_redirect', 10, 2 );
+
+//wp-sitemap.xml 投稿者アーカイブを無効化
+/* add_filter(
+  'wp_sitemaps_add_provider',
+  function ( $provider, $name ) {
+    return ( $name == 'users' ) ? false : $provider;
+  },
+10, 2 ); */
+
+add_filter('wp_sitemaps_add_provider', function ( $provider, $name ) {
+    if ( 'users' === $name ) {
+        return false;
+    }
+    return $provider;
+},  10, 2);
+
+
+add_filter(
+    'wp_sitemaps_taxonomies',
+    function( $taxonomies ) {
+        // 「カテゴリー」を除外
+        unset( $taxonomies['category'] );
+        // 「タグ」を除外
+        unset( $taxonomies['post_tag'] );
+        // その他カスタムタクソノミー
+        unset( $taxonomies['omf_folders'] );
+        return $taxonomies;
+    }
+);
+
 ?>
