@@ -31,7 +31,7 @@ remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' );
 
 function theme_enqueue_styles() {
-    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/css/style.css');
+    wp_enqueue_style('style', get_stylesheet_directory_uri() . '/style.css');
     wp_enqueue_style('module', get_stylesheet_directory_uri() . '/css/module.css');
     wp_enqueue_style('print', get_stylesheet_directory_uri() . '/css/print.css');
 }
