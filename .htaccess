@@ -1,8 +1,6 @@
-<Files wp-login.php>
+<Files xmlrpc.php>
 order deny,allow
 Deny from all
-
-allow from 150.93.0.0/16
 </Files>
 
 <FilesMatch "wp-config\.php">
@@ -13,6 +11,7 @@ Require all denied
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
+RewriteRule ^wp-json/wp/v2/users$ 404\.php [R=301,L]
 RewriteRule ^archives/3584$ /zoom/account [R=301,L]
 RewriteRule ^archives/3935$ /zoom/account [R=301,L]
 RewriteRule ^archives/3997$ /zoom/account [R=301,L]
