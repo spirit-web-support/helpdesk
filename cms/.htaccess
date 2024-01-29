@@ -1,0 +1,72 @@
+<Files wp-login.php>
+order deny,allow
+Deny from all
+
+allow from 150.93.0.0/16
+</Files>
+
+# リダイレクト処理
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^index\.php$ - [L]
+RewriteRule ^archives/3584$ /zoom/account [R=301,L]
+RewriteRule ^archives/3935$ /zoom/account [R=301,L]
+RewriteRule ^archives/3997$ /zoom/account [R=301,L]
+RewriteRule ^online/zoom$ /zoom [R=301,L]
+RewriteRule ^online/zoom/manual$ /zoom/zoom_tea [R=301,L]
+RewriteRule ^archives/3461$ /zoom/zoom_stu [R=301,L]
+RewriteRule ^online/zoom/secure$ /zoom/secure [R=301,L]
+RewriteRule ^online/zoom/faq$ /zoom/faq [R=301,L]
+RewriteRule ^archives/3488$ /online/law [R=301,L]
+RewriteRule ^online/tips$ /online/online_tea/o003 [R=301,L]
+RewriteRule ^archives/3656$ online/online_stu [R=301,L]
+RewriteRule ^rj_tea/basic$ /rj_tea/r001 [R=301,L]
+RewriteRule ^rj_tea/objective$ /rj_tea/r002 [R=301,L]
+RewriteRule ^rj_tea/material$ /rj_tea/r003 [R=301,L]
+RewriteRule ^rj_tea/task$ /rj_tea/r004 [R=301,L]
+RewriteRule ^rj_tea/status_t$ /rj_tea/r005 [R=301,L]
+RewriteRule ^rj_tea/mark_t$ /rj_tea/r006 [R=301,L]
+RewriteRule ^rj_tea/answer_t$ /rj_tea/r007 [R=301,L]
+RewriteRule ^rj_tea/mutual_t$ /rj_tea/r008 [R=301,L]
+RewriteRule ^rj_tea/worksheet$ /rj_tea/r009 [R=301,L]
+RewriteRule ^rj_tea/mark_w$ /rj_tea/r010 [R=301,L]
+RewriteRule ^rj_tea/users$ /rj_tea/r011 [R=301,L]
+RewriteRule ^rj_tea/attendance$ /rj_tea/r012 [R=301,L]
+RewriteRule ^rj_tea/group$ /rj_tea/r013 [R=301,L]
+RewriteRule ^rj_tea/feedback$ /rj_tea/r014 [R=301,L]
+RewriteRule ^rj_tea/course$ /rj_tea/r015 [R=301,L]
+RewriteRule ^rj_tea/info$ /rj_tea/r016 [R=301,L]
+RewriteRule ^rj_tea/portfolio$ /rj_tea/r017 [R=301,L]
+RewriteRule ^rj_tea/rubric$ /rj_tea/r018 [R=301,L]
+RewriteRule ^rj_stu/basic$ /rj_stu/r001 [R=301,L]
+RewriteRule ^rj_stu/class_info$ /rj_stu/r002 [R=301,L]
+RewriteRule ^rj_stu/achievements$ /rj_stu/r003 [R=301,L]
+RewriteRule ^zoom/zoom_tea/z018$ /zoom/zoom_stu/z001 [R=301,L]
+# RewriteRule ^元ページ$ リダイレクト先 [R=301,L]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+#SITEGUARD_PLUGIN_SETTINGS_START
+#==== SITEGUARD_DISABLE_XMLRPC_SETTINGS_START
+<Files xmlrpc.php>
+    <IfModule authz_core_module>
+        Require all denied
+    </IfModule>
+    <IfModule !authz_core_module>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</Files>
+#==== SITEGUARD_DISABLE_XMLRPC_SETTINGS_END
+#SITEGUARD_PLUGIN_SETTINGS_END
+
+# BEGIN WordPress
+# END WordPress
+

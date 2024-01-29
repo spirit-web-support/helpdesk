@@ -593,8 +593,7 @@ img.img-border {
     border-radius: 100%;
 } 
 
-/*
-定義リスト-インライン*/
+/*定義リスト-インライン*/
 .entry-content dl.list-inline{
     margin-left: 0;
 }
@@ -691,6 +690,7 @@ img.img-border {
     margin-left: 0.8rem;
     background-color: #f4efff;
 }
+
 .entry-content ol.list-index::before {
     content: "index";
     background-color: #7762a0;
@@ -704,16 +704,16 @@ img.img-border {
 }
 
 .entry-content ol.list-index > li {
+    counter-increment: index-item;
     display: block;
 }
 
 .entry-content ol.list-index > li::before {
     display: inline-block;
     content: counter(index-item, decimal-leading-zero);
-    counter-increment: index-item;
-    padding-right: 0.5rem;
     font-weight: bold;
     color: #7762a0;
+    padding-right: 1rem;
 }
 
 .entry-content ol.list-index li a {
@@ -725,33 +725,46 @@ img.img-border {
     border: none;
 }
 
-.entry-content ol.list-index > li > ol{
-    padding-left: 2.2rem;
+.entry-content ol.list-index > li > ol {
+    padding-left: 3rem;
     margin-bottom: 1rem;
 }
 
-.entry-content ol.list-index > li > ol > li{
+.entry-content ol.list-index > li > ol > li {
     display: block;
 }
 
 .entry-content ol.list-index > li > ol > li::before {
     display: inline-block;
-    content: counter(item);
+    content: counter(item, decimal-leading-zero);
     font-weight: bold;
-    color: #333333;
     padding-right: 1rem;
 }
 
-.entry-content ol.list-index > li:last-child > ol:last-child{
+.entry-content ol.list-index > li:last-child > ol:last-child {
     margin-bottom: 0;
 }
 
+.entry-content ol.list-index > li > ol.list-index-sub {
+    counter-reset: index-sub-item;
+}
+
+.entry-content ol.list-index > li > ol.list-index-sub > li {
+    counter-increment: index-sub-item;
+}
+
+.entry-content ol.list-index > li > ol.list-index-sub > li::before {
+    content: counter(index-item)"-" counter(index-sub-item) ".";
+    color: #7762a0;
+}
+
 @media screen and (max-width: 767px) {
-    .entry-content ol.list-index{
+    .entry-content ol.list-index {
         margin: 2.5rem 0 0;
         padding: 2.5rem 1rem 1rem;
         width: 100%;
     }
+
     .entry-content ol.list-index::before {
         top: -1.3rem;
         left: 1rem;
@@ -1105,7 +1118,11 @@ img.img-border {
 }
 
 .entry-content .lyt-num {
-    counter-reset: number-text number-heading-02;
+    counter-reset: number-text;
+}
+
+.entry-content .lyt-num-02 {
+    counter-reset: number-heading-02;
 }
 
 @media screen and (max-width: 767px) {
@@ -1114,25 +1131,31 @@ img.img-border {
     }
 }
 
-.entry-content .text-num {
+.entry-content .text-num,
+.entry-content .text-num-02,
+.entry-content .text-num-03 {
     counter-increment: number-text;
 }
 
 .entry-content .text-num::before {
     content: counter(number-heading) "-" counter(number-text) ".";
-    padding-right: 0.5rem;
+    padding-right: 1rem;
     color: #71b799;
     font-weight: bold;
     float: left;
 }
 
-.entry-content .text-num-02 {
-    counter-increment: number-text;
-}
-
 .entry-content .text-num-02::before {
     content: counter(number-text) ".";
-    padding-right: 0.5rem;
+    padding-right: 1rem;
+    color: #71b799;
+    font-weight: bold;
+    float: left;
+}
+
+.entry-content .text-num-03::before {
+    content: counter(number-heading)"-" counter(number-heading-02)"-" counter(number-text)".";
+    padding-right: 1rem;
     color: #71b799;
     font-weight: bold;
     float: left;
