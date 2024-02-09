@@ -21,7 +21,7 @@ Template: twentytwentytwo
     }
 
     #lyt-main {
-        width:100%;
+        width: 100%;
     }
 
     .widget img {
@@ -30,17 +30,17 @@ Template: twentytwentytwo
     }
 
     .entry-content .panel-grid,
-    .entry-content .panel-grid > .lyt-border{
+    .entry-content .panel-grid>.lyt-border {
         display: block;
     }
 
-    .entry-content .panel-grid .panel-grid-cell{
-        width: 100%!important;
+    .entry-content .panel-grid .panel-grid-cell {
+        width: 100% !important;
     }
 
-    .entry-content .panel-grid > .panel-grid-cell:not(:first-child),
-    .entry-content .panel-grid > .lyt-border > .panel-grid-cell:not(:first-child),
-    .entry-content .panel-grid > .panel-grid-cell > .widget:not(:first-child) {
+    .entry-content .panel-grid>.panel-grid-cell:not(:first-child),
+    .entry-content .panel-grid>.lyt-border>.panel-grid-cell:not(:first-child),
+    .entry-content .panel-grid>.panel-grid-cell>.widget:not(:first-child) {
         margin-top: 15px;
     }
 
@@ -49,10 +49,10 @@ Template: twentytwentytwo
     .entry-content h3,
     .entry-content h4,
     .entry-content h5,
-    .entry-content h6{
+    .entry-content h6 {
         page-break-after: avoid;
     }
-    
+
     .entry-content .heading-02,
     .entry-content .heading-02::after,
     .entry-content .heading-num,
@@ -116,66 +116,67 @@ Template: twentytwentytwo
         color: #637f97;
         top: 0;
     }
-    
+
     /* アコーディオン */
-    .entry-content .acd-01 .btn-acd button{
-        display:none;
+    .entry-content .acd-01 .btn-acd button {
+        display: none;
     }
 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h2, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h3, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h4, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h5, 
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h2,
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h3,
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h4,
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h5,
     .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h6,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h2, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h3, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h4, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h5, 
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h2,
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h3,
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h4,
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h5,
     .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h6 {
         background-color: #637f97;
         color: #ffffff;
         padding: 0.5rem 1rem 0.5rem 1rem;
     }
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h2, 
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h3, 
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h4, 
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h5, 
+
+    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h2,
+    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h3,
+    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h4,
+    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h5,
     .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h6,
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h2, 
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h3, 
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h4, 
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h5, 
+    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h2,
+    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h3,
+    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h4,
+    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h5,
     .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h6 {
         background-color: #ffffff;
         color: #333333;
         padding: 0.5rem 1rem 0.5rem 1rem;
     }
 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h2::before, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h3::before, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h4::before, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h5::before, 
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h2::before,
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h3::before,
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h4::before,
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h5::before,
     .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h6::before,
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h2::after, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h3::after, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h4::after, 
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h5::after, 
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h2::after,
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h3::after,
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h4::after,
+    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h5::after,
     .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h6::after,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h2::before, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h3::before, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h4::before, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h5::before, 
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h2::before,
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h3::before,
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h4::before,
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h5::before,
     .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h6::before,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h2::after, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h3::after, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h4::after, 
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h5::after, 
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h2::after,
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h3::after,
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h4::after,
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h5::after,
     .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h6::after {
         content: none;
     }
 
     .entry-content .acd-01 .acd-panel.is-open .acd-panel-content,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-content{
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-content {
         margin-top: 0;
         padding: 2rem 1rem;
         line-height: 1.75;
@@ -185,8 +186,8 @@ Template: twentytwentytwo
     }
 
     /* タブパネル */
-    .entry-content .tab-content .tab-menu{
-        display: none!important;
+    .entry-content .tab-content .tab-menu {
+        display: none !important;
     }
 
     .entry-content .tab-content .tab-panel.inactive {
@@ -195,12 +196,12 @@ Template: twentytwentytwo
 
     /* スマホ時スクロールするテーブル  */
     .entry-content .simplebar-mask,
-    .entry-content .simplebar-offset{
+    .entry-content .simplebar-offset {
         display: block;
         position: relative;
     }
 
-    .entry-content .simplebar-placeholder{
+    .entry-content .simplebar-placeholder {
         display: none;
     }
 }

@@ -1,33 +1,36 @@
 <!-- wp:template-part {"slug":"header","tagName":"header"} /-->
-
 <div class="container-fluid">
     <div class="container-inner">
         <!-- wp:template-part {"slug":"navigation","tagName":"div"} /-->
         <main id="lyt-main">
-            <!-- wp:pattern {"slug":"breadcrumb"} /-->
-            <div class="lyt-main-title">
-            <!-- wp:query-title {"type":"search"} /-->
-            </div>
-            <div class="lyt-main-search">
-                <!-- wp:pattern {"slug":"searchBox"} /-->
+            <div class="lyt-main-breadcrumb" data-simplebar>
+                <!-- wp:bcn/breadcrumb-trail /-->
             </div>
             <div class="lyt-main-content">
-                <!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","categoryIds":[],"tagIds":[],"order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true} -->
-                    <!-- wp:post-template {"align":"wide"} -->
-                        <!-- wp:post-title {"isLink":true} /-->
-                        <div class="lyt-post-content">
-                            <!-- wp:post-content /-->
-                        </div>
-                    <!-- /wp:post-template -->
+                <div class="page-title">
+                    <!-- wp:query-title {"type":"search"} /-->
+                </div>
+                <div class="lyt-main-search">
+                    <!-- wp:pattern {"slug":"searchBox"} /-->
+                </div>
+                <div class="page-list">
+                    <!-- wp:query {"query":{"perPage":10,"pages":0,"offset":0,"postType":"post","categoryIds":[],"tagIds":[],"order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true} -->
+                        <!-- wp:post-template {"align":"wide"} -->
+                            <!-- wp:post-title {"isLink":true} /-->
+                            <div class="lyt-post-content">
+                                <!-- wp:post-content /-->
+                            </div>
+                        <!-- /wp:post-template -->
 
-                    <!-- wp:query-pagination {"paginationArrow":"arrow","align":"wide","layout":{"type":"flex","justifyContent":"space-between"}} -->
-                    <!-- wp:query-pagination-previous {"fontSize":"small"} /-->
+                        <!-- wp:query-pagination {"paginationArrow":"arrow","align":"wide","layout":{"type":"flex","justifyContent":"space-between"}} -->
+                        <!-- wp:query-pagination-previous {"fontSize":"small"} /-->
 
-                    <!-- wp:query-pagination-numbers /-->
+                        <!-- wp:query-pagination-numbers /-->
 
-                    <!-- wp:query-pagination-next {"fontSize":"small"} /-->
-                    <!-- /wp:query-pagination -->
-                <!-- /wp:query -->
+                        <!-- wp:query-pagination-next {"fontSize":"small"} /-->
+                        <!-- /wp:query-pagination -->
+                    <!-- /wp:query -->
+                </div>
             </div>
         </main>
     </div>
