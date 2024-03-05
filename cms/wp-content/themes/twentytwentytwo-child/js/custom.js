@@ -2,7 +2,20 @@ jQuery(document).ready(function ($) {
     //グローバルメニュー
     (function () {
         'use strict';
+
+        var all = document.querySelectorAll('ul.sub-menu');
+        var i = 0;
+        var max = all.length;
+
+        for (i; i < max; i++) {
+            all[i].classList.add('default');
+            var subMenuHeight = all[i].clientHeight;
+            all[i].style.height = subMenuHeight + 'px';
+            all[i].classList.add('close');
+        };
+
         var lytNav = document.getElementById('lyt-nav');
+        
 
         //PCメニュー
         if (lytNav) {
@@ -11,34 +24,48 @@ jQuery(document).ready(function ($) {
                 element.addEventListener('keydown', (event) => {
                     if (event.key === 'Enter') {
                         event.target.checked = !event.target.checked;
+                        var subMenu = element.nextElementSibling.nextElementSibling;
+                        if (element.checked) {
+                            subMenu.classList.remove('close');
+                            subMenu.classList.add('open');
+                        } else {
+                            subMenu.classList.remove('open');
+                            subMenu.classList.add('close');
+                        }
                     }
                 })
             })
+
+            subMenuTitle.forEach(function (element) {
+                element.addEventListener('change', function () {
+                    var subMenu = element.nextElementSibling.nextElementSibling;
+                    if (element.checked){
+                        subMenu.classList.remove('close');
+                        subMenu.classList.add('open');
+                    }else{
+                        subMenu.classList.remove('open');
+                        subMenu.classList.add('close');
+                    }
+                });
+            });
         } 
 
         //SPハンバーガーメニュー
         var btnNav = document.getElementById('btn-nav');
-        var body = document.getElementsByTagName('body');
 
         if (btnNav) {
-            function bodyfixed() {
-                body[0].classList.toggle('fixed');
-            }
+            window.onpageshow = function () {
+                btnNav.checked = false;
+            };
 
             btnNav.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter') {
                     btnNav.checked = !btnNav.checked;
-                    bodyfixed();
                 }
             });
 
-            btnNav.addEventListener('change', function () {
-                bodyfixed();
-            }, false);
-
             window.addEventListener('resize', function () {
                 btnNav.checked = false;
-                body[0].classList.remove('fixed');
             }, false);
         }
 
@@ -71,11 +98,11 @@ jQuery(document).ready(function ($) {
             var scrollHeight = $(document).height();
             var scrollPosition = $(window).height() + $(window).scrollTop();
             var footHeight = $("footer").innerHeight();
-            var TopBtnHeight = $("#page-top").innerHeight();
+            var topBtnHeight = $("#page-top").innerHeight();
             var windowWidth = window.innerWidth;
             if (windowWidth <= 990) {
                 NavHeight = $("#lyt-nav.fixed").innerHeight();
-                if (scrollHeight - scrollPosition - NavHeight - TopBtnHeight <= footHeight) {
+                if (scrollHeight - scrollPosition - NavHeight - topBtnHeight <= footHeight) {
                     $("#page-top").fadeIn(600);
                     $("#page-top").css({ position: "absolute", bottom: footHeight });
                 } else if ($(this).scrollTop() > 100) {
@@ -85,7 +112,7 @@ jQuery(document).ready(function ($) {
                     $("#page-top").fadeOut(600);
                 }
             } else {
-                if (scrollHeight - scrollPosition - TopBtnHeight <= footHeight) {
+                if (scrollHeight - scrollPosition - topBtnHeight <= footHeight) {
                     $("#page-top").fadeIn(600);
                     $("#page-top").css({ position: "absolute", bottom: footHeight });
                 } else if ($(this).scrollTop() > 100) {
@@ -338,20 +365,20 @@ jQuery(document).ready(function ($) {
                 return false;
             } else if (event.keyCode === 39) {
                 var tabContent = $(this).parents(".tab-content");
-                var All = tabContent.find('.btn-tab');
-                var index = All.index(this);
-                var nextTab = All[index + 1];
+                var all = tabContent.find('.btn-tab');
+                var index = all.index(this);
+                var nextTab = all[index + 1];
 
-                if (index == All.length - 1) {
+                if (index == all.length - 1) {
                 } else {
                     nextTab.focus();
                 }
                 return false;
             } else if (event.keyCode === 37) {
                 var tabContent = $(this).parents(".tab-content");
-                var All = tabContent.find('.btn-tab');
-                var index = All.index(this);
-                var prevTab = All[index - 1];
+                var all = tabContent.find('.btn-tab');
+                var index = all.index(this);
+                var prevTab = all[index - 1];
 
                 if (index == 0) {
                 } else {

@@ -258,6 +258,16 @@ img.img-border {
     left: 0;
 }
 
+html[lang="en"] .entry-content p.txt-note,
+html[lang="en"] .entry-content span.txt-note {
+    padding: 0 0 0 1.5rem;
+}
+
+html[lang="en"] .entry-content p.txt-note::before,
+html[lang="en"] .entry-content span.txt-note::before {
+    content: "*";
+}
+
 .entry-content p.txt-link,
 .entry-content span.txt-link,
 .entry-content div.txt-link {
@@ -460,7 +470,7 @@ img.img-border {
     content: counters(item, '.') '.';
     counter-increment: item;
     display: table-cell;
-    padding-right: 0.5rem;
+    padding-right: 1rem;
 }
 
 .entry-content ol>li>* {
@@ -805,6 +815,19 @@ img.img-border {
 
 .entry-content ol.list-note>li::before {
     content: "※" counter(item);
+}
+
+html[lang="en"] .entry-content ul.list-note{
+    padding-left: 1.5rem;
+}
+
+html[lang="en"] .entry-content ul.list-note>li::before {
+    content: "*";
+    left: -1.5rem;
+}
+
+html[lang="en"] .entry-content ol.list-note>li::before {
+    content: "*" counter(item);
 }
 
 /* Topページ用見出し */

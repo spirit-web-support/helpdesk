@@ -10,12 +10,14 @@ Template: twentytwentytwo
 @media print {
 
     body {
+        zoom: 0.68;
         background-color: #ffffff;
         -webkit-print-color-adjust: exact;
     }
 
     #lyt-nav,
     header,
+    .lyt-main-breadcrumb,
     footer {
         display: none !important;
     }
@@ -24,8 +26,9 @@ Template: twentytwentytwo
         width: 100%;
     }
 
-    .widget img {
-        max-width: 100%;
+    .widget img,
+    .widget_media_image img {
+        max-width: 90rem;
         height: auto;
     }
 

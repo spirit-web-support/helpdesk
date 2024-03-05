@@ -18,7 +18,7 @@ body {
     color: #333333;
 }
 
-body.fixed {
+body:has(input[id="btn-nav"]:checked){
     height: 100%;
     overflow: hidden;
 }
@@ -379,7 +379,7 @@ a:link {
         border-right: none;
     }
 
-    body.fixed #lyt-nav {
+    #lyt-nav:has(input[id="btn-nav"]:checked){
         height: 100svh;
         overflow-y: auto;
     }
@@ -388,13 +388,13 @@ a:link {
         position: absolute;
         top: 5rem;
         width: 100%;
-        display: none;
+        height: 0;
         overflow: hidden;
         visibility: hidden;
     }
 
     #lyt-nav input[id="btn-nav"]:checked+#label-main-menu+.search-form+nav {
-        display: block;
+        height: 100%;
         overflow: visible;
         visibility: visible;
     }
@@ -444,6 +444,12 @@ a:link {
     text-align: center;
     padding: 0.5rem;
     cursor: pointer;
+}
+
+#lyt-nav .wovn-lang-list li:focus {
+    outline: auto;
+    outline-offset: -1px;
+    outline-color: #333333;
 }
 
 #lyt-nav .wovn-lang-list li+li {
@@ -502,6 +508,7 @@ a:link {
 #lyt-nav .main-menu input[id^="sub-menu"]:focus+.label-sub-menu {
     outline: auto;
     outline-offset: -1px;
+    outline-color: #333333;
     background-color: #e8e8e8;
 }
 
@@ -557,6 +564,19 @@ a:link {
     transition: all 1s;
     visibility: hidden;
 }
+
+#lyt-nav .main-menu .sub-menu.default,
+#lyt-nav .main-menu input[id^="sub-menu"]:checked+.label-sub-menu+.sub-menu.default,
+#lyt-nav .main-menu .sub-menu.open,
+#lyt-nav .main-menu input[id^="sub-menu"]:checked+.label-sub-menu+.sub-menu.open {
+    max-height: none;
+    transition: all 0.5s;
+}
+
+#lyt-nav .main-menu .sub-menu.close {
+    height: 0 !important;
+}
+
 
 #lyt-nav .main-menu input[id^="sub-menu"]:checked+.label-sub-menu {
     background-color: #637f97;

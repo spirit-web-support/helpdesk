@@ -67,12 +67,21 @@ add_action( 'wp_enqueue_scripts', 'enqueue_fontAwesome' );
 function favicon(){
 		echo 
 		 '<!-- Favicon -->'."\n",
-		 '<link rel="icon" href="/cms/wp-content/themes/twentytwentytwo-child/images/favicon.ico"><!-- 32×32 -->'."\n",
+		 '<script src="https://j.wovn.io/1" data-wovnio="key=AMy2Dn" async></script>'."\n",
 		 '<link rel="icon" href="/cms/wp-content/themes/twentytwentytwo-child/images/icon.svg" type="image/svg+xml">'."\n",
 		 '<link rel="apple-touch-icon" href="/cms/wp-content/themes/twentytwentytwo-child/images/apple-touch-icon.png"><!-- 180×180 -->'."\n",
 		 '<link rel="manifest" href="/cms/wp-content/themes/twentytwentytwo-child/images/manifest.webmanifest">'."\n";
 }; 
 add_action( 'wp_head', 'favicon',100);
+
+//wovn
+function wovn(){
+		echo 
+		 '<!-- wovn -->'."\n",
+		 '<script src="https://j.wovn.io/1" data-wovnio="key=AMy2Dn" async></script>';
+}; 
+add_action( 'wp_head', 'wovn',100);
+
 
 //タイトルタグ
 add_theme_support('title-tag');
@@ -200,7 +209,7 @@ add_filter( 'rest_pre_dispatch', 'deny_rest_api_except_permitted', 10, 3 );
 //オートフォーマットの無効化
 remove_filter('the_content', 'wpautop');
 
-// ログイン画面へのURLを変更
+/* // ログイン画面へのURLを変更
 define( 'LOGIN_CHANGE_PAGE', 'ryw3hdm.php' );
 // オリジナルのログインURL以外は403エラー
 if ( ! function_exists( 'login_change_init' ) ) {
@@ -232,7 +241,7 @@ if ( ! function_exists( 'login_change_wp_redirect' ) ) {
         return $location;
     }
 }
-add_filter( 'wp_redirect', 'wp_logout_redirect_setting', 10, 2 );
+add_filter( 'wp_redirect', 'wp_logout_redirect_setting', 10, 2 ); */
 
 //wp-sitemap.xml 投稿者アーカイブを無効化
 add_filter('wp_sitemaps_add_provider', function ( $provider, $name ) {
