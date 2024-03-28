@@ -1,7 +1,17 @@
+<Files xmlrpc.php>
+order deny,allow
+Deny from all
+</Files>
+
+<FilesMatch "wp-config\.php">
+Require all denied
+</FilesMatch>
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
+RewriteRule ^wp-json/wp/v2/users$ 404\.php [R=301,L]
 RewriteRule ^archives/3584$ /zoom/account [R=301,L]
 RewriteRule ^archives/3935$ /zoom/account [R=301,L]
 RewriteRule ^archives/3997$ /zoom/account [R=301,L]
