@@ -289,7 +289,8 @@ html[lang="en"] .entry-content span.txt-note::before {
 .entry-content p.txt-link a[href*=".pdf"] .fa.fa-external-link::before,
 .entry-content span.txt-link a[href*=".pdf"] .fa.fa-external-link::before,
 .entry-content div.txt-link a[href*=".pdf"] .fa.fa-external-link::before,
-.entry-content ul.list-02 a[href*=".pdf"] .fa.fa-external-link::before {
+.entry-content ul.list-02 a[href*=".pdf"] .fa.fa-external-link::before,
+.entry-content ol.list-02 a[href*=".pdf"] .fa.fa-external-link::before {
     content: "\f1c1";
     color: #b30b00;
     font: normal normal normal 18px/1 FontAwesome;
@@ -299,10 +300,12 @@ html[lang="en"] .entry-content span.txt-note::before {
 .entry-content span.txt-link a[href*=".doc"] .fa.fa-external-link::before,
 .entry-content div.txt-link a[href*=".doc"] .fa.fa-external-link::before,
 .entry-content ul.list-02 a[href*=".doc"] .fa.fa-external-link::before,
+.entry-content ol.list-02 a[href*=".doc"] .fa.fa-external-link::before,
 .entry-content p.txt-link a[href*=".docx"] .fa.fa-external-link::before,
 .entry-content span.txt-link a[href*=".docx"] .fa.fa-external-link::before,
 .entry-content div.txt-link a[href*=".docx"] .fa.fa-external-link::before,
-.entry-content ul.list-02 a[href*=".docx"] .fa.fa-external-link::before {
+.entry-content ul.list-02 a[href*=".docx"] .fa.fa-external-link::before,
+.entry-content ol.list-02 a[href*=".docx"] .fa.fa-external-link::before {
     content: "\f1c2";
     color: #185abd;
     font: normal normal normal 18px/1 FontAwesome;
@@ -312,14 +315,17 @@ html[lang="en"] .entry-content span.txt-note::before {
 .entry-content span.txt-link a[href*=".xls"] .fa.fa-external-link::before,
 .entry-content div.txt-link a[href*=".xls"] .fa.fa-external-link::before,
 .entry-content ul.list-02 a[href*=".xls"] .fa.fa-external-link::before,
+.entry-content ol.list-02 a[href*=".xls"] .fa.fa-external-link::before,
 .entry-content p.txt-link a[href*=".xlsx"] .fa.fa-external-link::before,
 .entry-content span.txt-link a[href*=".xlsx"] .fa.fa-external-link::before,
 .entry-content div.txt-link a[href*=".xlsx"] .fa.fa-external-link::before,
 .entry-content ul.list-02 a[href*=".xlsx"] .fa.fa-external-link::before,
+.entry-content ol.list-02 a[href*=".xlsx"] .fa.fa-external-link::before,
 .entry-content p.txt-link a[href*=".xlsm"] .fa.fa-external-link::before,
 .entry-content span.txt-link a[href*=".xlsm"] .fa.fa-external-link::before,
 .entry-content div.txt-link a[href*=".xlsm"] .fa.fa-external-link::before,
-.entry-content ul.list-02 a[href*=".xlsm"] .fa.fa-external-link::before {
+.entry-content ul.list-02 a[href*=".xlsm"] .fa.fa-external-link::before,
+.entry-content ol.list-02 a[href*=".xlsm"] .fa.fa-external-link::before {
     content: "\f1c3";
     color: #107c41;
     font: normal normal normal 18px/1 FontAwesome;
@@ -329,10 +335,12 @@ html[lang="en"] .entry-content span.txt-note::before {
 .entry-content span.txt-link a[href*=".ppt"] .fa.fa-external-link::before,
 .entry-content div.txt-link a[href*=".ppt"] .fa.fa-external-link::before,
 .entry-content ul.list-02 a[href*=".ppt"] .fa.fa-external-link::before,
+.entry-content ol.list-02 a[href*=".ppt"] .fa.fa-external-link::before,
 .entry-content p.txt-link a[href*=".pptx"] .fa.fa-external-link::before,
 .entry-content span.txt-link a[href*=".pptx"] .fa.fa-external-link::before,
 .entry-content div.txt-link a[href*=".pptx"] .fa.fa-external-link::before,
-.entry-content ul.list-02 a[href*=".pptx"] .fa.fa-external-link::before {
+.entry-content ul.list-02 a[href*=".pptx"] .fa.fa-external-link::before,
+.entry-content ol.list-02 a[href*=".pptx"] .fa.fa-external-link::before {
     content: "\f1c4";
     color: #c43e1c;
     font: normal normal normal 18px/1 FontAwesome;

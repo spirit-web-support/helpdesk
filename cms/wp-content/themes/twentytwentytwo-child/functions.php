@@ -26,6 +26,56 @@ remove_action('wp_head','rest_output_link_wp_head');
 // oEmbedを非表示
 remove_action('wp_head','wp_oembed_add_discovery_links');
 
+//タイトルタグ
+add_theme_support('title-tag');
+function my_title_separator($separator) {
+  $separator = '|';
+  return $separator;
+}
+add_filter('document_title_separator', 'my_title_separator');
+
+function change_document_title( $title ){
+  if( is_category() )
+  {
+    $title = 'カテゴリー「' .single_cat_title('',false) .'」のページ一覧 | ' . get_bloginfo( 'name' );
+  }
+  else if( is_tag() ) {
+    $title = 'タグ「' .single_tag_title('',false) .'」のページ一覧 | ' . get_bloginfo( 'name' );
+  }
+  else if( is_search() ){
+    $title = '「' .get_search_query() .'」の検索結果一覧 | ' . get_bloginfo( 'name' );
+  }
+  return $title;
+}
+add_filter( 'pre_get_document_title', 'change_document_title' );
+
+//meta
+add_post_type_support('page', 'excerpt');
+
+function register_meta_description() {
+    global $post;   
+    if( is_home() || is_front_page() ) {
+        echo '<meta name="description" content="' . get_bloginfo( 'description' ) . '">';
+    }
+    else if ( is_singular() ) {
+        $post_description = strip_tags( $post->post_excerpt );
+        $post_description = mb_substr( $post_description, 0, 120, 'utf-8' );
+        if (!$post_description){
+            echo '<meta name="description" content="「' . get_the_title() . '」に関するページです。">';
+        }else{
+            echo '<meta name="description" content="' . $post_description . '">';
+        }
+    }
+    else if( is_category() ) {
+        echo '<meta name="description" content="「' . single_cat_title('',false) . '」に関するページ一覧です。">';
+    }
+    else if( is_tag() ) {
+        echo '<meta name="description" content="「' . single_tag_title('',false) . '」に関するページ一覧です。">';
+    }
+}
+
+add_action( 'wp_head', 'register_meta_description',1 );
+
 //CSS
 remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
 remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' );
@@ -82,57 +132,28 @@ function wovn(){
 }; 
 add_action( 'wp_head', 'wovn',100);
 
+//Google Tag Manager
+function gtag(){
+		echo 
+		 '<!-- Google Tag Manager -->'."\n",
+		 '<script>'."\n",
+		 '(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start":new Date().getTime(),event:"gtm.js"});'."\n",
+		 'var f=d.getElementsByTagName(s)[0],'."\n",
+		 'j=d.createElement(s),dl=l!="dataLayer"?"&l="+l:"";j.async=true;'."\n",
+		 'j.src="https://www.googletagmanager.com/gtm.js?id="+i+dl;f.parentNode.insertBefore(j,f);'."\n",
+		 '})(window,document,"script","dataLayer","GTM-NQZ3QMM");'."\n",
+		 '</script>'."\n",
+		 '<!-- End Google Tag Manager -->'."\n";
+}; 
+add_action( 'wp_head', 'gtag',101);
 
-//タイトルタグ
-add_theme_support('title-tag');
-function my_title_separator($separator) {
-  $separator = '|';
-  return $separator;
-}
-add_filter('document_title_separator', 'my_title_separator');
-
-function change_document_title( $title ){
-  if( is_category() )
-  {
-    $title = 'カテゴリー「' .single_cat_title('',false) .'」のページ一覧 | ' . get_bloginfo( 'name' );
-  }
-  else if( is_tag() ) {
-    $title = 'タグ「' .single_tag_title('',false) .'」のページ一覧 | ' . get_bloginfo( 'name' );
-  }
-  else if( is_search() ){
-    $title = '「' .get_search_query() .'」の検索結果一覧 | ' . get_bloginfo( 'name' );
-  }
-  return $title;
-}
-add_filter( 'pre_get_document_title', 'change_document_title' );
-
-//meta
-add_post_type_support('page', 'excerpt');
-
-function register_meta_description() {
-    global $post;   
-    if( is_home() || is_front_page() ) {
-        echo '<meta name="description" content="' . get_bloginfo( 'description' ) . '">';
-    }
-    else if ( is_singular() ) {
-        $post_description = strip_tags( $post->post_excerpt );
-        $post_description = mb_substr( $post_description, 0, 120, 'utf-8' );
-        if (!$post_description){
-            echo '<meta name="description" content="「' . get_the_title() . '」に関するページです。">';
-        }else{
-            echo '<meta name="description" content="' . $post_description . '">';
-        }
-    }
-    else if( is_category() ) {
-        echo '<meta name="description" content="「' . single_cat_title('',false) . '」に関するページ一覧です。">';
-    }
-    else if( is_tag() ) {
-        echo '<meta name="description" content="「' . single_tag_title('',false) . '」に関するページ一覧です。">';
-    }
-}
-
-add_action( 'wp_head', 'register_meta_description',1 );
-
+function gtag_noscript(){
+	    echo 
+		 '<!-- Google Tag Manager (noscript) -->'."\n",
+		 '<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQZ3QMM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>'."\n",
+		 '<!-- End Google Tag Manager (noscript) -->'."\n";
+}; 
+add_action( 'wp_body_open', 'gtag_noscript');
 
 // search.php
 
