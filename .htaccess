@@ -47,6 +47,7 @@ RewriteRule ^rj_stu/r002$ / [R=301,L]
 RewriteRule ^rj_stu/r003$ https://spirit.rikkyo.ac.jp/portfolio/SiteAssets/pdf/all/manual_02.pdf [R=301,L]
 RewriteRule ^rj_stu/r004$ / [R=301,L]
 RewriteRule ^rj_stu/r005$ https://spirit.rikkyo.ac.jp/portfolio/SiteAssets/pdf/all/manual_03.pdf [R=301,L]
+RewriteRule ^archives/3030$ /turnitin_tea/t002 [R=301,L]
 # RewriteRule ^元ページ$ リダイレクト先 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
