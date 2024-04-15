@@ -461,10 +461,9 @@ html[lang="en"] .entry-content span.txt-note::before {
 }
 
 /* 順序リスト */
-
 .entry-content ol {
     padding: 0;
-    margin-bottom: 2rem;
+    margin: 0 0 2rem 0;
     counter-reset: item;
     list-style-type: none;
     display: table;
@@ -565,6 +564,10 @@ html[lang="en"] .entry-content span.txt-note::before {
 }
 
 /* 定義リスト */
+.entry-content dl {
+    margin: 0 0 2rem 0;
+}
+
 .entry-content dl dt {
     font-weight: bold;
 }
@@ -2003,7 +2006,7 @@ html.fixed {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    margin: 0;
+    margin: 0 -15px;
 }
 
 /* 表示ユーティリティ */
