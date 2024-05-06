@@ -157,20 +157,17 @@ add_action( 'wp_body_open', 'gtag_noscript');
 
 // search.php
 
+function title_customizer($title){
+    if(is_search()){
+        $title = '「'.get_search_query() .'」の検索結果一覧';
+    }
+    return $title;
+}
+add_filter('aioseop_title', 'title_customizer');
+
+
 global $more;
 $more = 1;
-
-add_filter(
-    'the_title',
-    function ( string $title ) {
-        if ( ! is_search() ) {
-            return $title;
-        }
-        $keys    = implode( '|', array_filter( explode( ' ', get_search_query() ) ) );
-        $pattern = '/(' . $keys . ')/iu';
-        return preg_replace( $pattern, '<mark class="search-highlight">\0</mark>', $title );
-    }
-);
 
 add_filter(
     'the_content',

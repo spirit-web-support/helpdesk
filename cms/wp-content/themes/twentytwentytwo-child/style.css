@@ -654,12 +654,14 @@ a:link {
     white-space: nowrap;
 }
 
-#lyt-main .lyt-main-breadcrumb span[property="itemListElement"]+span[property="itemListElement"] {
+#lyt-main .lyt-main-breadcrumb span[property="itemListElement"]+span[property="itemListElement"],
+#lyt-main .lyt-main-breadcrumb .search.current-item {
     padding-left: 3rem;
     position: relative;
 }
 
-#lyt-main .lyt-main-breadcrumb span[property="itemListElement"]+span[property="itemListElement"]::before {
+#lyt-main .lyt-main-breadcrumb span[property="itemListElement"]+span[property="itemListElement"]::before,
+#lyt-main .lyt-main-breadcrumb .search.current-item::before{
     content: "";
     position: absolute;
     -webkit-box-sizing: border-box;
@@ -787,6 +789,21 @@ footer .copyright p a:active {
     margin: auto;
     text-align: center;
     line-height: 1.6;
+}
+
+/* 一覧ページ */
+#lyt-main .lyt-main-content .page-list > .wp-block-query-is-layout-flow {
+    padding: 0;
+}
+
+#lyt-main .lyt-main-content .page-list > .wp-block-query-is-layout-flow .wp-block-post-title a,
+#lyt-main .lyt-main-content .page-list>.wp-block-query-pagination a {
+    font-weight: normal;
+    border-bottom: 0;
+}
+
+#lyt-main .lyt-main-content .page-list > .wp-block-query-pagination  {
+    display: flex;
 }
 
 /* 検索結果ページ */
