@@ -140,52 +140,10 @@ Template: twentytwentytwo
         padding: 0.5rem 1rem 0.5rem 1rem;
     }
 
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h2,
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h3,
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h4,
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h5,
-    .entry-content .acd-01.acd-num .acd-panel.is-open .acd-panel-heading h6,
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h2,
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h3,
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h4,
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h5,
-    .entry-content .acd-01.acd-num .acd-panel.is-close .acd-panel-heading h6 {
-        background-color: #ffffff;
-        color: #333333;
-        padding: 0.5rem 1rem 0.5rem 1rem;
-    }
-
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h2::before,
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h3::before,
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h4::before,
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h5::before,
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h6::before,
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h2::after,
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h3::after,
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h4::after,
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h5::after,
-    .entry-content .acd-01 .acd-panel.is-open .acd-panel-heading h6::after,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h2::before,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h3::before,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h4::before,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h5::before,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h6::before,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h2::after,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h3::after,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h4::after,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h5::after,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-heading h6::after {
-        content: none;
-    }
-
     .entry-content .acd-01 .acd-panel.is-open .acd-panel-content,
-    .entry-content .acd-01 .acd-panel.is-close .acd-panel-content {
-        margin-top: 0;
-        padding: 2rem 1rem;
-        line-height: 1.75;
-        height: auto;
-        opacity: 1;
-        visibility: visible;
+    .entry-content .acd-01 .acd-panel.is-close .acd-panel-content,
+    .entry-content .acd-01 .acd-panel.is-closed .acd-panel-content {
+        animation: none;
     }
 
     /* タブパネル */

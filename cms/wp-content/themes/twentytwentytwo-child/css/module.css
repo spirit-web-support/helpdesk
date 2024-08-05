@@ -1334,17 +1334,6 @@ html[lang="en"] .entry-content ol.list-note>li::before {
     height: 0;
 }
 
-.entry-content .acd-01 .acd-panel {
-    overflow: hidden;
-}
-
-.entry-content .acd-01 .acd-panel.is-open,
-.entry-content .acd-01 .acd-panel.is-close {
-    -webkit-transition: height 1s;
-    -o-transition: height 1s;
-    transition: height 1s;
-}
-
 .entry-content .acd-01 .acd-panel>.panel-grid-cell>.so-panel {
     padding: 0;
 }
@@ -1498,25 +1487,57 @@ html[lang="en"] .entry-content ol.list-note>li::before {
 }
 
 .entry-content .acd-01 .acd-panel {
-    display: block;
     position: relative;
     counter-reset: acd-number-text;
     overflow: hidden;
 }
 
-.entry-content .acd-01 .acd-panel .acd-panel-content {
-    padding: 2rem 1rem;
-    border: 1px solid #dfdfdf;
-    border-top: none;
-    width: 100%;
+.entry-content .acd-01 .acd-panel .acd-panel-content{
+    display: grid;
 }
 
 .entry-content .acd-01 .acd-panel.is-close .acd-panel-content,
 .entry-content .acd-01 .acd-panel.is-closed .acd-panel-content {
-    -webkit-transition-delay: 1s;
-    -o-transition-delay: 1s;
-    transition-delay: 1s;
-    visibility: hidden;
+    grid-template-rows: 0fr;
+    transition: 0.8s grid-template-rows ease;
+    animation: to-hidden 0.8s forwards;
+    
+}
+
+.entry-content .acd-01 .acd-panel.is-open .acd-panel-content {
+    grid-template-rows: 1fr;
+    transition: 0.8s grid-template-rows ease;
+    visibility: visible;
+}
+
+@keyframes to-hidden {
+    0% {
+        visibility: visible;
+    }
+
+    100% {
+        visibility: hidden;
+    }
+}
+
+.entry-content .acd-01 .acd-panel .acd-panel-content > .panel-layout {
+    overflow: hidden;
+    border-right: 1px solid #dfdfdf;
+    border-left: 1px solid #dfdfdf;
+}
+
+.entry-content .acd-01 .acd-panel .acd-panel-content > .panel-layout > .panel-grid {
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+.entry-content .acd-01 .acd-panel .acd-panel-content > .panel-layout > .panel-grid:first-child {
+    padding-top: 2rem;
+}
+
+.entry-content .acd-01 .acd-panel .acd-panel-content > .panel-layout > .panel-grid:last-child {
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #dfdfdf;
 }
 
 .entry-content .acd-01 .text-num {
@@ -1569,10 +1590,10 @@ html[lang="en"] .entry-content ol.list-note>li::before {
 }
 
 /* アコーディオン 調整*/
-.entry-content .acd-01 .acd-panel .acd-panel-content> :not([class^="box"]):last-child {
+/* .entry-content .acd-01 .acd-panel .acd-panel-content> :not([class^="box"]):last-child {
     margin-bottom: 0;
     padding-bottom: 0;
-}
+} */
 
 /* TOPページ用ボタン */
 /*
