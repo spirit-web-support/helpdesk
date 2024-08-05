@@ -1,3 +1,4 @@
+
 jQuery(document).ready(function ($) {
     //グローバルメニュー
     (function () {
@@ -159,34 +160,21 @@ jQuery(document).ready(function ($) {
 
     //アコーディオンモジュール
     if ($(".acd-01 .acd-panel .acd-panel-heading").length) {
-        $(".acd-01 .acd-panel").addClass("is-closed").attr({ "aria-expanded": "false", "aria-hidden": "true" });
-        $(".acd-01 .acd-panel .acd-panel-heading").attr({ "role": "button", "tabindex": "0"});
-
-        (function () {
-            var all = $('.acd-01 .acd-panel');
-            var i = 0;
-            var max = all.length;
-
-            for (i; i < max; i++) {
-                var headingHeight = ($(all[i])).find('.acd-panel-heading').outerHeight(true);
-                ($(all[i])).height(headingHeight);
-            };
-        }());
+        $(".acd-01 .acd-panel").addClass("is-closed");
+        $(".acd-01 .acd-panel .acd-panel-heading").attr({ "aria-expanded": "false","role": "button", "tabindex": "0"});
+        $(".acd-01 .acd-panel .acd-panel-content").attr({ "aria-hidden": "true" });
 
         $(".acd-01 .acd-panel .acd-panel-heading").on("click", function () {
             var tgl = $(this).parents(".acd-panel");
  
             if (tgl.hasClass("is-open") || tgl.hasClass("is-opened")) {
                 tgl.removeClass("is-open").removeClass("is-opened");
-                tgl.addClass("is-close").attr({ "aria-expanded": "false", "aria-hidden": "true" });
-                headingHeight = tgl.find('.acd-panel-heading').outerHeight(true);
-                tgl.height(headingHeight);
+                tgl.addClass("is-close").attr({ "aria-expanded": "false" });
+                tgl.find('.acd-panel-content').attr({ "aria-hidden": "true" });
             } else {
                 tgl.removeClass("is-close").removeClass("is-closed");
-                tgl.addClass("is-open").attr({ "aria-expanded": "true", "aria-hidden": "false" });
-                headingHeight = tgl.find('.acd-panel-heading').outerHeight(true);
-                contentHeight = tgl.find('.acd-panel-content').outerHeight(true);
-                tgl.height(headingHeight + contentHeight + "px");
+                tgl.addClass("is-open").attr({ "aria-expanded": "true" });
+                tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
             }
             return false;
         });
@@ -197,15 +185,12 @@ jQuery(document).ready(function ($) {
 
                 if (tgl.hasClass("is-open") || tgl.hasClass("is-opened")) {
                     tgl.removeClass("is-open").removeClass("is-opened");
-                    tgl.addClass("is-close").attr({ "aria-expanded": "false", "aria-hidden": "true" });
-                    headingHeight = tgl.find('.acd-panel-heading').outerHeight(true);
-                    tgl.height(headingHeight);
+                    tgl.addClass("is-close").attr({ "aria-expanded": "false" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "true" });
                 } else {
                     tgl.removeClass("is-close").removeClass("is-closed");
-                    tgl.addClass("is-open").attr({ "aria-expanded": "true", "aria-hidden": "false" });
-                    headingHeight = tgl.find('.acd-panel-heading').outerHeight(true);
-                    contentHeight = tgl.find('.acd-panel-content').outerHeight(true);
-                    tgl.height(headingHeight + contentHeight + "px");
+                    tgl.addClass("is-open").attr({ "aria-expanded": "true" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
                 }
                 return false;
             }
@@ -221,18 +206,14 @@ jQuery(document).ready(function ($) {
                 if (titleHash.hasClass("acd-panel-heading")) {
                     var tgl = $(titleHash).parents(".acd-panel");
                     tgl.removeClass("is-close").removeClass("is-closed");
-                    tgl.addClass("is-opened").attr({ "aria-expanded": "true", "aria-hidden": "false" });
-                    headingHeight = tgl.find('.acd-panel-heading').outerHeight(true);
-                    contentHeight = tgl.find('.acd-panel-content').outerHeight(true);
-                    tgl.height(headingHeight + contentHeight + "px");
+                    tgl.addClass("is-open").attr({ "aria-expanded": "true" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
                 }
                 if (contentHash.length) {
                     var tgl = $(contentHash).parents(".acd-panel");
                     tgl.removeClass("is-close").removeClass("is-closed");
-                    tgl.addClass("is-opened").attr({ "aria-expanded": "true", "aria-hidden": "false" });
-                    headingHeight = tgl.find('.acd-panel-heading').outerHeight(true);
-                    contentHeight = tgl.find('.acd-panel-content').outerHeight(true);
-                    tgl.height(headingHeight + contentHeight + "px");
+                    tgl.addClass("is-open").attr({ "aria-expanded": "true" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
                 }
             }
         });
@@ -245,18 +226,14 @@ jQuery(document).ready(function ($) {
                 if (titleHash.hasClass("acd-panel-heading")) {
                     var tgl = $(titleHash).parents(".acd-panel");
                     tgl.removeClass("is-close").removeClass("is-closed");
-                    tgl.addClass("is-open").attr({ "aria-expanded": "true", "aria-hidden": "false" });
-                    headingHeight = tgl.find('.acd-panel-heading').outerHeight(true);
-                    contentHeight = tgl.find('.acd-panel-content').outerHeight(true);
-                    tgl.height(headingHeight + contentHeight + "px");
+                    tgl.addClass("is-open").attr({ "aria-expanded": "true" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
                 }
                 if (contentHash.length) {
                     var tgl = $(contentHash).parents(".acd-panel");
                     tgl.removeClass("is-close").removeClass("is-closed");
-                    tgl.addClass("is-open").attr({ "aria-expanded": "true", "aria-hidden": "false" });
-                    headingHeight = tgl.find('.acd-panel-heading').outerHeight(true);
-                    contentHeight = tgl.find('.acd-panel-content').outerHeight(true);
-                    tgl.height(headingHeight + contentHeight + "px");
+                    tgl.addClass("is-open").attr({ "aria-expanded": "true" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
                 }
             }
             return false;
@@ -270,19 +247,8 @@ jQuery(document).ready(function ($) {
                     var acd = $(this).parents(".acd-01");
                     var tgl = acd.find(".acd-panel");
                     tgl.removeClass("is-close").removeClass("is-closed");
-                    tgl.addClass("is-open").attr({ "aria-expanded": "true", "aria-hidden": "false" });
-
-                    (function () {
-                        var all = tgl;
-                        var i = 0;
-                        var max = all.length;
-
-                        for (i; i < max; i++) {
-                            var headingHeight = ($(all[i])).find('.acd-panel-heading').outerHeight(true);
-                            var contentHeight = ($(all[i])).find('.acd-panel-content').outerHeight(true);
-                            ($(all[i])).height(headingHeight + contentHeight + "px");
-                        };
-                    }());
+                    tgl.addClass("is-open").attr({ "aria-expanded": "true" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
                 } else {
                     $(this).removeClass("btn-close");
                     $(this).addClass("btn-open");
@@ -290,18 +256,8 @@ jQuery(document).ready(function ($) {
                     var acd = $(this).parents(".acd-01");
                     var tgl = acd.find(".acd-panel");
                     tgl.removeClass("is-open").removeClass("is-opened");
-                    tgl.addClass("is-close").attr({ "aria-expanded": "false", "aria-hidden": "true" });
-
-                    (function () {
-                        var all = tgl;
-                        var i = 0;
-                        var max = all.length;
-
-                        for (i; i < max; i++) {
-                            var headingHeight = ($(all[i])).find('.acd-panel-heading').outerHeight(true);
-                            ($(all[i])).height(headingHeight);
-                        };
-                    }());
+                    tgl.addClass("is-close").attr({ "aria-expanded": "false" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "true" });
                 }
                 return false;
             });
