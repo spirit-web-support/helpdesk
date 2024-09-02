@@ -190,6 +190,17 @@ add_filter(
     }
 );
 
+//検索結果の表示件数
+function my_pre_get_posts( $query ) {
+  if ( is_admin() || !$query->is_main_query() ) {
+    return;
+  }
+  if ( $query->is_search() ) {
+    $query->set( 'posts_per_page', 20 );
+  }
+}
+add_action('pre_get_posts','my_pre_get_posts');
+
 //Authorアーカイブページを404ページにリダイレクト
 function author_custom_redirection() {
     global $wp_rewrite;
