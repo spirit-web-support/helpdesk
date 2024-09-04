@@ -2,7 +2,7 @@
 
 /*
 Theme Name: Twenty Twenty-Two Child
-Version: 1.1
+Version: 1.2
 Template: twentytwentytwo
 */
 
@@ -287,6 +287,7 @@ a:link {
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         position: relative;
+        border-bottom: 1px solid #ebebeb;
     }
 }
 
@@ -426,7 +427,7 @@ a:link {
     }
 
     #lyt-nav .wp-block-search .wp-block-search__button {
-        height: 3.8rem;
+        height: 4rem;
         right: 1rem;
     }
 }
@@ -700,7 +701,6 @@ a:link {
 @media screen and (max-width: 1199px) {
     #lyt-main {
         width: 100%;
-        border-top: 1px solid #ebebeb;
     }
 
     #lyt-main .lyt-main-content {

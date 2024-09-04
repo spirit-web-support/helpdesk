@@ -17,8 +17,12 @@ remove_action('admin_print_scripts', 'print_emoji_detection_script');
 remove_action('wp_print_styles', 'print_emoji_styles');
 remove_action('admin_print_styles', 'print_emoji_styles');
 
-// 投稿の RSS フィードリンクを非表示
-remove_action('wp_head', 'feed_links', 2);
+// RSS フィードリンクを非表示
+function remove_all_rss_feed_links() {
+    remove_action('wp_head', 'feed_links_extra', 3);
+    remove_action('wp_head', 'feed_links', 2);
+}
+add_action('wp_head', 'remove_all_rss_feed_links', 1);
 
 // REST APIを非表示
 remove_action('wp_head','rest_output_link_wp_head');
@@ -155,16 +159,16 @@ function gtag_noscript(){
 }; 
 add_action( 'wp_body_open', 'gtag_noscript');
 
-// search.php
+//search.html
 
-function title_customizer($title){
-    if(is_search()){
-        $title = '「'.get_search_query() .'」の検索結果一覧';
+function search_result_title_shortcode() {
+    if (is_search()) {
+        global $wp_query;
+        $total_results = $wp_query->found_posts;
+        return '<h1 class="wp-block-query-title">「' . esc_html(get_search_query()) . '」の検索結果一覧 全' . $total_results . '件</h1>';
     }
-    return $title;
 }
-add_filter('aioseop_title', 'title_customizer');
-
+add_shortcode('search_result_title', 'search_result_title_shortcode');
 
 global $more;
 $more = 1;
@@ -293,5 +297,11 @@ add_filter(
         return $taxonomies;
     }
 );
+
+//コピーライト（footer）
+function custom_copyright_shortcode() {
+    return '<p>&copy; 2018 - ' . (int)date('Y') . ' 立教大学 Rikkyo University</p>';
+}
+add_shortcode('custom_copyright', 'custom_copyright_shortcode');
 
 ?>
