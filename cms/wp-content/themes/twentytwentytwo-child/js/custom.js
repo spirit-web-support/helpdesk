@@ -2,6 +2,7 @@
 jQuery(document).ready(function ($) {
     //グローバルメニュー
     (function () {
+        /*
         'use strict';
 
         var all = document.querySelectorAll('ul.sub-menu');
@@ -50,7 +51,7 @@ jQuery(document).ready(function ($) {
                 });
             });
         } 
-
+ */
         //SPハンバーガーメニュー
         var btnNav = document.getElementById('btn-nav');
 
