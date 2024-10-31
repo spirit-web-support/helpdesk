@@ -163,6 +163,7 @@ jQuery(document).ready(function ($) {
         $(".acd-01 .acd-panel").addClass("is-closed");
         $(".acd-01 .acd-panel .acd-panel-heading").attr({ "aria-expanded": "false","role": "button", "tabindex": "0"});
         $(".acd-01 .acd-panel .acd-panel-content").attr({ "aria-hidden": "true" });
+        $(".acd-01 .acd-panel .acd-panel-content a").attr({ "tabindex": "-1" });
 
         $(".acd-01 .acd-panel .acd-panel-heading").on("click", function () {
             var tgl = $(this).parents(".acd-panel");
@@ -171,10 +172,12 @@ jQuery(document).ready(function ($) {
                 tgl.removeClass("is-open").removeClass("is-opened");
                 tgl.addClass("is-close").attr({ "aria-expanded": "false" });
                 tgl.find('.acd-panel-content').attr({ "aria-hidden": "true" });
+                tgl.find('.acd-panel-content a').attr({ "tabindex": "-1" });
             } else {
                 tgl.removeClass("is-close").removeClass("is-closed");
                 tgl.addClass("is-open").attr({ "aria-expanded": "true" });
                 tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
+                tgl.find('.acd-panel-content a').attr({ "tabindex": "0" });
             }
             return false;
         });
@@ -187,10 +190,12 @@ jQuery(document).ready(function ($) {
                     tgl.removeClass("is-open").removeClass("is-opened");
                     tgl.addClass("is-close").attr({ "aria-expanded": "false" });
                     tgl.find('.acd-panel-content').attr({ "aria-hidden": "true" });
+                    tgl.find('.acd-panel-content a').attr({ "tabindex": "-1" });
                 } else {
                     tgl.removeClass("is-close").removeClass("is-closed");
                     tgl.addClass("is-open").attr({ "aria-expanded": "true" });
                     tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
+                    tgl.find('.acd-panel-content a').attr({ "tabindex": "0" });
                 }
                 return false;
             }
@@ -208,12 +213,14 @@ jQuery(document).ready(function ($) {
                     tgl.removeClass("is-close").removeClass("is-closed");
                     tgl.addClass("is-open").attr({ "aria-expanded": "true" });
                     tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
+                    tgl.find('.acd-panel-content a').attr({ "tabindex": "0" });
                 }
                 if (contentHash.length) {
                     var tgl = $(contentHash).parents(".acd-panel");
                     tgl.removeClass("is-close").removeClass("is-closed");
                     tgl.addClass("is-open").attr({ "aria-expanded": "true" });
                     tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
+                    tgl.find('.acd-panel-content a').attr({ "tabindex": "0" });
                 }
             }
         });
@@ -228,12 +235,14 @@ jQuery(document).ready(function ($) {
                     tgl.removeClass("is-close").removeClass("is-closed");
                     tgl.addClass("is-open").attr({ "aria-expanded": "true" });
                     tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
+                    tgl.find('.acd-panel-content a').attr({ "tabindex": "0" });
                 }
                 if (contentHash.length) {
                     var tgl = $(contentHash).parents(".acd-panel");
                     tgl.removeClass("is-close").removeClass("is-closed");
                     tgl.addClass("is-open").attr({ "aria-expanded": "true" });
                     tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
+                    tgl.find('.acd-panel-content a').attr({ "tabindex": "0" });
                 }
             }
             return false;
@@ -249,6 +258,7 @@ jQuery(document).ready(function ($) {
                     tgl.removeClass("is-close").removeClass("is-closed");
                     tgl.addClass("is-open").attr({ "aria-expanded": "true" });
                     tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
+                    tgl.find('.acd-panel-content a').attr({ "tabindex": "0" });
                 } else {
                     $(this).removeClass("btn-close");
                     $(this).addClass("btn-open");
@@ -258,9 +268,146 @@ jQuery(document).ready(function ($) {
                     tgl.removeClass("is-open").removeClass("is-opened");
                     tgl.addClass("is-close").attr({ "aria-expanded": "false" });
                     tgl.find('.acd-panel-content').attr({ "aria-hidden": "true" });
+                    tgl.find('.acd-panel-content a').attr({ "tabindex": "-1" });
                 }
                 return false;
             });
+        }
+
+        if ($("#btn-acd-all").length) {
+            $("#btn-acd-all button").on("click", function () {
+                if ($(this).hasClass("btn-open")) {
+                    $(this).removeClass("btn-open");
+                    $(this).addClass("btn-close");
+                    $(this).html("すべての項目を閉じる")
+                    var tgl = $(".acd-panel");
+                    tgl.removeClass("is-close").removeClass("is-closed");
+                    tgl.addClass("is-open").attr({ "aria-expanded": "true" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
+                    tgl.find('.acd-panel-content a').attr({ "tabindex": "0" });
+                } else {
+                    $(this).removeClass("btn-close");
+                    $(this).addClass("btn-open");
+                    $(this).html("すべての項目を開く")
+                    var tgl = $(".acd-panel");
+                    tgl.removeClass("is-open").removeClass("is-opened");
+                    tgl.addClass("is-close").attr({ "aria-expanded": "false" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "true" });
+                    tgl.find('.acd-panel-content a').attr({ "tabindex": "-1" });
+                }
+                return false;
+            });
+        }
+
+        //アコーディオン検索
+        let currentHighlightIndex = -1;
+        let highlights = [];
+
+        function resetHighlights() {
+            $(".acd-panel-content .acd-search-result, .acd-panel-heading .acd-search-result").each(function () {
+                $(this).replaceWith($(this).text());
+            });
+            highlights = []; 
+            currentHighlightIndex = -1;
+            updateHitInfo();
+        }
+
+        function updateHitInfo() {
+            $("#hit-info").text(`該当件数  ${highlights.length}件`);
+        }
+
+        function performSearch() {
+            let query = $("#acd-search-input").val().trim();
+
+            if (query === "") return;
+
+            resetHighlights();
+
+            $(".acd-01 .acd-panel").each(function () {
+                var panel = $(this);
+                var headingText = panel.find(".acd-panel-heading").text().toLowerCase();
+                var contentText = panel.find(".acd-panel-content").text().toLowerCase();
+
+                var headingHtml = panel.find(".acd-panel-heading").html();
+                var contentHtml = panel.find(".acd-panel-content").html();
+
+                var foundInHeading = headingText.includes(query.toLowerCase());
+                var foundInContent = contentText.includes(query.toLowerCase());
+
+                if (foundInHeading || foundInContent) {
+                    if (foundInHeading) {
+                        var highlightedHeading = headingHtml.replace(new RegExp(`(${query})`, "gi"), function (match) {
+                            return `<mark class="acd-search-result">${match}</mark>`;
+                        });
+                        panel.find(".acd-panel-heading").html(highlightedHeading);
+                    }
+
+                    if (foundInContent) {
+                        var highlightedContent = contentHtml.replace(new RegExp(`(${query})`, "gi"), function (match) {
+                            return `<mark class="acd-search-result">${match}</mark>`;
+                        });
+                        panel.find(".acd-panel-content").html(highlightedContent);
+                    }
+
+                    const panelHeadingHighlights = panel.find(".acd-panel-heading").find(".acd-search-result").get();
+                    highlights.push(...panelHeadingHighlights);
+                    panel.find(".acd-panel-content .acd-search-result").each(function () {
+                        highlights.push(this);
+                    });
+
+                    panel.removeClass("is-close is-closed").addClass("is-open").attr({ "aria-expanded": "true" });
+                    panel.find('.acd-panel-content').attr({ "aria-hidden": "false" });
+                    panel.find('.acd-panel-content a').attr({ "tabindex": "0" });
+                    setTimeout(function () {
+                        if (highlights.length > 0) {
+                            currentHighlightIndex = 0;
+                            scrollToHighlight(currentHighlightIndex);
+                            updateHitInfo();
+                        }
+                    }, 800);
+                } else {
+                    panel.removeClass("is-open is-opened").addClass("is-close").attr({ "aria-expanded": "false" });
+                    panel.find('.acd-panel-content').attr({ "aria-hidden": "true" });
+                    panel.find('.acd-panel-content a').attr({ "tabindex": "-1" });
+                }
+            });
+
+            updateHitInfo();
+        }
+
+        $("#btn-acd-search").on("click", function (event) {
+            event.preventDefault();
+            performSearch();
+        });
+
+        $("#acd-search-input").on("keypress", function (event) {
+            if (event.which === 13) { 
+                event.preventDefault();
+                performSearch();
+            }
+        });
+
+        $("#btn-delete").on("click", function () {
+            resetHighlights(); 
+
+            $(".acd-01 .acd-panel").each(function () {
+                $(this).removeClass("is-open is-opened").addClass("is-close").attr({ "aria-expanded": "false" });
+                $(this).find('.acd-panel-content').attr({ "aria-hidden": "true" });
+                $(this).find('.acd-panel-content a').attr({ "tabindex": "-1" });
+            });
+
+            $("#acd-search-input").val("").attr("placeholder", "よくある質問を検索");
+
+            updateHitInfo();
+        });
+
+        function scrollToHighlight(index) {
+            if (highlights.length > 0 && highlights[index]) {
+                $('html, body').animate({
+                    scrollTop: $(highlights[index]).offset().top - 50
+                }, 500);
+                $(highlights[index]).focus();
+            }
         }
     }
 
