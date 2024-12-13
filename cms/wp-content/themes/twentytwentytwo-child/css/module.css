@@ -1289,19 +1289,23 @@ html[lang="en"] .entry-content ol.list-note>li::before {
 }
 
 /* アコーディオン */
-.entry-content .acd-01 .btn-acd {
+.entry-content .acd-01 .btn-acd,
+.entry-content #btn-acd-all {
     text-align: right;
 }
 
-.entry-content .acd-01 .btn-acd button {
-    cursor: pointer;
+.entry-content .acd-01 .btn-acd button,
+.entry-content #btn-acd-all button {
     position: relative;
-    padding-right: 4rem;
-    border: none;
+    border: 1px solid #dfdfdf;
+    cursor: pointer;
+    padding: 1rem 3rem 1rem 1rem;
     background-color: transparent;
 }
 
-.entry-content .acd-01 .btn-acd button::before {
+
+.entry-content .acd-01 .btn-acd button::before,
+.entry-content #btn-acd-all button::before {
     position: absolute;
     content: "";
     width: 1.2rem;
@@ -1314,7 +1318,8 @@ html[lang="en"] .entry-content ol.list-note>li::before {
     transform: translateY(-50%);
 }
 
-.entry-content .acd-01 .btn-acd button.btn-open::after {
+.entry-content .acd-01 .btn-acd button::after,
+.entry-content #btn-acd-all button::after{
     position: absolute;
     content: "";
     width: 1.2rem;
@@ -1327,7 +1332,8 @@ html[lang="en"] .entry-content ol.list-note>li::before {
     transform: translateY(-50%) rotate(90deg);
 }
 
-.entry-content .acd-01 .btn-acd button.btn-close::after {
+.entry-content .acd-01 .btn-acd button.btn-close::after,
+.entry-content #btn-acd-all button.btn-close::after{
     position: absolute;
     content: "";
     width: 0;
@@ -1499,9 +1505,8 @@ html[lang="en"] .entry-content ol.list-note>li::before {
 .entry-content .acd-01 .acd-panel.is-close .acd-panel-content,
 .entry-content .acd-01 .acd-panel.is-closed .acd-panel-content {
     grid-template-rows: 0fr;
-    transition: 0.8s grid-template-rows ease;
     animation: to-hidden 0.8s forwards;
-    
+    transition: 0.8s grid-template-rows ease; 
 }
 
 .entry-content .acd-01 .acd-panel.is-open .acd-panel-content {
