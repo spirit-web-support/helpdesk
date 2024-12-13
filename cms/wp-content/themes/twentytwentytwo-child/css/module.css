@@ -123,6 +123,21 @@ img.img-border {
     border: 1px solid #dfdfdf;
 }
 
+.entry-content .img-md img,
+img.img-md {
+    max-width: 60rem;
+}
+
+.entry-content .img-sm img,
+img.img-sm {
+    max-width: 40rem;
+}
+
+figure.wp-caption.alignnone {
+    width: 100% !important;
+    margin: 0;
+}
+
 /* インライン画像 */
 .entry-content .img-inline {
     margin: 0 0.5rem;
@@ -1532,8 +1547,8 @@ html[lang="en"] .entry-content ol.list-note>li::before {
 }
 
 .entry-content .acd-01 .acd-panel .acd-panel-content > .panel-layout > .panel-grid {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
 }
 
 .entry-content .acd-01 .acd-panel .acd-panel-content > .panel-layout > .panel-grid:first-child {
@@ -1594,57 +1609,6 @@ html[lang="en"] .entry-content ol.list-note>li::before {
     transform: translateY(-50%);
 }
 
-/* アコーディオン 調整*/
-/* .entry-content .acd-01 .acd-panel .acd-panel-content> :not([class^="box"]):last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-} */
-
-/* TOPページ用ボタン */
-/*
-.entry-content .btn,
-.entryHeader .btn{
-    padding: 0;
-    border-radius: 0;
-    border: none;
-}
-
-.entry-content .btn a,
-.entryHeader .btn a{
-    background-color: #637f97;
-    color: #ffffff;
-    font-size: 1.6rem;
-    padding: 1rem 2rem 1rem 3rem;
-    display: block;
-    border: none;
-    font-weight: normal;
-    position:relative;
-}
-
-.entry-content .btn a .fa-external-link,
-.entryHeader .btn a .fa-external-link{
-    display: none;
-}
-
-.entry-content .btn a::before,
-.entryHeader .btn a::before {
-    content: "";
-    position: absolute;
-    left: 1rem;
-    width: 1rem;
-    height: 1rem;
-    border-top: 2px solid #ffffff;
-    border-right: 2px solid #ffffff;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    top: calc(50% - 5px);
-}
-
-.entry-content .btn a:hover,
-.entryHeader .btn a:hover {
-    opacity: 0.8;
-}
-*/
 /* 外部ボタン */
 .entry-content .btn-external,
 .entryHeader .btn-external {
@@ -1710,6 +1674,13 @@ html[lang="en"] .entry-content ol.list-note>li::before {
     left: 0;
     color: #ffffff;
     font-size: 2.4rem;
+}
+
+@media screen and (max-width: 576px) {
+    .entry-content .acd-01 .acd-panel .acd-panel-content > .panel-layout > .panel-grid {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
 }
 
 /* タブパネル */
