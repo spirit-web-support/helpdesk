@@ -298,6 +298,9 @@ add_filter(
     }
 );
 
+// 添付ファイルページを無効化
+add_filter( 'option_wp_attachment_pages_enabled', '__return_false' );
+
 //コピーライト（footer）
 function custom_copyright_shortcode() {
     return '<p>&copy; 2018 - ' . (int)date('Y') . ' 立教大学 Rikkyo University</p>';
