@@ -121,7 +121,8 @@ Template: twentytwentytwo
     }
 
     /* アコーディオン */
-    .entry-content .acd-01 .btn-acd button {
+    .entry-content .acd-01 .btn-acd button,
+    .entry-content .btn-acd-all {
         display: none;
     }
 
@@ -145,7 +146,7 @@ Template: twentytwentytwo
     .entry-content .acd-01 .acd-panel.is-closed .acd-panel-content {
         animation: none;
     }
-
+        
     /* タブパネル */
     .entry-content .tab-content .tab-menu {
         display: none !important;

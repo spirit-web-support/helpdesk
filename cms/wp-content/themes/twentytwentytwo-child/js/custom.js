@@ -162,7 +162,7 @@ jQuery(document).ready(function ($) {
     //アコーディオンモジュール
     if ($(".acd-01 .acd-panel .acd-panel-heading").length) {
         $(".acd-01 .acd-panel").addClass("is-closed");
-        $(".acd-01 .acd-panel .acd-panel-heading").attr({ "aria-expanded": "false","role": "button", "tabindex": "0"});
+        $(".acd-01 .acd-panel .acd-panel-heading").attr({ "aria-expanded": "false","role": "button"});
         $(".acd-01 .acd-panel .acd-panel-content").attr({ "aria-hidden": "true" });
 
         $(".acd-01 .acd-panel .acd-panel-heading").on("click", function () {
@@ -256,6 +256,29 @@ jQuery(document).ready(function ($) {
                     $(this).html("すべての項目を開く")
                     var acd = $(this).parents(".acd-01");
                     var tgl = acd.find(".acd-panel");
+                    tgl.removeClass("is-open").removeClass("is-opened");
+                    tgl.addClass("is-close").attr({ "aria-expanded": "false" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "true" });
+                }
+                return false;
+            });
+        }
+
+        if ($("#btn-acd-all").length) {
+            $("#btn-acd-all button").on("click", function () {
+                if ($(this).hasClass("btn-open")) {
+                    $(this).removeClass("btn-open");
+                    $(this).addClass("btn-close");
+                    $(this).html("すべての項目を閉じる")
+                    var tgl = $(".acd-panel");
+                    tgl.removeClass("is-close").removeClass("is-closed");
+                    tgl.addClass("is-open").attr({ "aria-expanded": "true" });
+                    tgl.find('.acd-panel-content').attr({ "aria-hidden": "false" });
+                } else {
+                    $(this).removeClass("btn-close");
+                    $(this).addClass("btn-open");
+                    $(this).html("すべての項目を開く")
+                    var tgl = $(".acd-panel");
                     tgl.removeClass("is-open").removeClass("is-opened");
                     tgl.addClass("is-close").attr({ "aria-expanded": "false" });
                     tgl.find('.acd-panel-content').attr({ "aria-hidden": "true" });
