@@ -258,7 +258,7 @@ a:link {
 
 /* Navigation */
 #lyt-nav {
-    width: 30rem;
+    width: 34rem;
     border-right: 1px solid #dfdfdf;
     background-color: #f9f9f9;
     height: 100%;
@@ -408,6 +408,7 @@ a:link {
         height: 100%;
         overflow: visible;
         visibility: visible;
+        border-top: 1px solid #9b9b9b;
     }
 }
 
@@ -484,24 +485,9 @@ a:link {
     position: relative;
     background-color: #f9f9f9;
     border-bottom: 1px solid #dfdfdf;
-    overflow: hidden;
 }
 
-#lyt-nav .main-menu input[id^="sub-menu"] {
-    border: 0;
-    clip: rect(0 0 0 0);
-    -webkit-clip-path: inset(50%);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-}
-
-#lyt-nav .main-menu .label-sub-menu {
+#lyt-nav .main-menu summary {
     position: relative;
     display: block;
     cursor: pointer;
@@ -509,14 +495,14 @@ a:link {
     padding: 0.5rem 2.5rem 0.5rem 0.5rem;
 }
 
-#lyt-nav .main-menu input[id^="sub-menu"]:focus+.label-sub-menu {
+#lyt-nav .main-menu details:focus+summary {
     outline: auto;
     outline-offset: -1px;
     outline-color: #333333;
     background-color: #e8e8e8;
 }
 
-#lyt-nav .main-menu .label-sub-menu::before {
+#lyt-nav .main-menu summary::before {
     position: absolute;
     content: "";
     width: 1.2rem;
@@ -530,7 +516,7 @@ a:link {
     border: none;
 }
 
-#lyt-nav .main-menu .label-sub-menu::after {
+#lyt-nav .main-menu summary::after {
     position: absolute;
     content: "";
     width: 1.2rem;
@@ -546,65 +532,33 @@ a:link {
     transition: all 0.5s;
 }
 
-#lyt-nav .main-menu input[id^="sub-menu"]:checked+.label-sub-menu::after {
+#lyt-nav .main-menu details[open] summary::after {
     display: none;
 }
 
-#lyt-nav .main-menu input[id^="sub-menu"]:checked+.label-sub-menu::before {
+#lyt-nav .main-menu details[open] summary::before {
     background-color: #ffffff;
 }
 
-#lyt-nav .main-menu .label-sub-menu,
-#lyt-nav .main-menu .sub-menu {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
 
-#lyt-nav .main-menu .sub-menu {
-    max-height: 0;
-    overflow: hidden;
-    -webkit-transition: all 1s;
-    -o-transition: all 1s;
-    transition: all 1s;
-    visibility: hidden;
-}
-
-#lyt-nav .main-menu .sub-menu.default,
-#lyt-nav .main-menu input[id^="sub-menu"]:checked+.label-sub-menu+.sub-menu.default,
-#lyt-nav .main-menu .sub-menu.open,
-#lyt-nav .main-menu input[id^="sub-menu"]:checked+.label-sub-menu+.sub-menu.open {
-    max-height: none;
-    transition: all 0.5s;
-}
-
-#lyt-nav .main-menu .sub-menu.close {
-    height: 0 !important;
-}
-
-
-#lyt-nav .main-menu input[id^="sub-menu"]:checked+.label-sub-menu {
+#lyt-nav .main-menu details[open] summary {
     background-color: #637f97;
     color: #ffffff;
 }
 
-#lyt-nav .main-menu input[id^="sub-menu"]:checked+.label-sub-menu:hover,
-#lyt-nav .main-menu input[id^="sub-menu"]:checked:focus+.label-sub-menu {
+#lyt-nav .main-menu details[open] summary:hover,
+#lyt-nav .main-menu details[open]:focus+summary {
     opacity: 0.8;
 }
 
-#lyt-nav .main-menu input[id^="sub-menu"]:checked+.label-sub-menu+.sub-menu {
-    max-height: 400px;
-    -webkit-transition: all 2s;
-    -o-transition: all 2s;
-    transition: all 2s;
+#lyt-nav .main-menu .main-menu-content {
     overflow: visible;
-    -webkit-backface-visibility: visible;
-    backface-visibility: visible;
-    visibility: visible;
+    transition: height 0.4s ease;
 }
 
 #lyt-nav .main-menu .sub-menu>li {
     position: relative;
+    overflow: visible;
     border-bottom: 1px solid #dfdfdf;
 }
 
@@ -612,7 +566,8 @@ a:link {
     border-bottom: none;
 }
 
-#lyt-nav .main-menu>li>a {
+#lyt-nav li>a {
+    position: relative;
     padding: 0.5rem;
     text-decoration: none;
     color: #333333;
@@ -621,18 +576,12 @@ a:link {
 }
 
 #lyt-nav .main-menu .sub-menu>li>a {
-    padding: 0.5rem;
-    text-decoration: none;
-    color: #333333;
-    display: block;
-    outline-offset: -1px;
+    padding: 0.5rem 0.5rem 0.5rem 1rem;
 }
 
-#lyt-nav .main-menu .label-sub-menu:hover,
-#lyt-nav .main-menu>li>a:hover,
-#lyt-nav .main-menu>li>a:focus,
-#lyt-nav .sub-menu>li>a:hover,
-#lyt-nav .sub-menu>li>a:focus {
+#lyt-nav .main-menu summary:hover,
+#lyt-nav li>a:hover,
+#lyt-nav li>a:focus {
     background-color: #e8e8e8;
 }
 
@@ -644,7 +593,7 @@ a:link {
 
 /* main */
 #lyt-main {
-    width: calc(100% - 30rem);
+    width: calc(100% - 34rem);
     max-width: 1600px;
 }
 

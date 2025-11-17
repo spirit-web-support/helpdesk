@@ -3,57 +3,56 @@ jQuery(document).ready(function ($) {
     //グローバルメニュー
     (function () {
         'use strict';
+        const detailsList = document.querySelectorAll("#lyt-nav .main-menu details");
 
-        var all = document.querySelectorAll('ul.sub-menu');
-        var i = 0;
-        var max = all.length;
+        detailsList.forEach((details) => {
+            const summary = details.querySelector("summary");
+            const content = summary.nextElementSibling;
 
-        for (i; i < max; i++) {
-            all[i].classList.add('default');
-            var subMenuHeight = all[i].clientHeight;
-            all[i].style.height = subMenuHeight + 'px';
-            all[i].classList.add('close');
-        };
+            if (!details.open && content) {
+                content.style.height = "0";
+                content.style.overflow = "hidden";
+                content.style.transition = "height 0.4s ease";
+            }
 
-        var lytNav = document.getElementById('lyt-nav');
-        
+            summary.addEventListener("click", (e) => {
+                e.preventDefault(); // summaryのデフォルト動作を無効化
 
-        //PCメニュー
-        if (lytNav) {
-            var subMenuTitle = document.querySelectorAll('input[id^="sub-menu"]');
-            subMenuTitle.forEach((element) => {
-                element.addEventListener('keydown', (event) => {
-                    if (event.key === 'Enter') {
-                        event.target.checked = !event.target.checked;
-                        var subMenu = element.nextElementSibling.nextElementSibling;
-                        if (element.checked) {
-                            subMenu.classList.remove('close');
-                            subMenu.classList.add('open');
-                        } else {
-                            subMenu.classList.remove('open');
-                            subMenu.classList.add('close');
-                        }
+                if (!details.open) {
+                    // 開く処理
+                    details.open = true;
+
+                    if (content) {
+                        const height = content.scrollHeight;
+                        content.style.height = height + "px";
+                        content.style.overflow = "hidden"; // アニメーション中は hidden
+
+                        setTimeout(() => {
+                            content.style.height = "auto";
+                            content.style.overflow = "visible"; // 完了後に visible にする
+                        }, 400);
                     }
-                })
-            })
+                } else {
+                    // 閉じる処理
+                    if (content) {
+                        const height = content.scrollHeight;
+                        content.style.height = height + "px"; // 現在の高さを取得
+                        requestAnimationFrame(() => {
+                            content.style.height = "0";
+                            content.style.overflow = "hidden"; // アニメーション中は hidden
+                        });
 
-            subMenuTitle.forEach(function (element) {
-                element.addEventListener('change', function () {
-                    var subMenu = element.nextElementSibling.nextElementSibling;
-                    if (element.checked){
-                        subMenu.classList.remove('close');
-                        subMenu.classList.add('open');
-                    }else{
-                        subMenu.classList.remove('open');
-                        subMenu.classList.add('close');
+                        setTimeout(() => {
+                            details.open = false;
+                        }, 400);
+                    } else {
+                        details.open = false;
                     }
-                });
+                }
             });
-        } 
-
+        });
         //SPハンバーガーメニュー
         var btnNav = document.getElementById('btn-nav');
-
         if (btnNav) {
             window.onpageshow = function () {
                 btnNav.checked = false;
@@ -71,6 +70,7 @@ jQuery(document).ready(function ($) {
         }
 
         //SPメニュー追随
+        var lytNav = document.getElementById('lyt-nav');
         $(function () {
             if (lytNav) {
                 var windowWidth = window.innerWidth;
@@ -166,7 +166,7 @@ jQuery(document).ready(function ($) {
 
         $(".acd-01 .acd-panel .acd-panel-heading").on("click", function () {
             var tgl = $(this).parents(".acd-panel");
- 
+
             if (tgl.hasClass("is-open") || tgl.hasClass("is-opened")) {
                 tgl.removeClass("is-open").removeClass("is-opened");
                 tgl.addClass("is-close").attr({ "aria-expanded": "false" });
